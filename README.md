@@ -44,12 +44,15 @@
 2. 借阅排行榜
    
 
-##### 软件架构
-
 
 #### 安装
 
 
-#### 数据库设计
+#### 开发文档
+[安装](https://gitee.com/kzeng/plato/blob/master/docs/installation.md)
+
+[软件结构](https://gitee.com/kzeng/plato/blob/master/docs/structure.md)
+
+[数据库设计](https://gitee.com/kzeng/plato/blob/master/docs/database.md)
 
 
