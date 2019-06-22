@@ -1,16 +1,43 @@
 # 数据库设计
 
-
-####  图书馆
+---
+####  图书馆 `library`
 智慧云图书馆
 
 字段名|数据类型|长度|可空|主键|注释
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
+title      |string    |64     |否     |-     |名称
+mobile      |string    |32     |是     |-     |电话
+address      |string    |128     |是     |-     |地址
+pid      |int    |11     |否     |是     |父ID
+adminuser_id      |int    |11     |否     |-     |操作员ID
+created_at       |int    |11     |否     |-     |创建时间
+updated_at       |int    |11     |否     |-     |更新时间
+status       |int    |11     |否     |-     |状态, 默认值1
 
 
+---
+####  图书馆管理员 `adminuser`
 
-#### 读者
+字段名|数据类型|长度|可空|主键|注释
+-----|-----|-----|-----|-----|-----|
+id      |int    |11     |否     |是     |主键ID
+adminuser_name      |string    |64     |否     |-     |名称
+mobile      |string    |32     |是     |-     |电话
+auth_key      |string    |64     |是     |-     |-
+access_token      |string    |64     |是     |-     |-
+password_hash      |string    |64     |否     |-     |-
+oauth_client      |string    |64     |是     |-     |-
+oauth_client_user_id      |string    |64     |是     |-     |-
+email      |string    |64     |是     |-     |邮箱
+adminuser_id      |int    |11     |否     |-     |操作员ID
+created_at       |int    |11     |否     |-     |创建时间
+updated_at       |int    |11     |否     |-     |更新时间
+status       |int    |11     |否     |-     |状态, 默认值1
+
+
+#### 读者 `reader`
 > 记录读者信息
 
 字段名|数据类型|长度|可空|主键|注释
@@ -47,7 +74,7 @@ class_number      |string    |64     |-     |-     |分类号
 publisher      |string    |64     |-     |-     |出版社
 publication_place     |string    |64     |-     |-     |出版地
 publish_date     |string    |64     |-     |-     |出版年月
-series_title     |string    |64     |-     |-     |出版年月
+series_title     |string    |64     |-     |-     |从书名
 library_id      |int    |11     |否     |-     |图书馆ID
 adminuser_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
@@ -55,6 +82,26 @@ updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
 
 
+
+#### 图书副本
+> 图书副本信息
+
+字段名|数据类型|长度|可空|主键|注释
+-----|-----|-----|-----|-----|-----|
+id      |int    |11     |否     |是     |主键ID
+title      |string    |64     |否     |-     |题名
+bar_code      |string    |64     |否     |-     |条码号(bar_code表中来)
+bookseller_id      |int    |11     |否     |-     |书商
+price1      |decimal    |2     |否     |-     |实洋(元)
+price2      |decimal    |2     |否     |-     |码洋(元)
+collection_place_id      |int    |11     |否     |-     |馆藏地
+circulation_type_id      |int    |11     |否     |-     |流通类型
+call_number_rules_id      |int    |11     |否     |-     |索书号(call_number_rules表 主键ID?)
+library_id      |int    |11     |否     |-     |图书馆ID
+adminuser_id      |int    |11     |否     |-     |操作员ID
+created_at       |int    |11     |否     |-     |创建时间
+updated_at       |int    |11     |否     |-     |更新时间
+status       |int    |11     |否     |-     |状态, 默认值1
 
 ---
 #### 馆藏地点 `collection_place`
@@ -158,8 +205,8 @@ extended_period_impunity      |int    |11     |否     |-     |超期免罚期�
 first_term_of_punishment      |int    |11     |否     |-     |首罚期限(天)
 first_penalty_unit_price      |decimal    |2     |否     |-     |首罚单价(元)
 other__unit_price      |decimal    |2     |否     |-     |其它单价(元)
-reader_type_ids      |string    |128     |否     |-     |适用读者类型(,分割reader_type id)
-circulation_type_ids      |string    |128     |否     |-     |适用流通类型(,分割circulation_type id)
+reader_type_ids      |string    |128     |否     |-     |适用读者类型(json,reader_type->id)
+circulation_type_ids      |string    |128     |否     |-     |适用流通类型(json,circulation_type->id)
 library_id      |int    |11     |否     |-     |图书馆ID
 adminuser_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
@@ -188,8 +235,8 @@ status       |int    |11     |否     |-     |状态, 默认值1
 
 ---
 #### 索书号规则 `call_number_rules`
-> collection_place_ids 为 collection_place表主键ID 用逗号拼接之字符串，处理多选的情况用到
-> circulation_type_ids 为 circulation_type表主键ID 用逗号拼接之字符串，处理多选的情况用到
+> collection_place_ids 为 collection_place表主键ID , 存json格式
+> circulation_type_ids 为 circulation_type表主键ID, 存json格式
 
 字段名|数据类型|长度|可空|主键|注释
 -----|-----|-----|-----|-----|-----|
@@ -202,3 +249,6 @@ adminuser_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
+
+
+
