@@ -12,19 +12,19 @@ title      |string    |64     |否     |-     |名称
 mobile      |string    |32     |是     |-     |电话
 address      |string    |128     |是     |-     |地址
 pid      |int    |11     |否     |是     |父ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
 
 
 ---
-####  图书馆管理员 `adminuser`
+####  图书馆管理员 `user`
 
 字段名|数据类型|长度|可空|主键|注释
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
-adminuser_name      |string    |64     |否     |-     |名称
+user_name      |string    |64     |否     |-     |名称
 mobile      |string    |32     |是     |-     |电话
 auth_key      |string    |64     |是     |-     |-
 access_token      |string    |64     |是     |-     |-
@@ -32,7 +32,8 @@ password_hash      |string    |64     |否     |-     |-
 oauth_client      |string    |64     |是     |-     |-
 oauth_client_user_id      |string    |64     |是     |-     |-
 email      |string    |64     |是     |-     |邮箱
-adminuser_id      |int    |11     |否     |-     |操作员ID
+library_id      |int    |11     |否     |-     |图书馆ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -55,7 +56,7 @@ deposit      |decimal    |2     |否     |-     |押金(元)
 mobile      |string    |32     |是     |-     |电话
 address      |string    |128     |是     |-     |地址
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -76,7 +77,7 @@ payment_status      |int    |11     |否     |-     |缴费状态（未缴0， �
 penalty      |decimal    |2     |否     |-     |罚金(元)
 description      |string    |256     |是     |-     |描述
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -99,7 +100,7 @@ publication_place     |string    |64     |-     |-     |出版地
 publish_date     |string    |64     |-     |-     |出版年月
 series_title     |string    |64     |-     |-     |从书名
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -121,7 +122,7 @@ collection_place_id      |int    |11     |否     |-     |馆藏地
 circulation_type_id      |int    |11     |否     |-     |流通类型
 call_number_rules_id      |int    |11     |否     |-     |索书号(call_number_rules表 主键ID?)
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -135,7 +136,7 @@ id      |int    |11     |否     |是     |主键ID
 title      |string    |64     |否     |-     |名称
 description      |string    |256     |是     |-     |说明
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -153,7 +154,7 @@ contact      |string    |128     |是     |-     |联系人姓名
 mobile      |string    |32     |是     |-     |电话
 discount      |decimal    |2     |否     |-     |折扣，如0.85
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -168,7 +169,7 @@ id      |int    |11     |否     |是     |主键ID
 title      |string    |64     |否     |-     |名称
 description      |string    |256     |是     |-     |说明
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -182,7 +183,7 @@ id      |int    |11     |否     |是     |主键ID
 title      |string    |64     |否     |-     |名称
 description      |string    |256     |是     |-     |说明
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -196,7 +197,7 @@ id      |int    |11     |否     |是     |主键ID
 title      |string    |64     |否     |-     |名称
 description      |string    |256     |是     |-     |说明
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -211,7 +212,7 @@ title      |string    |64     |否     |-     |名称
 max_borrowing_number      |int    |11     |否     |-     |最大借阅量（本）
 max_debt_limit      |int    |11     |否     |-     |最大欠费额度（元）
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -231,7 +232,7 @@ other__unit_price      |decimal    |2     |否     |-     |其它单价(元)
 reader_type_ids      |string    |128     |否     |-     |适用读者类型(json,reader_type->id)
 circulation_type_ids      |string    |128     |否     |-     |适用流通类型(json,circulation_type->id)
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -250,7 +251,7 @@ min_number      |int    |11     |否     |-     |数字最小值
 max_number      |int    |11     |否     |-     |数字最大值
 description      |string    |256     |否     |-     |说明
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
@@ -268,7 +269,7 @@ title      |string    |64     |否     |-     |规则名称
 collection_place_ids      |string    |256     |否     |-     |馆藏地(,分割collection_place id)
 circulation_type_ids      |string    |256     |否     |-     |流通类型(,分割circulation_type id)
 library_id      |int    |11     |否     |-     |图书馆ID
-adminuser_id      |int    |11     |否     |-     |操作员ID
+user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
