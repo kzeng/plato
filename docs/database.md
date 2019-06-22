@@ -1,4 +1,5 @@
 # 数据库设计
+> v1.0.0.20190622
 
 ---
 ####  图书馆 `library`
@@ -44,6 +45,7 @@ status       |int    |11     |否     |-     |状态, 默认值1
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
 card_number      |string    |64     |否     |-     |卡号
+card_status      |int    |11     |否     |-     |证件状态（默认正常0，挂失1）
 reader_name      |string    |64     |否     |-     |姓名
 validity      |int    |11     |否     |-     |有效期限
 id_card      |string    |64     |否     |-     |身份证
@@ -52,6 +54,27 @@ gender      |int    |11     |否     |-     |性别
 deposit      |decimal    |2     |否     |-     |押金(元)
 mobile      |string    |32     |是     |-     |电话
 address      |string    |128     |是     |-     |地址
+library_id      |int    |11     |否     |-     |图书馆ID
+adminuser_id      |int    |11     |否     |-     |操作员ID
+created_at       |int    |11     |否     |-     |创建时间
+updated_at       |int    |11     |否     |-     |更新时间
+status       |int    |11     |否     |-     |状态, 默认值1
+
+
+---
+#### 欠费缴纳 `payment_of_debt`
+> 记录读者欠费缴纳信息
+
+字段名|数据类型|长度|可空|主键|注释
+-----|-----|-----|-----|-----|-----|
+id      |int    |11     |否     |是     |主键ID
+card_number      |string    |64     |否     |-     |卡号
+reader_name      |string    |64     |否     |-     |姓名
+violation_type_id      |int    |11     |否     |-     |违章类型
+violation_type_id      |int    |11     |否     |-     |违章类型
+payment_status      |int    |11     |否     |-     |缴费状态（未缴0， 默认已缴1）
+penalty      |decimal    |2     |否     |-     |罚金(元)
+description      |string    |256     |是     |-     |描述
 library_id      |int    |11     |否     |-     |图书馆ID
 adminuser_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
@@ -251,4 +274,24 @@ updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
 
 
+---
+### 统计信息
+> 以下表记录统计信息，可后续进一步完善。
 
+---
+### 借阅排行榜
+字段名|数据类型|长度|可空|主键|注释
+-----|-----|-----|-----|-----|-----|
+id      |int    |11     |否     |是     |主键ID
+
+---
+### 馆藏统计
+字段名|数据类型|长度|可空|主键|注释
+-----|-----|-----|-----|-----|-----|
+id      |int    |11     |否     |是     |主键ID
+
+---
+### 流通统计
+字段名|数据类型|长度|可空|主键|注释
+-----|-----|-----|-----|-----|-----|
+id      |int    |11     |否     |是     |主键ID
