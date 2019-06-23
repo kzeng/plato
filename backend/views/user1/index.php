@@ -36,7 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'verification_token',
             'mobile',
             'library_id',
-            //'user_id',
             //'pid',
 
             ['class' => 'yii\grid\ActionColumn'],

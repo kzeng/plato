@@ -17,7 +17,7 @@ class User1Search extends User1
     public function rules()
     {
         return [
-            [['id', 'status', 'created_at', 'updated_at', 'library_id', 'user_id', 'pid'], 'integer'],
+            [['id', 'status', 'created_at', 'updated_at', 'library_id', 'pid'], 'integer'],
             [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'verification_token', 'mobile'], 'safe'],
         ];
     }
@@ -63,7 +63,6 @@ class User1Search extends User1
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'library_id' => $this->library_id,
-            'user_id' => $this->user_id,
             'pid' => $this->pid,
         ]);
 

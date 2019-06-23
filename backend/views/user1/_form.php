@@ -34,9 +34,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'library_id')->textInput() ?>
 
-    <!-- <//?= $form->field($model, 'user_id')->textInput() ?>
-
-    <//?= $form->field($model, 'pid')->textInput() ?> -->
+    <!--<//?= $form->field($model, 'pid')->textInput() ?> -->
 
     <div class="form-group">
         <?= Html::submitButton('确定', ['class' => 'btn btn-success']) ?>

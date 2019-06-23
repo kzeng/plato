@@ -39,8 +39,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'library_id') ?>
 
-    <?php // echo $form->field($model, 'user_id') ?>
-
     <?php // echo $form->field($model, 'pid') ?>
 
     <div class="form-group">

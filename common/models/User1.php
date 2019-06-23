@@ -20,7 +20,6 @@ use yii\behaviors\TimestampBehavior;
  * @property string $verification_token
  * @property string $mobile
  * @property int $library_id
- * @property int $user_id
  * @property int $pid
  */
 class User1 extends \yii\db\ActiveRecord
@@ -46,7 +45,7 @@ class User1 extends \yii\db\ActiveRecord
     {
         return [
             [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
-            [['status', 'created_at', 'updated_at', 'library_id', 'user_id', 'pid'], 'integer'],
+            [['status', 'created_at', 'updated_at', 'library_id', 'pid'], 'integer'],
             [['username', 'auth_key'], 'string', 'max' => 32],
             [['password_hash', 'password_reset_token', 'email', 'verification_token', 'mobile'], 'string', 'max' => 255],
         ];
@@ -70,7 +69,6 @@ class User1 extends \yii\db\ActiveRecord
             'verification_token' => 'Verification Token',
             'mobile' => '电话',
             'library_id' => '分配至图书馆',
-            'user_id' => 'User ID',
             'pid' => 'Pid',
         ];
     }

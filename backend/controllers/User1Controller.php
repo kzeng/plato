@@ -66,7 +66,26 @@ class User1Controller extends Controller
     {
         $model = new User1();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            // $this->insert('user', [
+            //     'username' => 'admin',
+            //     'password_hash' => \Yii::$app->security->generatePasswordHash('admin123'),
+            //     'auth_key' => 'auth_key_123',
+            //     'email' => 'admin@demo.com',
+            //     'library_id' => 0,
+            //     'pid' => 0,
+            //     'status' => 10,
+            //     'created_at' => time(),
+            //     'updated_at' => time()
+            // ]);
+
+            $model->pid = Yii::$app->user->id;
+            $model->password_hash = \Yii::$app->security->generatePasswordHash($model->password_hash);
+            $model->auth_key = "---";
+            $model->status = 10;
+
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
