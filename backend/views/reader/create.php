@@ -5,13 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Reader */
 
-$this->title = 'Create Reader';
-$this->params['breadcrumbs'][] = ['label' => 'Readers', 'url' => ['index']];
+$this->title = '新增读者';
+$this->params['breadcrumbs'][] = ['label' => '读者', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reader-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\ReaderTypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Reader Types';
+$this->title = '读者类型管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reader-type-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Reader Type', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增读者类型', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,13 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+           // ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
             'max_borrowing_number',
             'max_debt_limit',
-            'library_id',
+            //'library_id',
             //'user_id',
             //'created_at',
             //'updated_at',

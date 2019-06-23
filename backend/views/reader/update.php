@@ -5,14 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Reader */
 
-$this->title = 'Update Reader: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Readers', 'url' => ['index']];
+$this->title = '修改读者: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => '读者', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = '修改';
 ?>
 <div class="reader-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

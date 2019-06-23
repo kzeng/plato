@@ -6,21 +6,20 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Reader */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Readers', 'url' => ['index']];
+//$this->title = $model->id;
+$this->title = "读者信息";
+$this->params['breadcrumbs'][] = ['label' => '读者', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="reader-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('删除', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '删除本条记录，确定?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -42,9 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
             'library_id',
             'user_id',
-            'created_at',
-            'updated_at',
-            'status',
+            'created_at:datetime',
+            'updated_at:datetime',
+            //'status',
         ],
     ]) ?>
 

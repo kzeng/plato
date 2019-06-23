@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "reader".
@@ -32,6 +33,13 @@ class Reader extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'reader';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
     }
 
     /**
@@ -72,4 +80,25 @@ class Reader extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+
+    static function getCardStatusOption($key=null)
+    {
+        $arr = array(
+            1 => '正常',
+            0 => '挂失',
+        );
+        return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+
+    static function getGenderOption($key=null)
+    {
+        $arr = array(
+            1 => '男',
+            0 => '女',
+        );
+        return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+
+    
+
 }

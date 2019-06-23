@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "reader_type".
@@ -25,6 +26,13 @@ class ReaderType extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'reader_type';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
     }
 
     /**
@@ -56,4 +64,22 @@ class ReaderType extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+
+    
+    static function getReaderTypeOption($key=null)
+    {
+        $library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+        $reader_types = ReaderType::find()->where(['id' => $library_id])->asArray()->all();
+        foreach ($reader_types as $reader_type) {
+            $value = $reader_type['id'];
+            $arr[$value] = "{$reader_type['title']}";
+        }
+
+        return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+
+    // static function ReaderType($model)
+    // {
+    //     return self::getReaderTypeOption($model->library_id);
+    // }
 }
