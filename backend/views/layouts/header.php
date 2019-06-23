@@ -263,10 +263,10 @@ use yii\helpers\Html;
                                 ?>
 
                                 <!-- <small>Member since Nov. 2012</small> -->
-                                <small>
+                                <small>创建于: 
                                 <?php
                                     if(!empty($user))
-                                        echo $user->created_at;
+                                        echo date("Y-m-d", $user->created_at);
                                     else
                                         echo "N/A";
                                 ?>
@@ -287,12 +287,15 @@ use yii\helpers\Html;
                         </li> -->
                         <!//--// Menu Footer//--//>
                         <li class="user-footer">
+                            <!--
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
+                            -->
+
                             <div class="pull-right">
                                 <?= Html::a(
-                                    'Sign out',
+                                    '退出',
                                     ['/site/logout'],
                                     ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
                                 ) ?>
