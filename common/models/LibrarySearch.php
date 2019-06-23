@@ -49,7 +49,7 @@ class LibrarySearch extends Library
         {
 
             $query = Library::find()
-                    ->where(['or', ['id' => \Yii::$app->user->identity->library_id]]);
+                    ->where(['id' => \Yii::$app->user->identity->library_id]);
         }
 
         // add conditions that should always apply here

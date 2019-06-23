@@ -40,7 +40,16 @@ class CollectionPlaceSearch extends CollectionPlace
      */
     public function search($params)
     {
-        $query = CollectionPlace::find();
+        if(\Yii::$app->user->identity->id == 1) /*super admin*/
+        {
+            $query = CollectionPlace::find();
+        }
+        else //library employee
+        {
+            $user = User1::findOne(['id' => \Yii::$app->user->identity->id]);
+            $query = CollectionPlace::find()
+                    ->where(['library_id' => $user->library_id]);
+        }
 
         // add conditions that should always apply here
 

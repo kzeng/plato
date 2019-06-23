@@ -91,5 +91,11 @@ class User1 extends \yii\db\ActiveRecord
         return self::getLibraryOption($model->library_id);
     }
 
+    static function getCurrentLibraryId($user_id)
+    {
+        $user =  self::findOne(['id' => $user_id]);
+        return $user->library_id;
+    }
+    
 
 }

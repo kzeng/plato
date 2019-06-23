@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use common\models\User1;
 /**
  * CollectionPlaceController implements the CRUD actions for CollectionPlace model.
  */
@@ -66,7 +67,10 @@ class CollectionPlaceController extends Controller
     {
         $model = new CollectionPlace();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->user_id = Yii::$app->user->id;
+            $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

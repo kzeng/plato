@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "collection_place".
@@ -26,6 +27,12 @@ class CollectionPlace extends \yii\db\ActiveRecord
         return 'collection_place';
     }
 
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
     /**
      * {@inheritdoc}
      */
