@@ -74,13 +74,16 @@ class User1Controller extends Controller
             //     'auth_key' => 'auth_key_123',
             //     'email' => 'admin@demo.com',
             //     'library_id' => 0,
+            //     'user_id' => 0,
             //     'pid' => 0,
             //     'status' => 10,
             //     'created_at' => time(),
             //     'updated_at' => time()
             // ]);
 
+
             $model->pid = Yii::$app->user->id;
+            $model->user_id = Yii::$app->user->id;
             $model->password_hash = \Yii::$app->security->generatePasswordHash($model->password_hash);
             $model->auth_key = "---";
             $model->status = 10;

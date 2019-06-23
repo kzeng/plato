@@ -1,5 +1,4 @@
 <?php
-
 namespace common\models;
 
 use yii\base\Model;
@@ -17,7 +16,7 @@ class User1Search extends User1
     public function rules()
     {
         return [
-            [['id', 'status', 'created_at', 'updated_at', 'library_id', 'pid'], 'integer'],
+            [['id', 'status', 'created_at', 'updated_at', 'library_id', 'user_id', 'pid'], 'integer'],
             [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'verification_token', 'mobile'], 'safe'],
         ];
     }
@@ -40,8 +39,19 @@ class User1Search extends User1
      */
     public function search($params)
     {
-        $query = User1::find();
-
+        //$query = User1::find();
+        
+        if(\Yii::$app->user->identity->id == 1) /*super admin*/
+        {
+            $query = User1::find();
+        }
+        else //library employee
+        {
+            //$query = User1::find();
+            $query = User1::find()
+                    ->where(['or', ['id' => \Yii::$app->user->identity->id], ['pid' => \Yii::$app->user->identity->id]]);
+        }
+             
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -63,6 +73,7 @@ class User1Search extends User1
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'library_id' => $this->library_id,
+            'user_id' => $this->user_id,
             'pid' => $this->pid,
         ]);
 

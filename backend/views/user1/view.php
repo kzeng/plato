@@ -6,21 +6,21 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\User1 */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'User1s', 'url' => ['index']];
+//$this->title = $model->id;
+$this->title = "用户信息";
+$this->params['breadcrumbs'][] = ['label' => '用户管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="user1-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('删除', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '删除本条记录，确定?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -31,16 +31,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
+            //'auth_key',
+            //'password_hash',
+            //'password_reset_token',
             'email:email',
-            'status',
-            'created_at',
-            'updated_at',
-            'verification_token',
+            //'status',
+            'created_at:datetime',
+            'updated_at:datetime',
+            //'verification_token',
             'mobile',
-            'library_id',
+            //'library_id',
+            [
+                'label' => '分配至图书馆',
+                'value' => $model->getLibrary($model),
+                'format'=> 'html',
+            ],
             'pid',
         ],
     ]) ?>

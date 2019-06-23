@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+use common\models\User1;
+
 /* @var $this yii\web\View */
 /* @var $model common\models\User1 */
 /* @var $form yii\widgets\ActiveForm */
@@ -32,7 +34,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'mobile')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'library_id')->textInput() ?>
+    <!-- <//?= $form->field($model, 'library_id')->textInput() ?> -->
+
+    <?= $form->field($model, 'library_id')->dropDownList(User1::getLibraryOption()) ?>
 
     <!--<//?= $form->field($model, 'pid')->textInput() ?> -->
 

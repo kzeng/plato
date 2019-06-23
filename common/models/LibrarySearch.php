@@ -17,7 +17,7 @@ class LibrarySearch extends Library
     public function rules()
     {
         return [
-            [['id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['id', 'user_id', 'pid', 'created_at', 'updated_at', 'status'], 'integer'],
             [['title', 'mobile', 'address'], 'safe'],
         ];
     }
@@ -40,7 +40,17 @@ class LibrarySearch extends Library
      */
     public function search($params)
     {
-        $query = Library::find();
+        // $query = Library::find();
+        if(\Yii::$app->user->identity->id == 1) /*super admin*/
+        {
+            $query = Library::find();
+        }
+        else //library employee
+        {
+
+            $query = Library::find()
+                    ->where(['or', ['id' => \Yii::$app->user->identity->library_id]]);
+        }
 
         // add conditions that should always apply here
 
@@ -60,6 +70,7 @@ class LibrarySearch extends Library
         $query->andFilterWhere([
             'id' => $this->id,
             'user_id' => $this->user_id,
+            'pid' => $this->pid,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'status' => $this->status,
