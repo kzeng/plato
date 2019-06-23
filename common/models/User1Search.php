@@ -40,7 +40,7 @@ class User1Search extends User1
     public function search($params)
     {
         //$query = User1::find();
-        
+
         if(\Yii::$app->user->identity->id == 1) /*super admin*/
         {
             $query = User1::find();
@@ -48,8 +48,9 @@ class User1Search extends User1
         else //library employee
         {
             //$query = User1::find();
-            $query = User1::find()
-                    ->where(['or', ['id' => \Yii::$app->user->identity->id], ['pid' => \Yii::$app->user->identity->id]]);
+            $user = User1::findOne(['id' => \Yii::$app->user->identity->id]);
+            $query = User1::find()->where(['library_id' => $user->library_id]);
+                   
         }
              
         // add conditions that should always apply here
