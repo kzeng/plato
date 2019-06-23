@@ -72,7 +72,6 @@ id      |int    |11     |否     |是     |主键ID
 card_number      |string    |64     |否     |-     |卡号
 reader_name      |string    |64     |否     |-     |姓名
 violation_type_id      |int    |11     |否     |-     |违章类型
-violation_type_id      |int    |11     |否     |-     |违章类型
 payment_status      |int    |11     |否     |-     |缴费状态（未缴0， 默认已缴1）
 penalty      |decimal    |2     |否     |-     |罚金(元)
 description      |string    |256     |是     |-     |描述
@@ -84,7 +83,7 @@ status       |int    |11     |否     |-     |状态, 默认值1
 
 
 ---
-#### 图书
+#### 图书  `book`
 > 图书馆典藏图书信息
 
 字段名|数据类型|长度|可空|主键|注释
@@ -95,6 +94,7 @@ isbn      |string    |64     |否     |-     |ISBN
 author      |string    |64     |否     |-     |作者
 price      |decimal    |2     |-     |-     |价格(元)
 class_number      |string    |64     |-     |-     |分类号
+call_number       |string    |64     |-     |-     |索书号
 publisher      |string    |64     |-     |-     |出版社
 publication_place     |string    |64     |-     |-     |出版地
 publish_date     |string    |64     |-     |-     |出版年月
@@ -107,14 +107,14 @@ status       |int    |11     |否     |-     |状态, 默认值1
 
 
 
-#### 图书副本
+#### 图书副本 `book_copy`
 > 图书副本信息
 
 字段名|数据类型|长度|可空|主键|注释
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
 title      |string    |128     |否     |-     |题名
-bar_code      |string    |64     |否     |-     |条码号(bar_code表中来)
+bar_code      |string    |128     |否     |-     |条码号(bar_code表中来)
 bookseller_id      |int    |11     |否     |-     |书商
 price1      |decimal    |2     |否     |-     |实洋(元)
 price2      |decimal    |2     |否     |-     |码洋(元)
@@ -149,11 +149,11 @@ status       |int    |11     |否     |-     |状态, 默认值1
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
 title      |string    |128     |否     |-     |名称
-address      |string    |128     |是     |-     |地址
-contact      |string    |128     |是     |-     |联系人姓名
-mobile      |string    |32     |是     |-     |电话
-discount      |decimal    |2     |否     |-     |折扣，如0.85
-library_id      |int    |11     |否     |-     |图书馆ID
+address      |string    |128     |-     |-     |地址
+contact      |string    |128     |-     |-     |联系人姓名
+mobile      |string    |32     |-     |-     |电话
+discount      |decimal    |2     |-    |-     |折扣，如0.85
+library_id      |int    |11     |-     |-     |图书馆ID
 user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
@@ -245,11 +245,11 @@ status       |int    |11     |否     |-     |状态, 默认值1
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
 title      |string    |128     |否     |-     |名称
-prefix      |string    |64     |否     |-     |前缀
+prefix      |string    |64     |-     |-     |前缀
 number_length      |int    |11     |否     |-     |数字长度
 min_number      |int    |11     |否     |-     |数字最小值
 max_number      |int    |11     |否     |-     |数字最大值
-description      |string    |256     |否     |-     |说明
+description      |string    |256     |-     |-     |说明
 library_id      |int    |11     |否     |-     |图书馆ID
 user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
@@ -266,8 +266,8 @@ status       |int    |11     |否     |-     |状态, 默认值1
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
 title      |string    |128     |否     |-     |规则名称
-collection_place_ids      |string    |256     |否     |-     |馆藏地(,分割collection_place id)
-circulation_type_ids      |string    |256     |否     |-     |流通类型(,分割circulation_type id)
+collection_place_ids      |string    |512     |否     |-     |馆藏地(,分割collection_place id)
+circulation_type_ids      |string    |512     |否     |-     |流通类型(,分割circulation_type id)
 library_id      |int    |11     |否     |-     |图书馆ID
 user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间

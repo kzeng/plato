@@ -44,9 +44,11 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => '主菜单', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+
+                    //['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+
                     // 新增菜单条目，测试用
                     [
                         'label' => '临时入口',
@@ -54,8 +56,24 @@
                         'url' => '#',
                         'items' => [
                             ['label' => '用户管理', 'icon' => 'file-code-o', 'url' => ['/user1']],
-                            ['label' => '图书馆配置', 'icon' => 'file-code-o', 'url' => ['/library'],],
+                            ['label' => '图书馆配置', 'icon' => 'file-code-o', 'url' => ['/library']],
+                            ['label' => '读者管理', 'icon' => 'file-code-o', 'url' => ['/reader']],
+                            ['label' => '欠费缴纳管理', 'icon' => 'file-code-o', 'url' => ['/payment-of-debt']],
+                            ['label' => '图书管理', 'icon' => 'file-code-o', 'url' => ['/book']],
+                            ['label' => '图书副本管理', 'icon' => 'file-code-o', 'url' => ['/book-copy']],
+                            ['label' => '馆藏地管理', 'icon' => 'file-code-o', 'url' => ['/collection-place']],
+                            ['label' => '书商管理', 'icon' => 'file-code-o', 'url' => ['/bookseller']],
+                            ['label' => '阅读室管理', 'icon' => 'file-code-o', 'url' => ['/reading-room']],
+                            ['label' => '违章类型管理', 'icon' => 'file-code-o', 'url' => ['/violation-type']],
+                            ['label' => '流通类型管理', 'icon' => 'file-code-o', 'url' => ['/circulation-type']],
+                            ['label' => '读者类型管理', 'icon' => 'file-code-o', 'url' => ['/reader-type']],
+                            ['label' => '借阅规则配置', 'icon' => 'file-code-o', 'url' => ['/borrowing-rules']],
+                            ['label' => '条码号管理', 'icon' => 'file-code-o', 'url' => ['/bar-code']],
+                            ['label' => '索书号管理', 'icon' => 'file-code-o', 'url' => ['/call-number-rules']],
 
+   
+
+                            ['label' => '权限配置', 'icon' => 'file-code-o', 'url' => ['/admin']],
                         ],
                     ],
                     // 新增菜单条目，END
