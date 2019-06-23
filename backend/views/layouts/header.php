@@ -234,7 +234,15 @@ use yii\helpers\Html;
                         <img src="<//?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                         -->
                         <img src="library.png" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs">
+                            <?php
+                                $user = common\models\User::findOne(['id' => Yii::$app->user->id]);
+                                if(!empty($user))
+                                    echo $user->username;
+                                else
+                                    echo "N/A";
+                            ?>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
                         <!//--// User image //--//>
@@ -246,12 +254,27 @@ use yii\helpers\Html;
                             <img src="library.png" class="user-image" alt="User Image"/>
 
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                <!-- Alexander Pierce - Web Developer -->
+                                <?php
+                                    if(!empty($user))
+                                        echo $user->username;
+                                    else
+                                        echo "N/A";
+                                ?>
+
+                                <!-- <small>Member since Nov. 2012</small> -->
+                                <small>
+                                <?php
+                                    if(!empty($user))
+                                        echo $user->created_at;
+                                    else
+                                        echo "N/A";
+                                ?>
+                                </small>
                             </p>
                         </li>
                         <!//--// Menu Body //--//>
-                        <li class="user-body">
+                        <!-- <li class="user-body">
                             <div class="col-xs-4 text-center">
                                 <a href="#">Followers</a>
                             </div>
@@ -261,7 +284,7 @@ use yii\helpers\Html;
                             <div class="col-xs-4 text-center">
                                 <a href="#">Friends</a>
                             </div>
-                        </li>
+                        </li> -->
                         <!//--// Menu Footer//--//>
                         <li class="user-footer">
                             <div class="pull-left">
