@@ -270,15 +270,7 @@ class m190624_130433_all_init extends Migration
         if (Console::confirm('Seed demo data?', true)) {
             $this->seed();
         }
-        return false;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function safeDown()
-    {
-        
+        return true;
     }
 
     public function seed()
@@ -327,6 +319,7 @@ class m190624_130433_all_init extends Migration
             $user->updated_at = time();
             $user->save();
         }
+        echo "\n insert demo data (admin) into user, ok";
 
         //洪山区图书馆管理员
         $user = new common\models\User1();
@@ -356,11 +349,13 @@ class m190624_130433_all_init extends Migration
             $user->updated_at = time();
             $user->save();
         }
+        echo "\n insert demo data into user, ok";
+
 
         //add 'library' data
         $library = new common\models\Library();
         $library->title = '江夏区图书馆';
-        $library->mobile = '12345678';
+        $library->mobile = $faker->phoneNumber;
         $library->address = '江夏区图书馆人民路';
         $library->pid = 1;
         $library->created_at = time();
@@ -370,7 +365,7 @@ class m190624_130433_all_init extends Migration
 
         $library = new common\models\Library();
         $library->title = '洪山区图书馆';
-        $library->mobile = '66666666';
+        $library->mobile = $faker->phoneNumber;
         $library->address = '洪山区图书馆地址是文治街499';
         $library->pid = 1;
         $library->created_at = time();
@@ -380,7 +375,7 @@ class m190624_130433_all_init extends Migration
 
         $library = new common\models\Library();
         $library->title = '硚口区图书馆';
-        $library->mobile = '88888888';
+        $library->mobile = $faker->phoneNumber;
         $library->address = '汉口集贤路特1号';
         $library->pid = 1;
         $library->created_at = time();
@@ -388,6 +383,81 @@ class m190624_130433_all_init extends Migration
         $library->status = 1;
         $library->save();
 
+        echo "\n insert demo data into library, ok";
+
+
+        //bookseller
+        for ($i = 1; $i < 51; $i++) {
+            $model = new common\models\Bookseller();
+            $model->title = $faker->company;
+            $model->address = $faker->address;
+            $model->contact = $faker->name;
+            $model->mobile = $faker->phoneNumber;
+            $model->discount = 0.85;
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save();
+        }
+        echo "\n insert demo data into bookseller, ok";
+
+        //reading_room
+        for ($i = 1; $i < 51; $i++) {
+            $model = new common\models\ReadingRoom();
+            $model->title = $i.'号阅读室';
+            $model->description = '图书馆阅读室';
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save();
+        }
+        echo "\n insert demo data into reading_room, ok";
+  
+        //collection_place
+        for ($i = 1; $i < 51; $i++) {
+            $model = new common\models\CollectionPlace();
+            $model->title = '勤学楼80'.$i.'室';
+            $model->description = '图书馆馆藏地点';
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save();
+        }
+        echo "\n insert demo data into collection_place, ok\n";
+        
+
+
+    }
+
+
+    /**
+     * {@inheritdoc}
+     */
+    public function safeDown()
+    {
+        $this->dropTable('{{%user}}');
+        $this->dropTable('{{%library}}');
+        $this->dropTable('{{%reader}}');
+        $this->dropTable('{{%reader_type}}');
+        $this->dropTable('{{%payment_of_debt}}');
+        $this->dropTable('{{%book}}');
+        $this->dropTable('{{%book_copy}}');
+        $this->dropTable('{{%collection_place}}');
+        $this->dropTable('{{%bookseller}}');
+
+        $this->dropTable('{{%reading_room}}');
+        $this->dropTable('{{%violation_type}}');
+        $this->dropTable('{{%circulation_type}}');
+
+        $this->dropTable('{{%borrowing_rules}}');
+        $this->dropTable('{{%bar_code}}');
+        $this->dropTable('{{%call_number_rules}}');
 
     }
 

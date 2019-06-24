@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\ReadingRoomSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Reading Rooms';
+$this->title = '阅览室管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reading-room-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Reading Room', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增阅览室', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,13 +22,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:20%;'),
+            ],
             'title',
             'description',
-            'library_id',
-            'user_id',
+            //'library_id',
+            //'user_id',
             //'created_at',
             //'updated_at',
             //'status',

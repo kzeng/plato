@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\BooksellerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Booksellers';
+$this->title = '书商管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="bookseller-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Bookseller', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增书商', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,14 +22,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:5%;'),
+            ],
             'title',
             'address',
             'contact',
             'mobile',
-            //'discount',
+            'discount',
             //'library_id',
             //'user_id',
             //'created_at',
