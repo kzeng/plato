@@ -49,10 +49,10 @@
 
 
 ## 开发文档
-[安装](https://gitee.com/kzeng/plato/blob/master/docs/installation.md)
+[安装](https://github.com/kzeng/plato/blob/master/docs/installation.md)
 
-[软件结构](https://gitee.com/kzeng/plato/blob/master/docs/structure.md)
+[软件结构](https://github.com/kzeng/plato/blob/master/docs/structure.md)
 
-[数据库设计](https://gitee.com/kzeng/plato/blob/master/docs/database.md)
+[数据库设计](https://github.com/kzeng/plato/blob/master/docs/database.md)
 
 
