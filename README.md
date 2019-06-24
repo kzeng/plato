@@ -40,6 +40,7 @@
 3. 如果读者在还书时有欠费，读者可以选择当场缴费。
 4. 在阅览室登到中，图书馆工作人员可以记录当天进入各个阅览室的读者。
 
+---
 ### 统计分析
 * 读者借书数量统计
 * 书籍馆藏数量
@@ -47,9 +48,9 @@
 * 借阅排行榜
 
 
-
+---
 ## 开发文档
-[安装](https://github.com/kzeng/plato/blob/master/docs/installation.md)
+[安装指南](https://github.com/kzeng/plato/blob/master/docs/installation.md)
 
 [软件结构](https://github.com/kzeng/plato/blob/master/docs/structure.md)
 
