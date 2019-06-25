@@ -91,6 +91,8 @@ status       |int    |11     |否     |-     |状态, 默认值1
 id      |int    |11     |否     |是     |主键ID
 title      |string    |128     |否     |-     |题名
 isbn      |string    |64     |否     |-     |ISBN
+cover_img      |string    |256     |-     |-     |封面
+description      |string    |1024     |-     |-     |简介
 author      |string    |64     |否     |-     |作者
 price      |decimal    |2     |-     |-     |价格(元)
 class_number      |string    |64     |-     |-     |分类号

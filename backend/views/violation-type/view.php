@@ -6,21 +6,20 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\ViolationType */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Violation Types', 'url' => ['index']];
+//$this->title = $model->title;
+$this->title = "违章类型信息";
+$this->params['breadcrumbs'][] = ['label' => '违章类型', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="violation-type-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('更新', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('删除', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '删除本条记录，确定?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -34,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'description',
             'library_id',
             'user_id',
-            'created_at',
-            'updated_at',
-            'status',
+            'created_at:datetime',
+            'updated_at:datetime',
+            //'status',
         ],
     ]) ?>
 

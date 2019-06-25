@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\CirculationTypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Circulation Types';
+$this->title = '流通类型';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="circulation-type-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Circulation Type', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增流通类型', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,13 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+           // ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
             'description',
-            'library_id',
-            'user_id',
+            // 'library_id',
+            // 'user_id',
             //'created_at',
             //'updated_at',
             //'status',

@@ -9,6 +9,8 @@ use Yii;
  *
  * @property int $id
  * @property string $title 题名
+* @property string $cover_img 封面
+* @property string $description 简介
  * @property string $isbn ISBN
  * @property string $author 作者
  * @property string $price 价格(元)
@@ -44,10 +46,12 @@ class Book extends \yii\db\ActiveRecord
             [['price'], 'number'],
             [['library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['title'], 'string', 'max' => 128],
+            [['cover_img'], 'string', 'max' => 256],
+            [['description'], 'string', 'max' => 1024],
             [['isbn', 'author', 'class_number', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title'], 'string', 'max' => 64],
         ];
     }
-
+ 
     /**
      * {@inheritdoc}
      */
@@ -56,6 +60,8 @@ class Book extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => '题名',
+            'cover_img' => '封面',
+            'description' => '简介',
             'isbn' => 'ISBN',
             'author' => '作者',
             'price' => '价格(元)',

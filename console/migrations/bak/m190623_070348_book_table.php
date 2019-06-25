@@ -20,6 +20,8 @@ class m190623_070348_book_table extends Migration
         $this->createTable('{{%book}}', [
             'id' => $this->primaryKey(),
             'title' => $this->string(128)->notNull()->comment('题名'),
+            'cover_img' => $this->string(256)->comment('封面'),
+            'description' => $this->string(1024)->comment('简介'),
             'isbn' => $this->string(64)->notNull()->comment('ISBN'),
             'author' => $this->string(64)->notNull()->comment('作者'),
             'price' => $this->decimal(10,2)->comment('价格(元)'),

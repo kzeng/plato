@@ -3,17 +3,15 @@
     <section class="sidebar">
 
         <!-- Sidebar user panel -->
-        <div class="user-panel">
+        <!-- <div class="user-panel">
             <div class="pull-left image">
-            	<!--
-                <img src="<//?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
-                -->
+    
                 <img src="library.png" class="img-circle" alt="User Image"/>
                 
             </div>
             <div class="pull-left info">
                 <p>
-                <?php
+                <//?php
                     $user = common\models\User::findOne(['id' => Yii::$app->user->id]);
                     if(!empty($user))
                         echo $user->username;
@@ -24,7 +22,7 @@
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
-        </div>
+        </div> -->
 
         <!-- search form -->
         <!-- <form action="#" method="get" class="sidebar-form">
@@ -51,7 +49,7 @@
 
                     // 新增菜单条目，测试用
                     [
-                        'label' => '临时入口',
+                        'label' => '临时入口1',
                         'icon' => 'share',
                         'url' => '#',
                         'items' => [
@@ -61,6 +59,14 @@
                             ['label' => '欠费缴纳管理', 'icon' => 'check', 'url' => ['/payment-of-debt']],
                             ['label' => '图书管理', 'icon' => 'check', 'url' => ['/book']],
                             ['label' => '图书副本管理', 'icon' => 'check', 'url' => ['/book-copy']],
+                        ],
+                    ],
+
+                    [
+                        'label' => '临时入口2',
+                        'icon' => 'share',
+                        'url' => '#',
+                        'items' => [
                             ['label' => '馆藏地管理', 'icon' => 'check', 'url' => ['/collection-place']],
                             ['label' => '书商管理', 'icon' => 'check', 'url' => ['/bookseller']],
                             ['label' => '阅读室管理', 'icon' => 'check', 'url' => ['/reading-room']],
@@ -71,11 +77,12 @@
                             ['label' => '条码号管理', 'icon' => 'check', 'url' => ['/bar-code']],
                             ['label' => '索书号管理', 'icon' => 'check', 'url' => ['/call-number-rules']],
 
-   
+
 
                             ['label' => '权限配置', 'icon' => 'file-code-o', 'url' => ['/admin']],
                         ],
                     ],
+
                     // 新增菜单条目，END
                     [
                         'label' => 'Some tools',

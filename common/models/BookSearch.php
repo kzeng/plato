@@ -11,6 +11,7 @@ use common\models\Book;
  */
 class BookSearch extends Book
 {
+
     /**
      * {@inheritdoc}
      */
@@ -18,7 +19,7 @@ class BookSearch extends Book
     {
         return [
             [['id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['title', 'isbn', 'author', 'class_number', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title'], 'safe'],
+            [['title', 'isbn', 'author', 'cover_img', 'description', 'class_number', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title'], 'safe'],
             [['price'], 'number'],
         ];
     }
@@ -70,6 +71,8 @@ class BookSearch extends Book
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'isbn', $this->isbn])
+            ->andFilterWhere(['like', 'cover_img', $this->isbn])
+            ->andFilterWhere(['like', 'description', $this->isbn])
             ->andFilterWhere(['like', 'author', $this->author])
             ->andFilterWhere(['like', 'class_number', $this->class_number])
             ->andFilterWhere(['like', 'call_number', $this->call_number])

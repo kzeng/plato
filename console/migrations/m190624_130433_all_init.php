@@ -100,6 +100,8 @@ class m190624_130433_all_init extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string(128)->notNull()->comment('题名'),
             'isbn' => $this->string(64)->notNull()->comment('ISBN'),
+            'cover_img' => $this->string(256)->notNull()->comment('封面'),
+            'description' => $this->string(1024)->notNull()->comment('简介'),
             'author' => $this->string(64)->notNull()->comment('作者'),
             'price' => $this->decimal(10,2)->comment('价格(元)'),
             'class_number' => $this->string(64)->comment('分类号'),
@@ -431,7 +433,76 @@ class m190624_130433_all_init extends Migration
         }
         echo "\n insert demo data into collection_place, ok\n";
         
+        //violation_type
+        for ($i = 10; $i < 16; $i++) {
+            $model = new common\models\ViolationType();
+            $model->title = '逾期不还欠费达' .$i. '元者';
+            $model->description = '不可再借';
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save();
+        }
+        echo "\n insert demo data into violation_type, ok\n";
 
+        //circulation_type
+        $title = ['文学类','教育类'];
+        $description = ['国内外名著、小说','各类教材、教辅'];
+        for ($i = 0; $i < 2; $i++) {
+            $model = new common\models\CirculationType();
+            $model->title = $title[$i];
+            $model->description =  $description[$i];
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save();
+        }
+        echo "\n insert demo data into circulation_type, ok\n";
+        
+        //reader_type
+        $title = ['学生','教师', '社会人员'];
+        for ($i = 0; $i < 3; $i++) {
+            $model = new common\models\ReaderType();
+            $model->title = $title[$i];
+            $model->max_borrowing_number = rand(5,10);
+            $model->max_debt_limit = rand(100,300);
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save();
+        }
+        echo "\n insert demo data into reader_type, ok\n";
+
+
+        //book
+        // for ($i = 0; $i < 100; $i++) {
+        //     $model = new common\models\Book();
+        //     $model->title = $faker->title;
+        //     $model->cover_img = '';
+        //     $model->description = $faker->text;
+        //     $model->isbn = $faker->ISBN;
+        //     $model->author = $faker->author;
+        //     $model->price = $faker->randomNumber(2);
+        //     $model->class_number = "";
+        //     $model->call_number = "";
+        //     $model->publisher = $faker->publish;
+        //     $model->publication_place = rand(1,50);
+        //     $model->publish_date = '19'.rand(49,99). "年";
+        //     $model->series_title = "";
+        //     $model->library_id = 1;
+        //     $model->user_id = rand(2,7);
+        //     $model->status = 10;
+        //     $model->created_at = time();
+        //     $model->updated_at = time();
+        //     $model->save();
+        // }
+        // echo "\n insert demo data into book, ok\n";
 
     }
 
@@ -441,23 +512,24 @@ class m190624_130433_all_init extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%user}}');
-        $this->dropTable('{{%library}}');
-        $this->dropTable('{{%reader}}');
-        $this->dropTable('{{%reader_type}}');
-        $this->dropTable('{{%payment_of_debt}}');
-        $this->dropTable('{{%book}}');
-        $this->dropTable('{{%book_copy}}');
-        $this->dropTable('{{%collection_place}}');
-        $this->dropTable('{{%bookseller}}');
+        // $this->dropTable('{{%user}}');
+        // $this->dropTable('{{%library}}');
+        // $this->dropTable('{{%reader}}');
+        // $this->dropTable('{{%reader_type}}');
+        // $this->dropTable('{{%payment_of_debt}}');
+        // $this->dropTable('{{%book}}');
+        // $this->dropTable('{{%book_copy}}');
+        // $this->dropTable('{{%collection_place}}');
+        // $this->dropTable('{{%bookseller}}');
 
-        $this->dropTable('{{%reading_room}}');
-        $this->dropTable('{{%violation_type}}');
-        $this->dropTable('{{%circulation_type}}');
+        // $this->dropTable('{{%reading_room}}');
+        // $this->dropTable('{{%violation_type}}');
+        // $this->dropTable('{{%circulation_type}}');
 
-        $this->dropTable('{{%borrowing_rules}}');
-        $this->dropTable('{{%bar_code}}');
-        $this->dropTable('{{%call_number_rules}}');
+        // $this->dropTable('{{%borrowing_rules}}');
+        // $this->dropTable('{{%bar_code}}');
+        // $this->dropTable('{{%call_number_rules}}');
+        return true;
 
     }
 
