@@ -504,6 +504,28 @@ class m190624_130433_all_init extends Migration
         // }
         // echo "\n insert demo data into book, ok\n";
 
+        //reader
+        for ($i = 0; $i < 301; $i++) {
+            $model = new common\models\Reader();
+            $model->card_number = $faker->creditCardNumber;
+            $model->card_status = 1;
+            $model->reader_name = $faker->name;
+            $model->validity = strtotime("20300808 23:00:01");
+            $model->id_card = "123456789012345000".$i;
+            $model->reader_type_id = rand(0,2);
+            $model->gender = rand(0,1);
+            $model->deposit = 100;
+            $model->mobile = $faker->phoneNumber;
+            $model->address = $faker->address;
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save(false);
+        }
+        echo "\n insert demo data into reader, ok\n";
+
     }
 
 
