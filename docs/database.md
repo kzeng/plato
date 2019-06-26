@@ -26,8 +26,8 @@ status       |int    |11     |否     |-     |状态, 默认值1
 id      |int    |11     |否     |是     |主键ID
 user_name      |string    |64     |否     |-     |名称
 mobile      |string    |32     |是     |-     |电话
-auth_key      |string    |64     |是     |-     |-
-access_token      |string    |64     |是     |-     |-
+auth_key      |string    |32     |-    |-     |-
+access_token      |string    |32     |-     |-     |-
 password_hash      |string    |64     |否     |-     |-
 oauth_client      |string    |64     |是     |-     |-
 oauth_client_user_id      |string    |64     |是     |-     |-
@@ -63,8 +63,8 @@ status       |int    |11     |否     |-     |状态, 默认值1
 
 
 ---
-#### 欠费缴纳 `payment_of_debt`
-> 记录读者欠费缴纳信息
+#### 缴纳欠费 `payment_of_debt`
+> 记录读者缴纳欠费信息
 
 字段名|数据类型|长度|可空|主键|注释
 -----|-----|-----|-----|-----|-----|

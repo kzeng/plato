@@ -5,14 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\BarCode */
 
-$this->title = 'Update Bar Code: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Bar Codes', 'url' => ['index']];
+$this->title = '修改条码号序列设置: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => '条码号序列', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = '修改';
 ?>
 <div class="bar-code-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

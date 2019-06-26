@@ -26,6 +26,7 @@ class m190624_130433_all_init extends Migration
             'id' => $this->primaryKey(),
             'username' => $this->string(32)->notNull(),
             'auth_key' => $this->string(32)->notNull(),
+            'access_token' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string(),
             'email' => $this->string()->notNull(),
@@ -93,7 +94,7 @@ class m190624_130433_all_init extends Migration
             'updated_at' => $this->integer()->comment('更新时间'),
             'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
         ], $tableOptions);
-        $this->addCommentOnTable('{{%payment_of_debt}}', '欠费缴纳表');
+        $this->addCommentOnTable('{{%payment_of_debt}}', '缴纳欠费表');
         //-----------------------------------------------------------------------------
         Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%book}}")->execute();
         $this->createTable('{{%book}}', [
@@ -283,8 +284,10 @@ class m190624_130433_all_init extends Migration
         $user = new common\models\User1();
         $user->username = 'admin';
         $user->password_hash = \Yii::$app->security->generatePasswordHash('admin123');
-        $user->auth_key = 'auth_key_123';
+        $user->auth_key = \Yii::$app->security->generateRandomString(32);
+        $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'admin@demo.com';
+        $user->mobile = "88888888";
         $user->library_id = 0;
         $user->user_id = 0;
         $user->pid = 0;
@@ -297,8 +300,10 @@ class m190624_130433_all_init extends Migration
         $user = new common\models\User1();
         $user->username = '江夏区图书馆管理员';
         $user->password_hash = \Yii::$app->security->generatePasswordHash('123456');
-        $user->auth_key = 'auth_key_123';
+        $user->auth_key = \Yii::$app->security->generateRandomString(32);
+        $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'xjqlib@demo.com';
+        $user->mobile = "66666666";
         $user->library_id = 1;
         $user->user_id = 1;
         $user->pid = 1;
@@ -311,8 +316,10 @@ class m190624_130433_all_init extends Migration
             $user = new common\models\User1();
             $user->username = '江夏区图书馆管理员'.$i;
             $user->password_hash = \Yii::$app->security->generatePasswordHash('123456');
-            $user->auth_key = 'auth_key_123';
+            $user->auth_key = \Yii::$app->security->generateRandomString(32);
+            $user->access_token = \Yii::$app->security->generateRandomString(32);
             $user->email = 'jxqlib'.$i.'@demo.com';
+            $user->mobile = "66666666";
             $user->library_id = 1;
             $user->user_id = 2;
             $user->pid = 2;
@@ -327,8 +334,10 @@ class m190624_130433_all_init extends Migration
         $user = new common\models\User1();
         $user->username = '洪山区图书馆管理员';
         $user->password_hash = \Yii::$app->security->generatePasswordHash('123456');
-        $user->auth_key = 'auth_key_123';
+        $user->auth_key = \Yii::$app->security->generateRandomString(32);
+        $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'hsqlib@demo.com';
+        $user->mobile = "77777777";
         $user->library_id = 2;
         $user->user_id = 1;
         $user->pid = 1;
@@ -341,8 +350,10 @@ class m190624_130433_all_init extends Migration
             $user = new common\models\User1();
             $user->username = '洪山区图书馆管理员'.$i;
             $user->password_hash = \Yii::$app->security->generatePasswordHash('123456');
-            $user->auth_key = 'auth_key_123';
+            $user->auth_key = \Yii::$app->security->generateRandomString(32);
+            $user->access_token = \Yii::$app->security->generateRandomString(32);
             $user->email = 'jxqlib'.$i.'@demo.com';
+            $user->mobile = "77777777";
             $user->library_id = 2;
             $user->user_id = 3;
             $user->pid = 3;
@@ -352,7 +363,6 @@ class m190624_130433_all_init extends Migration
             $user->save();
         }
         echo "\n insert demo data into user, ok";
-
 
         //add 'library' data
         $library = new common\models\Library();
@@ -525,6 +535,26 @@ class m190624_130433_all_init extends Migration
             $model->save(false);
         }
         echo "\n insert demo data into reader, ok\n";
+
+        //payment_of_debt
+        $user = common\models\Reader::find()->all();
+        for ($i = 0; $i < 30; $i++) {
+            $model = new common\models\PaymentOfDebt();
+            $model->card_number = $user[$i]->card_number;
+            $model->reader_name = $user[$i]->reader_name;
+            $model->violation_type_id = rand(1,3);
+            $model->payment_status = rand(0,1);
+            $model->penalty = rand(100,200);
+            $model->description = "";
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save(false);
+        }
+        echo "\n insert demo data into payment_of_debt, ok\n";
+
 
     }
 

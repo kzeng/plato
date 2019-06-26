@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\PaymentOfDebtSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Payment Of Debts';
+$this->title = '缴纳欠费管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="payment-of-debt-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Payment Of Debt', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,14 +22,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'card_number',
             'reader_name',
             'violation_type_id',
             'payment_status',
-            //'penalty',
+            'penalty',
             //'description',
             //'library_id',
             //'user_id',

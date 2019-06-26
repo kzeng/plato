@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+
 
 /**
  * This is the model class for table "book_copy".
@@ -32,6 +34,12 @@ class BookCopy extends \yii\db\ActiveRecord
         return 'book_copy';
     }
 
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
     /**
      * {@inheritdoc}
      */

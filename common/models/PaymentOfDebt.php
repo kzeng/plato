@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+
 
 /**
  * This is the model class for table "payment_of_debt".
@@ -30,6 +32,12 @@ class PaymentOfDebt extends \yii\db\ActiveRecord
         return 'payment_of_debt';
     }
 
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
     /**
      * {@inheritdoc}
      */

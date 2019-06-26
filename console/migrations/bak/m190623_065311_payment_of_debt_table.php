@@ -1,5 +1,5 @@
 <?php
-//欠费缴纳 `payment_of_debt`
+//缴纳欠费 `payment_of_debt`
 use yii\db\Migration;
 
 /**
