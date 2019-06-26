@@ -56,7 +56,7 @@
                             ['label' => '用户管理', 'icon' => 'check', 'url' => ['/user1']],
                             ['label' => '图书馆配置', 'icon' => 'check', 'url' => ['/library']],
                             ['label' => '读者管理', 'icon' => 'check', 'url' => ['/reader']],
-                            ['label' => '欠费缴纳管理', 'icon' => 'check', 'url' => ['/payment-of-debt']],
+                            ['label' => '缴纳欠费管理', 'icon' => 'check', 'url' => ['/payment-of-debt']],
                             ['label' => '图书管理', 'icon' => 'check', 'url' => ['/book']],
                             ['label' => '图书副本管理', 'icon' => 'check', 'url' => ['/book-copy']],
                         ],
@@ -74,7 +74,7 @@
                             ['label' => '流通类型管理', 'icon' => 'check', 'url' => ['/circulation-type']],
                             ['label' => '读者类型管理', 'icon' => 'check', 'url' => ['/reader-type']],
                             ['label' => '借阅规则配置', 'icon' => 'check', 'url' => ['/borrowing-rules']],
-                            ['label' => '条码号管理', 'icon' => 'check', 'url' => ['/bar-code']],
+                            ['label' => '条码号序列设置', 'icon' => 'check', 'url' => ['/bar-code']],
                             ['label' => '索书号管理', 'icon' => 'check', 'url' => ['/call-number-rules']],
 
 

@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\BarCodeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Bar Codes';
+$this->title = '条码号序列设置';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="bar-code-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Bar Code', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,14 +22,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
             'prefix',
             'number_length',
             'min_number',
-            //'max_number',
+            'max_number',
             //'description',
             //'library_id',
             //'user_id',

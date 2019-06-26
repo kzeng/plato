@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\BorrowingRulesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Borrowing Rules';
+$this->title = '借阅规则配置';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="borrowing-rules-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Borrowing Rules', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增借阅规则', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+           // ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
@@ -33,8 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'first_term_of_punishment',
             //'first_penalty_unit_price',
             //'other__unit_price',
-            //'reader_type_ids',
-            //'circulation_type_ids',
+            'reader_type_ids',
+            'circulation_type_ids',
             //'library_id',
             //'user_id',
             //'created_at',

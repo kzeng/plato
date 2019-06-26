@@ -94,7 +94,7 @@ class m190624_130433_all_init extends Migration
             'updated_at' => $this->integer()->comment('更新时间'),
             'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
         ], $tableOptions);
-        $this->addCommentOnTable('{{%payment_of_debt}}', '欠费缴纳表');
+        $this->addCommentOnTable('{{%payment_of_debt}}', '缴纳欠费表');
         //-----------------------------------------------------------------------------
         Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%book}}")->execute();
         $this->createTable('{{%book}}', [
@@ -531,6 +531,26 @@ class m190624_130433_all_init extends Migration
             $model->save(false);
         }
         echo "\n insert demo data into reader, ok\n";
+
+        //payment_of_debt
+        $user = common\models\Reader::find()->all();
+        for ($i = 0; $i < 30; $i++) {
+            $model = new common\models\PaymentOfDebt();
+            $model->card_number = $user[$i]->card_number;
+            $model->reader_name = $user[$i]->reader_name;
+            $model->violation_type_id = rand(1,3);
+            $model->payment_status = rand(0,1);
+            $model->penalty = rand(100,200);
+            $model->description = "";
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save(false);
+        }
+        echo "\n insert demo data into payment_of_debt, ok\n";
+
 
     }
 
