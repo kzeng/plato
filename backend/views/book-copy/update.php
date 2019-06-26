@@ -5,14 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\BookCopy */
 
-$this->title = 'Update Book Copy: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Book Copies', 'url' => ['index']];
+$this->title = '修改图书副本信息: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => '图书副本', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = '修改';
 ?>
 <div class="book-copy-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

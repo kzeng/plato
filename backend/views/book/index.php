@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\BookSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Books';
+$this->title = '图书管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Book', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增图书', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
@@ -33,9 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'price',
             //'class_number',
             //'call_number',
-            //'publisher',
-            //'publication_place',
-            //'publish_date',
+            'publisher',
+            'publication_place',
+            'publish_date',
             //'series_title',
             //'library_id',
             //'user_id',

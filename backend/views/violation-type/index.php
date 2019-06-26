@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="violation-type-index">
 
     <p>
-        <?= Html::a('Create Violation Type', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增违章类型', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
