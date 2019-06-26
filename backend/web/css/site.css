@@ -118,3 +118,6 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.ui-autocomplete {
+    z-index: 1031;
+}

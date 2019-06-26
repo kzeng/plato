@@ -10,7 +10,7 @@ return [
     'id' => 'app-backend',
     'name' => 'PLATO',
     'language' => 'zh-CN',
-    
+
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],

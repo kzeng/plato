@@ -5,9 +5,9 @@
         <!-- Sidebar user panel -->
         <!-- <div class="user-panel">
             <div class="pull-left image">
-    
+
                 <img src="library.png" class="img-circle" alt="User Image"/>
-                
+
             </div>
             <div class="pull-left info">
                 <p>
@@ -40,7 +40,7 @@
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
-                'items' => [
+                'items' => array_merge(\mdm\admin\components\MenuHelper::getAssignedMenu(\Yii::$app->user->id), [
                     ['label' => '主菜单', 'options' => ['class' => 'header']],
 
                     //['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
@@ -109,11 +109,8 @@
                                 ],
                             ],
                         ],
-                    ],
-
-
-
-                ],
+                    ]
+                ])
             ]
         ) ?>
 
