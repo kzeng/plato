@@ -71,7 +71,8 @@ class User1Controller extends Controller
             $model->pid = Yii::$app->user->id;
             $model->user_id = Yii::$app->user->id;
             $model->password_hash = \Yii::$app->security->generatePasswordHash($model->password_hash);
-            $model->auth_key = "---";
+            $model->auth_key = \Yii::$app->security->generateRandomString(32);
+            $model->access_token = \Yii::$app->security->generateRandomString(32);
             $model->status = 10;
 
             if( Yii::$app->user->id != 1)

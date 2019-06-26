@@ -26,6 +26,7 @@ class m190624_130433_all_init extends Migration
             'id' => $this->primaryKey(),
             'username' => $this->string(32)->notNull(),
             'auth_key' => $this->string(32)->notNull(),
+            'access_token' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
             'password_reset_token' => $this->string(),
             'email' => $this->string()->notNull(),
@@ -283,7 +284,8 @@ class m190624_130433_all_init extends Migration
         $user = new common\models\User1();
         $user->username = 'admin';
         $user->password_hash = \Yii::$app->security->generatePasswordHash('admin123');
-        $user->auth_key = 'auth_key_123';
+        $user->auth_key = \Yii::$app->security->generateRandomString(32);
+        $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'admin@demo.com';
         $user->library_id = 0;
         $user->user_id = 0;
@@ -297,7 +299,8 @@ class m190624_130433_all_init extends Migration
         $user = new common\models\User1();
         $user->username = '江夏区图书馆管理员';
         $user->password_hash = \Yii::$app->security->generatePasswordHash('123456');
-        $user->auth_key = 'auth_key_123';
+        $user->auth_key = \Yii::$app->security->generateRandomString(32);
+        $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'xjqlib@demo.com';
         $user->library_id = 1;
         $user->user_id = 1;
@@ -311,7 +314,8 @@ class m190624_130433_all_init extends Migration
             $user = new common\models\User1();
             $user->username = '江夏区图书馆管理员'.$i;
             $user->password_hash = \Yii::$app->security->generatePasswordHash('123456');
-            $user->auth_key = 'auth_key_123';
+            $user->auth_key = \Yii::$app->security->generateRandomString(32);
+            $user->access_token = \Yii::$app->security->generateRandomString(32);
             $user->email = 'jxqlib'.$i.'@demo.com';
             $user->library_id = 1;
             $user->user_id = 2;
@@ -327,7 +331,8 @@ class m190624_130433_all_init extends Migration
         $user = new common\models\User1();
         $user->username = '洪山区图书馆管理员';
         $user->password_hash = \Yii::$app->security->generatePasswordHash('123456');
-        $user->auth_key = 'auth_key_123';
+        $user->auth_key = \Yii::$app->security->generateRandomString(32);
+        $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'hsqlib@demo.com';
         $user->library_id = 2;
         $user->user_id = 1;
@@ -341,7 +346,8 @@ class m190624_130433_all_init extends Migration
             $user = new common\models\User1();
             $user->username = '洪山区图书馆管理员'.$i;
             $user->password_hash = \Yii::$app->security->generatePasswordHash('123456');
-            $user->auth_key = 'auth_key_123';
+            $user->auth_key = \Yii::$app->security->generateRandomString(32);
+            $user->access_token = \Yii::$app->security->generateRandomString(32);
             $user->email = 'jxqlib'.$i.'@demo.com';
             $user->library_id = 2;
             $user->user_id = 3;

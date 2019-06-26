@@ -11,6 +11,7 @@ use yii\behaviors\TimestampBehavior;
  * @property int $id
  * @property string $username
  * @property string $auth_key
+ * @property string $access_token
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -45,9 +46,9 @@ class User1 extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['username', 'auth_key', 'access_token', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
             [['status', 'created_at', 'updated_at', 'library_id', 'user_id', 'pid'], 'integer'],
-            [['username', 'auth_key'], 'string', 'max' => 32],
+            [['username', 'auth_key', 'access_token'], 'string', 'max' => 32],
             [['password_hash', 'password_reset_token', 'email', 'verification_token', 'mobile'], 'string', 'max' => 255],
         ];
     }
@@ -61,6 +62,7 @@ class User1 extends \yii\db\ActiveRecord
             'id' => 'ID',
             'username' => '用户名',
             'auth_key' => 'Auth Key',
+            'access_token' => 'Access Token',
             'password_hash' => '密码',
             'password_reset_token' => 'Password Reset Token',
             'email' => '邮箱',
