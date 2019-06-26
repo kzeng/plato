@@ -287,6 +287,7 @@ class m190624_130433_all_init extends Migration
         $user->auth_key = \Yii::$app->security->generateRandomString(32);
         $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'admin@demo.com';
+        $user->mobile = "88888888";
         $user->library_id = 0;
         $user->user_id = 0;
         $user->pid = 0;
@@ -302,6 +303,7 @@ class m190624_130433_all_init extends Migration
         $user->auth_key = \Yii::$app->security->generateRandomString(32);
         $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'xjqlib@demo.com';
+        $user->mobile = "66666666";
         $user->library_id = 1;
         $user->user_id = 1;
         $user->pid = 1;
@@ -317,6 +319,7 @@ class m190624_130433_all_init extends Migration
             $user->auth_key = \Yii::$app->security->generateRandomString(32);
             $user->access_token = \Yii::$app->security->generateRandomString(32);
             $user->email = 'jxqlib'.$i.'@demo.com';
+            $user->mobile = "66666666";
             $user->library_id = 1;
             $user->user_id = 2;
             $user->pid = 2;
@@ -334,6 +337,7 @@ class m190624_130433_all_init extends Migration
         $user->auth_key = \Yii::$app->security->generateRandomString(32);
         $user->access_token = \Yii::$app->security->generateRandomString(32);
         $user->email = 'hsqlib@demo.com';
+        $user->mobile = "77777777";
         $user->library_id = 2;
         $user->user_id = 1;
         $user->pid = 1;
@@ -349,6 +353,7 @@ class m190624_130433_all_init extends Migration
             $user->auth_key = \Yii::$app->security->generateRandomString(32);
             $user->access_token = \Yii::$app->security->generateRandomString(32);
             $user->email = 'jxqlib'.$i.'@demo.com';
+            $user->mobile = "77777777";
             $user->library_id = 2;
             $user->user_id = 3;
             $user->pid = 3;
@@ -358,7 +363,6 @@ class m190624_130433_all_init extends Migration
             $user->save();
         }
         echo "\n insert demo data into user, ok";
-
 
         //add 'library' data
         $library = new common\models\Library();
