@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "call_number_rules".
@@ -25,6 +26,13 @@ class CallNumberRules extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'call_number_rules';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
     }
 
     /**
