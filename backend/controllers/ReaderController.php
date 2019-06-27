@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use common\models\User1;
+
 /**
  * ReaderController implements the CRUD actions for Reader model.
  */
@@ -66,7 +68,14 @@ class ReaderController extends Controller
     {
         $model = new Reader();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $user = User1::findOne(['id' => Yii::$app->user->id]);
+            $model->library_id = $user->library_id;
+            $model->user_id = $user->id;
+            $model->status = 10;
+            $model->save(false);
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -86,7 +95,14 @@ class ReaderController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $user = User1::findOne(['id' => Yii::$app->user->id]);
+            $model->library_id = $user->library_id;
+            $model->user_id = $user->id;
+            $model->status = 10;
+            $model->save(false);
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

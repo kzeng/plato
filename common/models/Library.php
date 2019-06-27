@@ -64,4 +64,14 @@ class Library extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+
+    
+    static function getLibraryTitle($model)
+    {
+        $library =  self::findOne(['id' => $model->library_id]);
+        return $library->title;
+    }
+    
+
+
 }

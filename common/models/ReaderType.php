@@ -68,14 +68,35 @@ class ReaderType extends \yii\db\ActiveRecord
     
     static function getReaderTypeOption($key=null)
     {
-        $library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
-        $reader_types = ReaderType::find()->where(['id' => $library_id])->asArray()->all();
-        foreach ($reader_types as $reader_type) {
-            $value = $reader_type['id'];
-            $arr[$value] = "{$reader_type['title']}";
+        if(Yii::$app->user->id == 1) //admin
+        {
+            $reader_types = ReaderType::find()->asArray()->all();    
+        }
+        else
+        {
+            $library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $reader_types = ReaderType::find()->where(['id' => $library_id])->asArray()->all();    
+        }
+
+        if(empty($reader_types))
+        {
+            $arr[0] = "未定义";
+        }
+        else
+        {
+            foreach ($reader_types as $reader_type) {
+                $value = $reader_type['id'];
+                $arr[$value] = "{$reader_type['title']}";
+            }
         }
 
         return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+
+
+    static function getReaderType($model)
+    {
+        return self::getReaderTypeOption($model->reader_type_id);
     }
 
     // static function ReaderType($model)
