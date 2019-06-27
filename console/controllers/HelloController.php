@@ -3,7 +3,6 @@ namespace console\controllers;
 
 use Yii;
 use yii\console\Controller;
-
 use common\models\Book;
 
 class HelloController extends Controller
@@ -32,7 +31,6 @@ class HelloController extends Controller
                 $i++;
                 continue;
             }
-
 
             $fields = explode(",", $line);
 
