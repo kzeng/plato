@@ -89,6 +89,13 @@ class Reader extends \yii\db\ActiveRecord
         );
         return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
     }
+    static function getCardStatus($model)
+    {
+        if ($model->card_status)
+            return "<span class=\"label label-success\">正常</span>";
+        else
+            return "<span class=\"label label-danger\">挂失</span>";
+    }
 
     static function getGenderOption($key=null)
     {
@@ -98,7 +105,48 @@ class Reader extends \yii\db\ActiveRecord
         );
         return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
     }
+    static function getGender($model)
+    {
+        return self::getGenderOption($model->gender);
+    }
 
     
+    
+    static function getReaderTypeOption($key=null)
+    {
+        // if(Yii::$app->user->id == 1) //admin
+        // {
+        //     $reader_types = ReaderType::find()->asArray()->all();    
+        // }
+        // else
+        // {
+        //     $library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+        //     $reader_types = ReaderType::find()->where(['id' => $library_id])->asArray()->all();    
+        // }
+
+        $reader_types = ReaderType::find()->asArray()->all();    
+
+        if(empty($reader_types))
+        {
+            $arr[0] = "未定义";
+        }
+        else
+        {
+            foreach ($reader_types as $reader_type) {
+                $value = $reader_type['id'];
+                $arr[$value] = "{$reader_type['title']}";
+            }
+        }
+
+        return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+    
+    
+    static function getReaderType($model)
+    {
+        return self::getReaderTypeOption($model->reader_type_id);
+    }
+
+
 
 }

@@ -3,10 +3,10 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+use common\models\Reader;
+
 use kartik\date\DatePicker;
 
-use common\models\Reader;
-use common\models\ReaderType;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Reader */
@@ -27,33 +27,28 @@ use common\models\ReaderType;
 <!--
     <//?= $form->field($model, 'validity')->textInput() ?>
 -->
-    <div class="form-group field-reader-validity">
-    <?php
-            echo '<label class="control-label">有效期限</label>';
-            echo DatePicker::widget([
-                //'name' => 'validity',
-                //'value' => '2019/6/22',
-                'model' => $model,
-                'attribute' => 'validity',
 
-                'removeButton' => false,
-                'pluginOptions' => [
-                    'autoclose'=>true,
-                    'todayHighlight' => true,
-                    //'format' => 'mm/dd/yyyy'
-                    'format' => 'yyyy/mm/dd'
-                ]
-            ]);
-            
-    ?>
-    <div class="help-block"></div>
-    </div>
 
+        <?php
+        // usage without model
+        echo '<label>有效期限</label>';
+        echo DatePicker::widget([
+            'name' => 'validity', 
+            'value' => date('d-M-Y', strtotime('+2 days')),
+            'options' => ['placeholder' => '选择有效期限 ...'],
+            'pluginOptions' => [
+                'format' => 'dd-M-yyyy',
+                'todayHighlight' => true
+            ]
+        ]);
+        ?>
+
+  
     <?= $form->field($model, 'id_card')->textInput(['maxlength' => true]) ?>
 
     <!--<//?= $form->field($model, 'reader_type_id')->textInput() ?>-->
 
-    <?= $form->field($model, 'reader_type_id')->dropDownList(ReaderType::getReaderTypeOption()); ?>
+    <?= $form->field($model, 'reader_type_id')->dropDownList(Reader::getReaderTypeOption()); ?>
 
     <!--<//?= $form->field($model, 'gender')->textInput() ?>-->
     <?= $form->field($model, 'gender')->dropDownList(Reader::getGenderOption()); ?>

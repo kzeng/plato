@@ -99,5 +99,11 @@ class User1 extends \yii\db\ActiveRecord
         return $user->library_id;
     }
     
+    static function getUser1Username($model)
+    {
+        $user =  self::findOne(['id' => $model->user_id]);
+        return $user->username;
+    }
+    
 
 }
