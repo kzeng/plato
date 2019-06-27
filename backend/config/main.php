@@ -48,7 +48,7 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => false,
             'showScriptName' => false,
             'rules' => [
             ],
@@ -57,8 +57,9 @@ return [
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
-            'site/*',
-            'admin/*',
+            // 'site/*',
+            // 'admin/*',
+            '*',
         ]
     ],
     'params' => $params,

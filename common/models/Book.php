@@ -52,11 +52,11 @@ class Book extends \yii\db\ActiveRecord
         return [
             [['title', 'isbn', 'author', 'library_id'], 'required'],
             [['price'], 'number'],
-            [['library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['library_id', 'user_id', 'copy_number', 'created_at', 'updated_at', 'status'], 'integer'],
             [['title'], 'string', 'max' => 128],
             [['cover_img'], 'string', 'max' => 256],
             [['description'], 'string', 'max' => 1024],
-            [['isbn', 'author', 'class_number', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title'], 'string', 'max' => 64],
+            [['isbn', 'author', 'class_number', 'description', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title', 'price1'], 'string', 'max' => 64],
         ];
     }
  
@@ -73,6 +73,8 @@ class Book extends \yii\db\ActiveRecord
             'isbn' => 'ISBN',
             'author' => '作者',
             'price' => '价格(元)',
+            'price1' => '价格(元)',
+            'copy_number' => '复本数',
             'class_number' => '分类号',
             'call_number' => '索书号',
             'publisher' => '出版社',
