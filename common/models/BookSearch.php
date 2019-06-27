@@ -18,8 +18,8 @@ class BookSearch extends Book
     public function rules()
     {
         return [
-            [['id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['title', 'isbn', 'author', 'cover_img', 'description', 'class_number', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title'], 'safe'],
+            [['id', 'library_id', 'user_id', 'copy_number', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['title', 'isbn', 'author', 'description', 'cover_img', 'description', 'class_number', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title', 'price1'], 'safe'],
             [['price'], 'number'],
         ];
     }
@@ -62,6 +62,7 @@ class BookSearch extends Book
         $query->andFilterWhere([
             'id' => $this->id,
             'price' => $this->price,
+            'copy_number' => $this->copy_number,
             'library_id' => $this->library_id,
             'user_id' => $this->user_id,
             'created_at' => $this->created_at,
@@ -79,6 +80,7 @@ class BookSearch extends Book
             ->andFilterWhere(['like', 'publisher', $this->publisher])
             ->andFilterWhere(['like', 'publication_place', $this->publication_place])
             ->andFilterWhere(['like', 'publish_date', $this->publish_date])
+            ->andFilterWhere(['like', 'price1', $this->price1])
             ->andFilterWhere(['like', 'series_title', $this->series_title]);
 
         return $dataProvider;

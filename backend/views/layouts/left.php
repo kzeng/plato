@@ -40,7 +40,7 @@
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
-                'items' => array_merge(\mdm\admin\components\MenuHelper::getAssignedMenu(\Yii::$app->user->id), [
+                'items' => array_merge(\mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id), [
                     ['label' => '主菜单', 'options' => ['class' => 'header']],
 
                     //['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],

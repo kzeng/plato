@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "violation_type".
@@ -24,6 +25,13 @@ class ViolationType extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'violation_type';
+    }
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
     }
 
     /**

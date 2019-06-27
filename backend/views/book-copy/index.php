@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\BookCopySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Book Copies';
+$this->title = '图书副本管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-copy-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Book Copy', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增图书副本', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
@@ -32,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'bookseller_id',
             'price1',
             //'price2',
-            //'collection_place_id',
+            //collection_place_id',
             //'circulation_type_id',
             //'call_number_rules_id',
             //'library_id',
