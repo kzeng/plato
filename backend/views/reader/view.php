@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="reader-view">
-
+    
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('删除', ['delete', 'id' => $model->id], [
@@ -27,7 +27,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="pull-right">
+        <?= Html::a('挂失', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('解除挂失', ['update', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
+        <?= Html::a('换证', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('缴纳预付款', ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('证件注销', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        </span>
     </p>
+
+    <!-- 最大可借数(本)	8	当前借阅数(本) -->
 
     <?= DetailView::widget([
         'model' => $model,

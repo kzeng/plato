@@ -271,6 +271,22 @@ class m190624_130433_all_init extends Migration
             'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
         ], $tableOptions);
         $this->addCommentOnTable('{{%call_number_rules}}', '索书号规则表');     
+        //-----------------------------------------------------------------------------
+        Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%borrow_return_books}}")->execute();
+        $this->createTable('{{%borrow_return_books}}', [
+            'id' => $this->primaryKey(),
+            'reader_id' => $this->integer()->notNull()->comment('名称'),
+            'card_number' => $this->string(64)->notNull()->comment('卡号'),
+            'bar_code' => $this->string(128)->notNull()->comment('条码号'),
+            'operation' => $this->integer()->notNull()->comment('借还操作:1借，0还'),
+            'library_id' => $this->integer()->notNull()->comment('图书馆ID'),
+            'user_id' => $this->integer()->notNull()->defaultValue(1)->comment('操作员ID'),
+            'created_at' => $this->integer()->comment('创建时间'),
+            'updated_at' => $this->integer()->comment('更新时间'),
+            'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
+        ], $tableOptions);
+        $this->addCommentOnTable('{{%borrow_return_books}}', '借还书表');     
+        //-----------------------------------------------------------------------------
         
         if (Console::confirm('Seed demo data?', true)) {
             $this->seed();
@@ -481,7 +497,7 @@ class m190624_130433_all_init extends Migration
             $model = new common\models\ReaderType();
             $model->title = $title[$i];
             $model->max_borrowing_number = rand(5,10);
-            $model->max_debt_limit = rand(100,300);
+            $model->max_debt_limit = 100;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
             $model->status = 10;

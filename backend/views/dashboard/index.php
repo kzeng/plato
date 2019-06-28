@@ -68,7 +68,7 @@ $this->title = '仪表盘';
             <p>还书量</p>
         </div>
         <div class="icon">
-            <i class="fa fa-address-book"></i>
+            <i class="fa fa-vcard-o"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>

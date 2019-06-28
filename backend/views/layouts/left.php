@@ -59,6 +59,7 @@
                             ['label' => '缴纳欠费管理', 'icon' => 'check', 'url' => ['/payment-of-debt']],
                             ['label' => '图书管理', 'icon' => 'check', 'url' => ['/book']],
                             ['label' => '图书副本管理', 'icon' => 'check', 'url' => ['/book-copy']],
+                            ['label' => '借还书管理', 'icon' => 'check', 'url' => ['/borrow-return-books']],
                         ],
                     ],
 
