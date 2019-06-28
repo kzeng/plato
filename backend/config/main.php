@@ -8,7 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
-    'name' => 'PLATO',
+    'name' => '智慧云图书馆',
     'language' => 'zh-CN',
 
     'basePath' => dirname(__DIR__),

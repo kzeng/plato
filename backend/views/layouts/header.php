@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -33,7 +34,7 @@ use yii\helpers\Html;
                                 <li><!//--// start message //--//>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
+                                            <img src="<//?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
                                                  alt="User Image"/>
                                         </div>
                                         <h4>
@@ -60,7 +61,7 @@ use yii\helpers\Html;
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
+                                            <img src="<//?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
                                                  alt="user image"/>
                                         </div>
                                         <h4>
@@ -73,7 +74,7 @@ use yii\helpers\Html;
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user3-128x128.jpg" class="img-circle"
+                                            <img src="<//?= $directoryAsset ?>/img/user3-128x128.jpg" class="img-circle"
                                                  alt="user image"/>
                                         </div>
                                         <h4>
@@ -86,7 +87,7 @@ use yii\helpers\Html;
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
+                                            <img src="<//?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
                                                  alt="user image"/>
                                         </div>
                                         <h4>
@@ -233,7 +234,7 @@ use yii\helpers\Html;
                         <!--
                         <img src="<//?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                         -->
-                        <img src="library.png" class="user-image" alt="User Image"/>
+                        <img src="<?= Url::home(true); ?>/library.png" class="user-image" alt="User Image"/>
                         <span class="hidden-xs">
                             <?php
                                 $user = common\models\User::findOne(['id' => Yii::$app->user->id]);
@@ -251,7 +252,7 @@ use yii\helpers\Html;
                             <img src="<//?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
                                  alt="User Image"/>
                             -->
-                            <img src="library.png" class="user-image" alt="User Image"/>
+                            <img src="<?= Url::home(true); ?>/library.png" class="user-image" alt="User Image"/>
 
                             <p>
                                 <!-- Alexander Pierce - Web Developer -->
