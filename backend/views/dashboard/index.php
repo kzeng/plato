@@ -9,6 +9,25 @@ use yii\grid\GridView;
 
 $this->title = '仪表盘';
 ?>
+<!-- 
+colors: {
+    lightBlue: "#3c8dbc",
+    red: "#f56954",
+    green: "#00a65a",
+    aqua: "#00c0ef",
+    yellow: "#f39c12",
+    blue: "#0073b7",
+    navy: "#001F3F",
+    teal: "#39CCCC",
+    olive: "#3D9970",
+    lime: "#01FF70",
+    orange: "#FF851B",
+    fuchsia: "#F012BE",
+    purple: "#8E24AA",
+    maroon: "#D81B60",
+    black: "#222222",
+    gray: "#d2d6de"
+  }, -->
 
 <!-- Main content -->
 <section class="content">
@@ -81,7 +100,7 @@ $this->title = '仪表盘';
         <div class="row">
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-aqua">
+        <div class="small-box bg-teal">
         <div class="inner">
             <h3>38000</h3>
 
@@ -96,7 +115,7 @@ $this->title = '仪表盘';
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-green">
+        <div class="small-box bg-maroon">
         <div class="inner">
             <h3>200</h3>
 
@@ -126,7 +145,7 @@ $this->title = '仪表盘';
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-red">
+        <div class="small-box bg-aqua">
         <div class="inner">
             <h3>30</h3>
 
@@ -191,7 +210,7 @@ $this->title = '仪表盘';
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-red">
+        <div class="small-box bg-olive">
         <div class="inner">
             <h3>100</h3>
 

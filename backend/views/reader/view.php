@@ -43,6 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= DetailView::widget([
         'model' => $model,
+        //'options' => ['class' => 'table table-striped table-bordered detail-view'],    
+        //'template' => '<tr><th style="width: 160px;">{label}</th><td>{value}</td></tr>', 
         'attributes' => [
             'id',
             'card_number',
@@ -75,19 +77,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'address',
             // 'library_id',
             // 'user_id',
-            [
-                'label' => '图书馆ID',
-                'value' => Library::getLibraryTitle($model),
-                'format'=> 'html',
-            ],
-            [
-                'label' => '操作员ID',
-                'value' => User1::getUser1Username($model),
-                'format'=> 'html',
-            ],
+            // [
+            //     'label' => '图书馆ID',
+            //     'value' => Library::getLibraryTitle($model),
+            //     'format'=> 'html',
+            // ],
+            // [
+            //     'label' => '操作员ID',
+            //     'value' => User1::getUser1Username($model),
+            //     'format'=> 'html',
+            // ],
 
-            'created_at:datetime',
-            'updated_at:datetime',
+            // 'created_at:datetime',
+            // 'updated_at:datetime',
             //'status',
         ],
     ]) ?>
@@ -167,7 +169,7 @@ $this->params['breadcrumbs'][] = $this->title;
             });
         });
 
-        
+
 
             
     });//end of document ready

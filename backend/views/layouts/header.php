@@ -258,18 +258,29 @@ use yii\helpers\Url;
                                 <!-- Alexander Pierce - Web Developer -->
                                 <?php
                                     if(!empty($user))
-                                        echo $user->username;
+                                    {
+                                        //echo $user->username;
+                                        $library = common\models\Library::findOne(['id' => $user->library_id]);
+                                        echo !empty($library) ? $library->title : "N/A";
+                                    }  
                                     else
                                         echo "N/A";
                                 ?>
-
+                                <br><br>
                                 <!-- <small>Member since Nov. 2012</small> -->
-                                <small>创建于: 
+                                <small>
                                 <?php
+                                    //if(!empty($user))
+                                    //    echo '管理员:'.$user->username. "<br>";
+                                    //else
+                                    //    echo '管理员:'."N/A";
+
                                     if(!empty($user))
-                                        echo date("Y-m-d", $user->created_at);
+                                        echo '创建于:'.date("Y-m-d", $user->created_at) ;
                                     else
-                                        echo "N/A";
+                                        echo '创建于:'."N/A";
+
+                                    
                                 ?>
                                 </small>
                             </p>
