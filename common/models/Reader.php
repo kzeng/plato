@@ -148,5 +148,22 @@ class Reader extends \yii\db\ActiveRecord
     }
 
 
+        
+    public static function setCardStatusAjax($id,$card_status)
+    {
+        $reader = self::findOne(['id' => $id]);
+        if(empty($reader))
+        {
+            U::W("----------$reader is null--------");
+            return \yii\helpers\Json::encode(['code' => 1]);
+        }
+
+        $reader->card_status = $card_status;
+        $reader->save(false);
+        return \yii\helpers\Json::encode(['code' => 0]);
+    }
+
+
+    
 
 }

@@ -7,6 +7,8 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 
+use yii\helper\Url;
+
 /**
  * Site controller
  */
@@ -26,7 +28,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'siteajax'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -98,4 +100,12 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
+
+    public function actionSiteajax($args) {
+        $args = json_decode($args, true);
+        return call_user_func_array(array($args['classname'], $args['funcname']), $args['params']);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\DetailView;
 use common\models\Reader;
 use common\models\Library;
@@ -29,11 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <span class="pull-right">
-        <?= Html::a('挂失', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('解除挂失', ['update', 'id' => $model->id], ['class' => 'btn btn-danger']) ?>
-        <?= Html::a('换证', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('缴纳预付款', ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('证件注销', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <button type="button" class="btn btn-danger" id="gs">挂失</button>
+        <button type="button" class="btn btn-success" id="jcgs">解除挂失</button>
+        <button type="button" class="btn btn-primary" id="hz">换证</button>
+        <button type="button" class="btn btn-primary" id="jnyfj">缴纳预付款</button>
+        <button type="button" class="btn btn-primary" id="zjzx">证件注销</button>
+
         </span>
     </p>
 
@@ -91,3 +93,82 @@ $this->params['breadcrumbs'][] = $this->title;
     ]) ?>
 
 </div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $('#gs').click (function () {
+            // alert('confirmAjax');
+            // if (!confirm("确定要发布吗?"))
+            //     return;
+            var args = {
+                'classname':    '\\common\\models\\Reader',
+                'funcname':     'setCardStatusAjax',
+                'params':       {
+                    'id': '<?= $model->id ?>',
+                    'card_status': 0,
+                }
+            };
+            $.ajax({
+                url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
+                type:       "GET",
+                cache:      false,
+                dataType:   "json",
+                data:       "args=" + JSON.stringify(args),
+                success:    function(ret) { 
+                    if (0 === ret['code']) 
+                    {
+                        alert("证件已经成功挂失！");
+                        location.href = '<?= Url::to() ?>';
+                    } 
+                    else
+                    {
+                            alert("error");
+                    }
+                },                        
+                error:      function(){
+                    alert('发送失败。');
+                }
+            });
+        });
+
+        $('#jcgs').click (function () {
+            var args = {
+                'classname':    '\\common\\models\\Reader',
+                'funcname':     'setCardStatusAjax',
+                'params':       {
+                    'id': '<?= $model->id ?>',
+                    'card_status': 1,
+                }
+            };
+            $.ajax({
+                url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
+                type:       "GET",
+                cache:      false,
+                dataType:   "json",
+                data:       "args=" + JSON.stringify(args),
+                success:    function(ret) { 
+                    if (0 === ret['code']) 
+                    {
+                        alert("证件已经成功解除挂失！");
+                        location.href = '<?= Url::to() ?>';
+                    } 
+                    else
+                    {
+                            alert("error");
+                    }
+                },                        
+                error:      function(){
+                    alert('发送失败。');
+                }
+            });
+        });
+
+        
+
+            
+    });//end of document ready
+</script>
