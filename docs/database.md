@@ -38,7 +38,7 @@ created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
 
-
+---
 #### 读者 `reader`
 > 记录读者信息
 
@@ -55,6 +55,25 @@ gender      |int    |11     |否     |-     |性别
 deposit      |decimal    |2     |否     |-     |押金(元)
 mobile      |string    |32     |是     |-     |电话
 address      |string    |128     |是     |-     |地址
+library_id      |int    |11     |否     |-     |图书馆ID
+user_id      |int    |11     |否     |-     |操作员ID
+created_at       |int    |11     |否     |-     |创建时间
+updated_at       |int    |11     |否     |-     |更新时间
+status       |int    |11     |否     |-     |状态, 默认值1
+
+
+---
+#### 借还书表 `borrow_return_books`
+> 记录借还书信息
+
+字段名|数据类型|长度|可空|主键|注释
+-----|-----|-----|-----|-----|-----|
+id      |int    |11     |否     |是     |主键ID
+reader_id      |int    |11     |否     |-     |读者ID
+card_number      |string    |64     |否     |-     |卡号
+reader_name      |string    |64     |否     |-     |姓名
+bar_code      |strind    |128     |否     |-     |条码号
+operation      |int    |11     |否     |-     |借还书操作0还1借
 library_id      |int    |11     |否     |-     |图书馆ID
 user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间

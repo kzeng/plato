@@ -32,9 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <span class="pull-right">
         <button type="button" class="btn btn-danger" id="gs">挂失</button>
         <button type="button" class="btn btn-success" id="jcgs">解除挂失</button>
-        <button type="button" class="btn btn-primary" id="hz">换证</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">换证</button>
         <button type="button" class="btn btn-primary" id="jnyfj">缴纳预付款</button>
-        <button type="button" class="btn btn-primary" id="zjzx">证件注销</button>
+        <button type="button" class="btn btn-danger" id="zjzx">证件注销</button>
 
         </span>
     </p>
@@ -96,6 +96,29 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
+<!-- 换证弹出窗口 -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="hzModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">换证</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group field-reader-card_number">
+                    <input type="text" id="modal-card_number" class="form-control" name="modal-card_number" maxlength="32" placeholder="读者证卡号">
+                    <div class="help-block"></div>
+                </div>
+                </div><!-- endof modal-body-->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="hz">确定</button>
+            </div>
+        </div><!-- endof modal-content-->
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -169,6 +192,37 @@ $this->params['breadcrumbs'][] = $this->title;
             });
         });
 
+        $('#hz').click (function () {
+            var args = {
+                'classname':    '\\common\\models\\Reader',
+                'funcname':     'setCardNumberAjax',
+                'params':       {
+                    'id': '<?= $model->id ?>',
+                    'card_number': $('#modal-card_number').val(),
+                }
+            };
+            $.ajax({
+                url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
+                type:       "GET",
+                cache:      false,
+                dataType:   "json",
+                data:       "args=" + JSON.stringify(args),
+                success:    function(ret) { 
+                    if (0 === ret['code']) 
+                    {
+                        alert("证件已经成功换号！");
+                        location.href = '<?= Url::to() ?>';
+                    } 
+                    else
+                    {
+                            alert("error");
+                    }
+                },                        
+                error:      function(){
+                    alert('发送失败。');
+                }
+            });
+        });
 
 
             

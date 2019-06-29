@@ -182,6 +182,20 @@ class m190624_130433_all_init extends Migration
         ], $tableOptions);
         $this->addCommentOnTable('{{%reading_room}}', '阅览室表');
         //-----------------------------------------------------------------------------
+        Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%reading_room_checkin}}")->execute();
+        $this->createTable('{{%reading_room_checkin}}', [
+            'id' => $this->primaryKey(),
+            'reader_id' => $this->integer()->notNull()->comment('读者ID'),
+            'card_number' => $this->string(64)->notNull()->comment('读者证卡号'),
+            'reading_room_id' => $this->integer()->notNull()->comment('阅览室ID'),
+            'library_id' => $this->integer()->notNull()->comment('图书馆ID'),
+            'user_id' => $this->integer()->notNull()->defaultValue(1)->comment('操作员ID'),
+            'created_at' => $this->integer()->comment('创建时间'),
+            'updated_at' => $this->integer()->comment('更新时间'),
+            'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
+        ], $tableOptions);
+        $this->addCommentOnTable('{{%reading_room_checkin}}', '阅览室签到表');
+        //-----------------------------------------------------------------------------
         Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%violation_type}}")->execute();
         $this->createTable('{{%violation_type}}', [
             'id' => $this->primaryKey(),
@@ -555,11 +569,11 @@ class m190624_130433_all_init extends Migration
         echo "\n insert demo data into reader, ok\n";
 
         //payment_of_debt
-        $user = common\models\Reader::find()->all();
+        $reader = common\models\Reader::find()->all();
         for ($i = 0; $i < 30; $i++) {
             $model = new common\models\PaymentOfDebt();
-            $model->card_number = $user[$i]->card_number;
-            $model->reader_name = $user[$i]->reader_name;
+            $model->card_number = $reader[$i]->card_number;
+            $model->reader_name = $reader[$i]->reader_name;
             $model->violation_type_id = rand(1,3);
             $model->payment_status = rand(0,1);
             $model->penalty = rand(100,200);
@@ -572,6 +586,24 @@ class m190624_130433_all_init extends Migration
             $model->save(false);
         }
         echo "\n insert demo data into payment_of_debt, ok\n";
+
+
+        //reading_room_checkin 江夏区图书馆数据50条
+        $readers = common\models\Reader::find()->where(['library_id' => 1])->limit(50)->all();
+        foreach($readers as $reader)
+        {
+            $model = new common\models\ReadingRoomCheckin();
+            $model->reader_id = $reader->id;
+            $model->card_number = $reader->card_number;
+            $model->reading_room_id = rand(1,3);
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $model->status = 10;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save(false);
+        }
+        echo "\n insert demo data into reading_room_checkin, ok\n";
 
 
     }

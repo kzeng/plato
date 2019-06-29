@@ -4,16 +4,16 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Book */
+/* @var $model common\models\ReadingRoomCheckin */
 
-// $this->title = $model->title;
-$this->title = "图书信息";
+//$this->title = $model->id;
 
-$this->params['breadcrumbs'][] = ['label' => '图书', 'url' => ['index']];
+$this->title = '阅览室签到信息';
+$this->params['breadcrumbs'][] = ['label' => '阅览室签到管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="book-view">
+<div class="reading-room-checkin-view">
 
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -30,20 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            'isbn',
-            'author',
-            'price',
-            'class_number',
-            'call_number',
-            'publisher',
-            'publication_place',
-            'publish_date',
-            'series_title',
+            'reader_id',
+            'card_number',
+            'reading_room_id',
             // 'library_id',
             // 'user_id',
-            // 'created_at:datetime',
-            // 'updated_at:datetime',
+            'created_at',
+            //'updated_at',
             //'status',
         ],
     ]) ?>

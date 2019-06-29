@@ -65,6 +65,7 @@
                         'items' => [
                             ['label' => '借还书管理', 'icon' => 'check', 'url' => ['/borrow-return-books']],
                             ['label' => '阅读室管理', 'icon' => 'check', 'url' => ['/reading-room']],
+                            ['label' => '阅读室签到', 'icon' => 'check', 'url' => ['/reading-room-checkin']],
                         ],
                     ],
 
