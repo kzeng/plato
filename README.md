@@ -3,9 +3,7 @@
 ##  项目描述
 智慧云图书馆： 能支撑智慧图书馆服务体系的图书馆管理与服务平台。
 
-
-![仪表盘](https://raw.githubusercontent.com/kzeng/plato/master/docs/home1.png)
-
+![仪表盘](https://s2.ax1x.com/2019/06/29/ZQcFw8.png)
 
 ## 系统功能概述
 
