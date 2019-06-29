@@ -552,7 +552,7 @@ class m190624_130433_all_init extends Migration
             $model->card_number = $faker->creditCardNumber;
             $model->card_status = 1;
             $model->reader_name = $faker->name;
-            $model->validity = strtotime("20300808 23:00:01");
+            $model->validity = strtotime("2025-12-31 00:00:00");
             $model->id_card = "123456789012345000".$i;
             $model->reader_type_id = rand(0,2);
             $model->gender = rand(0,1);

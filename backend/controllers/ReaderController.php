@@ -71,6 +71,8 @@ class ReaderController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             $user = User1::findOne(['id' => Yii::$app->user->id]);
+
+            $model->validity = strtotime($model->validity);
             $model->library_id = $user->library_id;
             $model->user_id = $user->id;
             $model->status = 10;
@@ -98,6 +100,8 @@ class ReaderController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             $user = User1::findOne(['id' => Yii::$app->user->id]);
+
+            $model->validity = strtotime($model->validity);
             $model->library_id = $user->library_id;
             $model->user_id = $user->id;
             $model->status = 10;

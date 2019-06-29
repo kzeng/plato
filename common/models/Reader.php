@@ -180,7 +180,7 @@ class Reader extends \yii\db\ActiveRecord
         return \yii\helpers\Json::encode(['code' => 0]);
     }
 
-    
+
 
 
 
