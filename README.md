@@ -48,7 +48,7 @@
 * 借阅排行榜
 
 ### Gallery
-![仪表盘](https://github.com/kzeng/plato/blob/master/docs/home1.png)
+![仪表盘](home1.png)
 
 
 ---
