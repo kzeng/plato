@@ -28,14 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        &nbsp;&nbsp;&nbsp;&nbsp;
+
         <span class="pull-right">
         <button type="button" class="btn btn-danger" id="gs">挂失</button>
         <button type="button" class="btn btn-success" id="jcgs">解除挂失</button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">换证</button>
         <button type="button" class="btn btn-primary" id="jnyfj">缴纳预付款</button>
         <button type="button" class="btn btn-danger" id="zjzx">证件注销</button>
-
         </span>
     </p>
 

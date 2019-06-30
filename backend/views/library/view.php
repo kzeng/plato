@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\Library;
+use common\models\User1;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Library */
@@ -36,8 +38,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_id',
             'created_at:datetime',
             'updated_at:datetime',
+                        
             //'status',
-            'pid',
+            //'pid',
         ],
     ]) ?>
 

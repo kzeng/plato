@@ -44,7 +44,6 @@ class HelloController extends Controller
             $class_number = iconv('GBK', 'UTF-8//IGNORE', trim($fields[7]));
             $call_number = iconv('GBK', 'UTF-8//IGNORE', trim($fields[8]));
 
-            $copy_number = 10;
             //-------------------------------------------
             $book = new Book();
             $book->title = $title;
@@ -58,7 +57,7 @@ class HelloController extends Controller
             $book->publish_date = $publish_date;
             $book->class_number = $class_number;
             $book->call_number = $call_number;
-            $book->copy_number = $copy_number;
+            $book->copy_number = 0;
             $book->series_title = '-';
             $book->created_at = time();
             $book->updated_at = time();

@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'publisher',
             //'publication_place',
             'publish_date',
+            'copy_number',
             //'series_title',
             //'library_id',
             //'user_id',

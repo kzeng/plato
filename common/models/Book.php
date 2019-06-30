@@ -18,6 +18,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $price 价格(元)
  * @property string $class_number 分类号
  * @property string $call_number 索书号
+ * @property int copy_number 副本数
  * @property string $publisher 出版社
  * @property string $publication_place 出版地
  * @property string $publish_date 出版年月

@@ -67,8 +67,8 @@ class User1 extends \yii\db\ActiveRecord
             'password_reset_token' => 'Password Reset Token',
             'email' => '邮箱',
             'status' => '状态',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'created_at' => '创建时间t',
+            'updated_at' => '更新时间',
             'verification_token' => 'Verification Token',
             'mobile' => '电话',
             'library_id' => '分配至图书馆',
@@ -104,6 +104,13 @@ class User1 extends \yii\db\ActiveRecord
         $user =  self::findOne(['id' => $model->user_id]);
         return $user->username;
     }
+
+
+    public function getLibraryModel()
+    {
+        return $this->hasOne(Library::className(), ['id' => 'library_id']);
+    }
     
+
 
 }

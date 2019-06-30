@@ -116,6 +116,7 @@ author      |string    |64     |否     |-     |作者
 price      |decimal    |2     |-     |-     |价格(元)
 class_number      |string    |64     |-     |-     |分类号
 call_number       |string    |64     |-     |-     |索书号
+book_copy_number       |int    |11     |否     |-     |复本数
 publisher      |string    |64     |-     |-     |出版社
 publication_place     |string    |64     |-     |-     |出版地
 publish_date     |string    |64     |-     |-     |出版年月
