@@ -431,7 +431,7 @@ class m190624_130433_all_init extends Migration
 
 
         //bookseller
-        for ($i = 1; $i < 51; $i++) {
+        for ($i = 1; $i < 9; $i++) {
             $model = new common\models\Bookseller();
             $model->title = $faker->company;
             $model->address = $faker->address;
@@ -462,7 +462,7 @@ class m190624_130433_all_init extends Migration
         echo "\n insert demo data into reading_room, ok";
   
         //collection_place
-        for ($i = 1; $i < 51; $i++) {
+        for ($i = 1; $i < 9; $i++) {
             $model = new common\models\CollectionPlace();
             $model->title = '勤学楼80'.$i.'室';
             $model->description = '图书馆馆藏地点';
@@ -476,7 +476,7 @@ class m190624_130433_all_init extends Migration
         echo "\n insert demo data into collection_place, ok\n";
         
         //violation_type
-        for ($i = 10; $i < 16; $i++) {
+        for ($i = 10; $i < 9; $i++) {
             $model = new common\models\ViolationType();
             $model->title = '逾期不还欠费达' .$i. '元者';
             $model->description = '不可再借';

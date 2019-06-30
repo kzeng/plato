@@ -89,4 +89,69 @@ class Book extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+
+    static function getCollectionPlace($id)
+    {
+        $book = Book::findOne(['id' => $id]);
+        $collect_places = CollectionPlace::find()->where(['library_id' => $book->library_id])->all();
+
+        $rep = "<select id=\"collect_place\" class=\"form-control\">";
+
+        foreach($collect_places as $collect_place)
+        {
+            $rep = $rep."<option value=".$collect_place->id.">".$collect_place->title."</option>";
+        }
+        $rep = $rep."</select>";
+        return $rep;
+    }
+
+    static function getBookseller($id)
+    {
+        $book = Book::findOne(['id' => $id]);
+        $booksellers = Bookseller::find()->where(['library_id' => $book->library_id])->all();
+
+        $rep = "<select id=\"bookseller\" class=\"form-control\">";
+
+        foreach($booksellers as $bookseller)
+        {
+            $rep = $rep."<option value=".$bookseller->id.">".$bookseller->title."</option>";
+        }
+        $rep = $rep."</select>";
+        return $rep;
+    }
+
+    static function getCirculationType($id)
+    {
+        $book = Book::findOne(['id' => $id]);
+        $circulation_types = CirculationType::find()->where(['library_id' => $book->library_id])->all();
+
+        $rep = "<select id=\"bookseller\" class=\"form-control\">";
+
+        foreach($circulation_types as $circulation_type)
+        {
+            $rep = $rep."<option value=".$circulation_type->id.">".$circulation_type->title."</option>";
+        }
+        $rep = $rep."</select>";
+        return $rep;
+    }
+    
+
+    public static function setAddBookCopyAjax($id,$card_number)
+    {
+        $reader = self::findOne(['id' => $id]);
+        if(empty($reader))
+        {
+            //U::W("----------$reader is null--------");
+            return \yii\helpers\Json::encode(['code' => 1]);
+        }
+        // 注意！
+        // 此处应该有对该读者业务相关内容的判断
+        // 如有欠款，有未还书籍，不允许换号，返回自定义错误码
+
+        $reader->card_number = $card_number;
+        $reader->save(false);
+        return \yii\helpers\Json::encode(['code' => 0]);
+    }
+    
+
 }
