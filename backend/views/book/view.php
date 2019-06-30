@@ -67,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="gridSystemModalLabel">添加副本, 图书ID:<?= $model->id ?></h4>
+                <h4 class="modal-title" id="gridSystemModalLabel">添加副本, 图书ID:<?= $model->id ?>, 题名:<?= $model->title ?></h4>
             </div>
             <div class="modal-body">
 
@@ -156,7 +156,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'funcname':     'setAddBookCopyAjax',
                 'params':       {
                     'id': '<?= $model->id ?>',
-                    'card_status': 0,
+                    //'card_status': 0,
                 }
             };
             $.ajax({

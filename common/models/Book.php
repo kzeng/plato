@@ -134,22 +134,13 @@ class Book extends \yii\db\ActiveRecord
         $rep = $rep."</select>";
         return $rep;
     }
-    
+
 
     public static function setAddBookCopyAjax($id,$card_number)
     {
-        $reader = self::findOne(['id' => $id]);
-        if(empty($reader))
-        {
-            //U::W("----------$reader is null--------");
-            return \yii\helpers\Json::encode(['code' => 1]);
-        }
-        // 注意！
-        // 此处应该有对该读者业务相关内容的判断
-        // 如有欠款，有未还书籍，不允许换号，返回自定义错误码
+        //todo ...
 
-        $reader->card_number = $card_number;
-        $reader->save(false);
+
         return \yii\helpers\Json::encode(['code' => 0]);
     }
     
