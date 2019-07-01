@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+use common\models\ReadingRoomCheckin;
 /* @var $this yii\web\View */
 /* @var $model common\models\ReadingRoomCheckin */
 
@@ -32,10 +33,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'reader_id',
             'card_number',
-            'reading_room_id',
+            //'reading_room_id',
+            [
+                'label' => '阅览室',
+                'value' => ReadingRoomCheckin::getReadingRoom($model),
+                'format'=> 'html',
+            ],
+
             // 'library_id',
             // 'user_id',
-            'created_at',
+            'created_at:datetime',
             //'updated_at',
             //'status',
         ],

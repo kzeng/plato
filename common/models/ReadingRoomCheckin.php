@@ -51,9 +51,37 @@ class ReadingRoomCheckin extends \yii\db\ActiveRecord
             'reading_room_id' => '阅览室ID',
             'library_id' => '图书馆ID',
             'user_id' => '操作员ID',
-            'created_at' => '创建时间',
+            'created_at' => '签到时间',
             'updated_at' => '更新时间',
             'status' => '状态',
         ];
     }
+
+
+    static function getReadingRoomOption($key=null)
+    {
+        $user = User1::findOne(['id' => Yii::$app->user->id]);
+        $reading_rooms = ReadingRoom::find()->where(['library_id' => $user->library_id])->asArray()->all();    
+
+        if(empty($reading_rooms))
+        {
+            $arr[0] = "未定义";
+        }
+        else
+        {
+            foreach ($reading_rooms as $reading_room) {
+                $value = $reading_room['id'];
+                $arr[$value] = "{$reading_room['title']}";
+            }
+        }
+
+        return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+
+    static function getReadingRoom($model)
+    {
+        return self::getReadingRoomOption($model->reading_room_id);
+    }
+
+
 }
