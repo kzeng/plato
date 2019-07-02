@@ -554,7 +554,7 @@ class m190624_130433_all_init extends Migration
             $model->reader_name = $faker->name;
             $model->validity = strtotime("2025-12-31 00:00:00");
             $model->id_card = "123456789012345000".$i;
-            $model->reader_type_id = rand(0,2);
+            $model->reader_type_id = rand(1,3);
             $model->gender = rand(0,1);
             $model->deposit = 100;
             $model->mobile = $faker->phoneNumber;
