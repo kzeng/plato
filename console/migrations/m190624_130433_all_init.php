@@ -323,7 +323,7 @@ class m190624_130433_all_init extends Migration
         $user->library_id = 0;
         $user->user_id = 0;
         $user->pid = 0;
-        $user->status = 10;
+        $user->status = 1;
         $user->created_at = time();
         $user->updated_at = time();
         $user->save();
@@ -440,7 +440,7 @@ class m190624_130433_all_init extends Migration
             $model->discount = 0.85;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -454,7 +454,7 @@ class m190624_130433_all_init extends Migration
             $model->description = '图书馆阅读室';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -468,7 +468,7 @@ class m190624_130433_all_init extends Migration
             $model->description = '图书馆馆藏地点';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -482,7 +482,7 @@ class m190624_130433_all_init extends Migration
             $model->description = '不可再借';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -498,7 +498,7 @@ class m190624_130433_all_init extends Migration
             $model->description =  $description[$i];
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -514,7 +514,7 @@ class m190624_130433_all_init extends Migration
             $model->max_debt_limit = 100;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -539,7 +539,7 @@ class m190624_130433_all_init extends Migration
         //     $model->series_title = "";
         //     $model->library_id = 1;
         //     $model->user_id = rand(2,7);
-        //     $model->status = 10;
+        //     $user->status = 1;
         //     $model->created_at = time();
         //     $model->updated_at = time();
         //     $model->save();
@@ -561,7 +561,7 @@ class m190624_130433_all_init extends Migration
             $model->address = $faker->address;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save(false);
@@ -580,7 +580,7 @@ class m190624_130433_all_init extends Migration
             $model->description = "";
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save(false);
@@ -598,7 +598,7 @@ class m190624_130433_all_init extends Migration
             $model->reading_room_id = rand(1,3);
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save(false);

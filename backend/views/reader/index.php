@@ -86,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'user_id',
             //'created_at',
             //'updated_at',
-            //'status',
+            'status',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
