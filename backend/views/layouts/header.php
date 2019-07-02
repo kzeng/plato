@@ -261,7 +261,7 @@ use yii\helpers\Url;
                                     {
                                         //echo $user->username;
                                         $library = common\models\Library::findOne(['id' => $user->library_id]);
-                                        echo !empty($library) ? $library->title : "N/A";
+                                        echo !empty($library) ? $library->title : "总馆";
                                     }  
                                     else
                                         echo "N/A";

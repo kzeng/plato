@@ -323,7 +323,7 @@ class m190624_130433_all_init extends Migration
         $user->library_id = 0;
         $user->user_id = 0;
         $user->pid = 0;
-        $user->status = 1;
+        $user->status = 10;
         $user->created_at = time();
         $user->updated_at = time();
         $user->save();
