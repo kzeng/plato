@@ -42,7 +42,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <div class="reading-room-form">
-        <form id="w0">
             <div class="form-group field-readingroom-card_number">
                 <label class="control-label" for="readingroom-card_number">读者证号</label>
                 <input type="text" id="readingroom-card_number" class="form-control" maxlength="64">
@@ -50,14 +49,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="help-block"></div>
             </div>
             <div class="form-group">
-                <button class="btn btn-success" id="checkin">签到</button>
+                <button class="btn btn-success btn-lg" id="checkin">
+                    <i class="fa fa-calendar-check-o"></i> 签到
+                </button>
 
-                <a  class="btn btn-primary" href="<?= Yii::$app->request->getHostInfo() ?>/reading-room-checkin?ReadingRoomCheckinSearch[reading_room_id]=<?= $model->id ?>&sort=-id">
-                    浏览阅览室签到表
+                <a  class="btn btn-primary btn-lg pull-right" href="<?= Yii::$app->request->getHostInfo() ?>/reading-room-checkin?ReadingRoomCheckinSearch[reading_room_id]=<?= $model->id ?>&sort=-id">
+                <i class="fa fa-eye"></i> 浏览阅览室签到表
                 </a>
 
             </div>
-        </form>
     </div>
 
 </div>
@@ -73,7 +73,6 @@ $this->params['breadcrumbs'][] = $this->title;
             // alert('confirmAjax');
             // if (!confirm("确定要发布吗?"))
             //     return;
-            url = "<?= Url::remember(); ?>"
             var args = {
                 'classname':    '\\common\\models\\ReadingRoom',
                 'funcname':     'setCheckinAjax',
@@ -94,11 +93,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     if (0 === ret['code']) 
                     {
                         alert("签到成功！");
-                        location.href = '<?= Url::previous(); ?>';
-                    } 
+                        //location.href = '<//?= Url::to() ?>';
+                        $("#readingroom-card_number").val('');
+                        $("#readingroom-card_number").focus();
+
+                    }
                     else
                     {
-                            alert("error");
+                        alert("error");
                     }
                 },                        
                 error:      function(){
