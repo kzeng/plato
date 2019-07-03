@@ -162,7 +162,6 @@ class Reader extends \yii\db\ActiveRecord
         return \yii\helpers\Json::encode(['code' => 0]);
     }
 
-
     public static function setCardNumberAjax($id,$card_number)
     {
         $reader = self::findOne(['id' => $id]);

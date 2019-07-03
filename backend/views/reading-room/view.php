@@ -50,9 +50,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="help-block"></div>
             </div>
             <div class="form-group">
-                <button class="btn btn-success">签到</button>
+                <button class="btn btn-success" id="checkin">签到</button>
 
-                <a class="btn btn-primary" href="<?= Yii::$app->request->getHostInfo() ?>/reading-room-checkin?ReadingRoomCheckinSearch[reading_room_id]=<?= $model->id ?>">
+                <a  class="btn btn-primary" href="<?= Yii::$app->request->getHostInfo() ?>/reading-room-checkin?ReadingRoomCheckinSearch[reading_room_id]=<?= $model->id ?>&sort=-id">
                     浏览阅览室签到表
                 </a>
 
@@ -61,3 +61,52 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 </div>
+
+
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $('#checkin').click (function () {
+            // alert('confirmAjax');
+            // if (!confirm("确定要发布吗?"))
+            //     return;
+            url = "<?= Url::remember(); ?>"
+            var args = {
+                'classname':    '\\common\\models\\ReadingRoom',
+                'funcname':     'setCheckinAjax',
+                'params':       {
+                    'card_number': $("#readingroom-card_number").val(),
+                    'library_id': '<?= $model->library_id ?>',
+                    'reading_room_id': '<?= $model->id ?>',
+                    'user_id': '<?= $model->user_id ?>',
+                }
+            };
+            $.ajax({
+                url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
+                type:       "GET",
+                cache:      false,
+                dataType:   "json",
+                data:       "args=" + JSON.stringify(args),
+                success:    function(ret) { 
+                    if (0 === ret['code']) 
+                    {
+                        alert("签到成功！");
+                        location.href = '<?= Url::previous(); ?>';
+                    } 
+                    else
+                    {
+                            alert("error");
+                    }
+                },                        
+                error:      function(){
+                    alert('发送失败。');
+                }
+            });
+        });
+
+            
+    });//end of document ready
+</script>

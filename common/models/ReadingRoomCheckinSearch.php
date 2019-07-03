@@ -40,7 +40,9 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
      */
     public function search($params)
     {
-        $query = ReadingRoomCheckin::find();
+        $query = ReadingRoomCheckin::find()->orderBy([
+            'id' => SORT_DESC,
+        ]);
 
         // add conditions that should always apply here
 
