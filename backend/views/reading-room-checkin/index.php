@@ -78,6 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter' => DateRangePicker::widget([
                     'model' => $searchModel,
+                    'presetDropdown'=>true,
                     'attribute' => 'created_at_range',
                     'pluginOptions' => [
                     'format' => 'd-m-Y',
