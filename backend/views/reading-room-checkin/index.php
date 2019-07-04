@@ -34,23 +34,26 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             //'reader_id',
             'card_number',
+            // [
+            //     'attribute' => 'reader_id',
+            //     'label' => '读者姓名',
+            //     'value'=>function ($model, $key, $index, $column) {
+            //         $reader = Reader::findOne(['id' => $model->reader_id]);
+            //         if(!empty($reader))
+            //         {
+            //             return $reader->reader_name;
+            //         }
+            //         else 
+            //         {
+            //             return "n/a";
+            //         }
+            //     },
+            //     'headerOptions' => array('style'=>'width:15%;'),
+            // ],
             [
                 'attribute' => 'reader_id',
-                'label' => '读者姓名',
-                'value'=>function ($model, $key, $index, $column) {
-                    $reader = Reader::findOne(['id' => $model->reader_id]);
-                    if(!empty($reader))
-                    {
-                        return $reader->reader_name;
-                    }
-                    else 
-                    {
-                        return "n/a";
-                    }
-                },
-                'headerOptions' => array('style'=>'width:15%;'),
+                'value'     => 'reader.reader_name',
             ],
-
             //'reading_room_id',
             [
                 'attribute' => 'reading_room_id',

@@ -17,8 +17,8 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
     public function rules()
     {
         return [
-            [['id', 'reader_id', 'reading_room_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['card_number'], 'safe'],
+            [['id', 'reading_room_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['card_number', 'reader_id'], 'safe'],
         ];
     }
 
@@ -58,10 +58,11 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
             return $dataProvider;
         }
 
+        $query->joinWith('reader');
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'reader_id' => $this->reader_id,
             'reading_room_id' => $this->reading_room_id,
             'library_id' => $this->library_id,
             'user_id' => $this->user_id,
@@ -70,7 +71,8 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'card_number', $this->card_number]);
+        $query->andFilterWhere(['like', 'card_number', $this->card_number])
+              ->andFilterWhere(['like', 'reader.reader_name', $this->reader_id]);
 
         return $dataProvider;
     }

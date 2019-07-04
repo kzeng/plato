@@ -83,5 +83,10 @@ class ReadingRoomCheckin extends \yii\db\ActiveRecord
         return self::getReadingRoomOption($model->reading_room_id);
     }
 
+    public function getReader()
+    {
+        return $this->hasOne(Reader::className(), ['id' => 'reader_id' ]);
+    }
+
 
 }
