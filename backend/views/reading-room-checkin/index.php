@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use common\models\ReadingRoomCheckin;
 use common\models\Reader;
 
+use kartik\daterange\DateRangePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\ReadingRoomCheckinSearch */
@@ -68,12 +69,21 @@ $this->params['breadcrumbs'][] = $this->title;
             //'library_id',
             //'user_id',
             //'created_at',
+
             [
                 'attribute' => 'created_at',
                 'label' => '签到时间',
                 'value'=>function ($model, $key, $index, $column) {
                     return  Yii::$app->formatter->asDateTime($model->created_at);
                 },
+                'filter' => DateRangePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'created_at_range',
+                    'pluginOptions' => [
+                    'format' => 'd-m-Y',
+                    'autoUpdateInput' => false
+                ]
+                ]),
                 'headerOptions' => array('style'=>'width:30%;'),
             ],
             //'updated_at',

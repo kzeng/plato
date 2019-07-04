@@ -11,6 +11,9 @@ use common\models\ReadingRoomCheckin;
  */
 class ReadingRoomCheckinSearch extends ReadingRoomCheckin
 {
+    public $created_at_range; 
+
+    
     /**
      * {@inheritdoc}
      */
@@ -18,7 +21,7 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
     {
         return [
             [['id', 'reading_room_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['card_number', 'reader_id'], 'safe'],
+            [['card_number', 'reader_id', 'created_at_range'], 'safe'],
         ];
     }
 
@@ -58,8 +61,13 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
             return $dataProvider;
         }
 
+        if(!empty($this->created_at_range) && strpos($this->created_at_range, '-') !== false) {
+			list($start_date, $end_date) = explode(' - ', $this->created_at_range);
+			$query->andFilterWhere(['between', 'reading_room_checkin.created_at', strtotime($start_date.' 00:00:01'), strtotime($end_date. '23:59:59')]);
+        }	
+        
         $query->joinWith('reader');
-
+ 
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
