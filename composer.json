@@ -28,7 +28,8 @@
         "kartik-v/yii2-widget-datepicker": "@dev",
         "kartik-v/yii2-widget-datetimepicker": "dev-master",
         "kartik-v/yii2-date-range": "dev-master",
-        "kartik-v/yii2-widget-typeahead": "dev-master"
+        "kartik-v/yii2-widget-typeahead": "dev-master",
+        "2amigos/yii2-tinymce-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
