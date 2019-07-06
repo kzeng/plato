@@ -82,7 +82,7 @@
 
                     [
                         'label' => '系统管理',
-                        'icon' => 'fa fa-cog',
+                        'icon' => 'gear',
                         'url' => '#',
                         'items' => [
                             ['label' => '图书馆配置',  'icon' => 'angle-double-right', 'url' => ['/library']],
