@@ -20,6 +20,10 @@ return [
         ]
     ],
     'components' => [
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'nullDisplay' => '',
+        ],        
         'request' => [
             'csrfParam' => '_csrf-backend',
             'baseUrl' => '',

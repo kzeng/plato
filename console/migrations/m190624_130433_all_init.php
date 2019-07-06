@@ -449,7 +449,7 @@ class m190624_130433_all_init extends Migration
         echo "\n insert demo data into bookseller, ok";
 
         //reading_room
-        for ($i = 1; $i < 51; $i++) {
+        for ($i = 1; $i < 21; $i++) {
             $model = new common\models\ReadingRoom();
             $model->title = $i.'号阅读室';
             $model->description = '图书馆阅读室';

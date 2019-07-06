@@ -29,10 +29,8 @@ use kartik\datetime\DateTimePicker;
         echo '<label class="control-label">有效期限</label>';
         echo DatePicker::widget([
             'name' => 'Reader[validity]',
-            'value' => Yii::$app->formatter->asDate($model->validity),
-
+            'value' => $model->validity != null ? Yii::$app->formatter->asDate($model->validity) : '',
             'options' => ['placeholder' => ''],
-
             'pluginOptions' => [
                 'autoclose' => true,
                 'format' => 'yyyy-mm-dd',
