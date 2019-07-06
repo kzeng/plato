@@ -3,8 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-use dosamigos\tinymce\TinyMce;
-
+use pendalf89\filemanager\widgets\TinyMCE;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Book */
@@ -36,10 +35,8 @@ use dosamigos\tinymce\TinyMce;
     <?= $form->field($model, 'series_title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->widget(TinyMCE::className(), [
-
-            'language' => 'zh_CN',
-
             'clientOptions' => [
+                'language' => 'zh_CN',
                 'menubar' => false,
                 //'menubar' => true,
                 'height' => 360,
@@ -52,11 +49,9 @@ use dosamigos\tinymce\TinyMce;
                 'plugins' => [
                     'advlist autolink lists link image media template textcolor colorpicker charmap print preview anchor searchreplace visualblocks code contextmenu table imagetools',
                 ],
-                'toolbar' => 'undo redo | styleselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
+                'toolbar' => 'undo redo | styleselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media| code',
             ],
-        ]); ?>   
-
-    
+        ]); ?>
 <!-- 
     <//?= $form->field($model, 'library_id')->textInput() ?>
 

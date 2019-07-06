@@ -19,6 +19,7 @@
 2. 数据库迁移命令执行顺序：
    * `yii migrate --migrationPath=@mdm/admin/migrations`  *RBAC建表*
    * `yii migrate --migrationPath=@yii/rbac/migrations` *RBAC建表*
+   * `yii migrate --migrationPath=vendor/pendalf89/yii2-filemanager/migrations` *Yii2 文件管理器*
    * `yii migrate` 图书馆系统建表
    * `yii hello/import-books-info` *导入图书DEMO信息*
 

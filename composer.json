@@ -17,19 +17,25 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "dmstr/yii2-adminlte-asset": "2.*",
+        "pendalf89/yii2-filemanager": "*",
         "mdmsoft/yii2-admin": "~2.0",
+        "kartik-v/bootstrap-fileinput": "@dev",
+        "kartik-v/bootstrap-star-rating": "@dev",
+        "kartik-v/bootstrap-tabs-x": "@dev",
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "kartik-v/yii2-tree-manager": "@dev",
+        "kartik-v/yii2-markdown": "dev-master",
         "kartik-v/yii2-widget-datepicker": "@dev",
         "kartik-v/yii2-widget-datetimepicker": "dev-master",
         "kartik-v/yii2-date-range": "dev-master",
-        "kartik-v/yii2-widget-typeahead": "dev-master",
-        "2amigos/yii2-tinymce-widget": "*"
+        "kartik-v/yii2-widget-typeahead": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
