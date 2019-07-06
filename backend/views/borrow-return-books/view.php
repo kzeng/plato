@@ -2,20 +2,17 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use common\models\Library;
-use common\models\User1;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Library */
+/* @var $model common\models\BorrowReturnBooks */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => '图书馆', 'url' => ['index']];
+// $this->title = $model->id;
+$this->title = '借还书信息';
+$this->params['breadcrumbs'][] = ['label' => '借还书管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="library-view">
-
-    <!-- <h1><//?= Html::encode($this->title) ?></h1> -->
+<div class="borrow-return-books-view">
 
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -32,15 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            'mobile',
-            'address',
+            'reader_id',
+            'card_number',
+            'bar_code',
+            'operation',
+            'library_id',
             'user_id',
             'created_at:datetime',
             'updated_at:datetime',
-                        
             //'status',
-            //'pid',
         ],
     ]) ?>
 

@@ -64,4 +64,28 @@ class ReadingRoom extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+
+
+    public static function setCheckinAjax($card_number,$library_id,$reading_room_id,$user_id)
+    {
+        $reader = Reader::findOne(['card_number' => $card_number]);
+        if(empty($reader))
+        {
+            //U::W("----------$reader is null--------");
+            return \yii\helpers\Json::encode(['code' => 1]);
+        }
+
+        $reading_room_checkin = new ReadingRoomCheckin();
+
+        $reading_room_checkin->reader_id = $reader->id;
+        $reading_room_checkin->card_number = $card_number;
+        $reading_room_checkin->reading_room_id = $reading_room_id;
+        $reading_room_checkin->library_id = $library_id;
+        $reading_room_checkin->user_id = $user_id;
+        $reading_room_checkin->created_at = time();
+        $reading_room_checkin->save(false);
+        return \yii\helpers\Json::encode(['code' => 0]);
+    }
+
+
 }

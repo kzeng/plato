@@ -182,6 +182,20 @@ class m190624_130433_all_init extends Migration
         ], $tableOptions);
         $this->addCommentOnTable('{{%reading_room}}', '阅览室表');
         //-----------------------------------------------------------------------------
+        Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%reading_room_checkin}}")->execute();
+        $this->createTable('{{%reading_room_checkin}}', [
+            'id' => $this->primaryKey(),
+            'reader_id' => $this->integer()->notNull()->comment('读者ID'),
+            'card_number' => $this->string(64)->notNull()->comment('读者证卡号'),
+            'reading_room_id' => $this->integer()->notNull()->comment('阅览室ID'),
+            'library_id' => $this->integer()->notNull()->comment('图书馆ID'),
+            'user_id' => $this->integer()->notNull()->defaultValue(1)->comment('操作员ID'),
+            'created_at' => $this->integer()->comment('创建时间'),
+            'updated_at' => $this->integer()->comment('更新时间'),
+            'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
+        ], $tableOptions);
+        $this->addCommentOnTable('{{%reading_room_checkin}}', '阅览室签到表');
+        //-----------------------------------------------------------------------------
         Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%violation_type}}")->execute();
         $this->createTable('{{%violation_type}}', [
             'id' => $this->primaryKey(),
@@ -271,6 +285,22 @@ class m190624_130433_all_init extends Migration
             'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
         ], $tableOptions);
         $this->addCommentOnTable('{{%call_number_rules}}', '索书号规则表');     
+        //-----------------------------------------------------------------------------
+        Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%borrow_return_books}}")->execute();
+        $this->createTable('{{%borrow_return_books}}', [
+            'id' => $this->primaryKey(),
+            'reader_id' => $this->integer()->notNull()->comment('名称'),
+            'card_number' => $this->string(64)->notNull()->comment('卡号'),
+            'bar_code' => $this->string(128)->notNull()->comment('条码号'),
+            'operation' => $this->integer()->notNull()->comment('借还操作:1借，0还'),
+            'library_id' => $this->integer()->notNull()->comment('图书馆ID'),
+            'user_id' => $this->integer()->notNull()->defaultValue(1)->comment('操作员ID'),
+            'created_at' => $this->integer()->comment('创建时间'),
+            'updated_at' => $this->integer()->comment('更新时间'),
+            'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
+        ], $tableOptions);
+        $this->addCommentOnTable('{{%borrow_return_books}}', '借还书表');     
+        //-----------------------------------------------------------------------------
         
         if (Console::confirm('Seed demo data?', true)) {
             $this->seed();
@@ -401,7 +431,7 @@ class m190624_130433_all_init extends Migration
 
 
         //bookseller
-        for ($i = 1; $i < 51; $i++) {
+        for ($i = 1; $i < 9; $i++) {
             $model = new common\models\Bookseller();
             $model->title = $faker->company;
             $model->address = $faker->address;
@@ -410,7 +440,7 @@ class m190624_130433_all_init extends Migration
             $model->discount = 0.85;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -424,7 +454,7 @@ class m190624_130433_all_init extends Migration
             $model->description = '图书馆阅读室';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -432,13 +462,13 @@ class m190624_130433_all_init extends Migration
         echo "\n insert demo data into reading_room, ok";
   
         //collection_place
-        for ($i = 1; $i < 51; $i++) {
+        for ($i = 1; $i < 9; $i++) {
             $model = new common\models\CollectionPlace();
             $model->title = '勤学楼80'.$i.'室';
             $model->description = '图书馆馆藏地点';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -446,13 +476,13 @@ class m190624_130433_all_init extends Migration
         echo "\n insert demo data into collection_place, ok\n";
         
         //violation_type
-        for ($i = 10; $i < 16; $i++) {
+        for ($i = 10; $i < 9; $i++) {
             $model = new common\models\ViolationType();
             $model->title = '逾期不还欠费达' .$i. '元者';
             $model->description = '不可再借';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -468,7 +498,7 @@ class m190624_130433_all_init extends Migration
             $model->description =  $description[$i];
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -481,10 +511,10 @@ class m190624_130433_all_init extends Migration
             $model = new common\models\ReaderType();
             $model->title = $title[$i];
             $model->max_borrowing_number = rand(5,10);
-            $model->max_debt_limit = rand(100,300);
+            $model->max_debt_limit = 100;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -509,7 +539,7 @@ class m190624_130433_all_init extends Migration
         //     $model->series_title = "";
         //     $model->library_id = 1;
         //     $model->user_id = rand(2,7);
-        //     $model->status = 10;
+        //     $user->status = 1;
         //     $model->created_at = time();
         //     $model->updated_at = time();
         //     $model->save();
@@ -522,16 +552,16 @@ class m190624_130433_all_init extends Migration
             $model->card_number = $faker->creditCardNumber;
             $model->card_status = 1;
             $model->reader_name = $faker->name;
-            $model->validity = strtotime("20300808 23:00:01");
+            $model->validity = strtotime("2025-12-31 00:00:00");
             $model->id_card = "123456789012345000".$i;
-            $model->reader_type_id = rand(0,2);
+            $model->reader_type_id = rand(1,3);
             $model->gender = rand(0,1);
             $model->deposit = 100;
             $model->mobile = $faker->phoneNumber;
             $model->address = $faker->address;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save(false);
@@ -539,23 +569,41 @@ class m190624_130433_all_init extends Migration
         echo "\n insert demo data into reader, ok\n";
 
         //payment_of_debt
-        $user = common\models\Reader::find()->all();
+        $reader = common\models\Reader::find()->all();
         for ($i = 0; $i < 30; $i++) {
             $model = new common\models\PaymentOfDebt();
-            $model->card_number = $user[$i]->card_number;
-            $model->reader_name = $user[$i]->reader_name;
+            $model->card_number = $reader[$i]->card_number;
+            $model->reader_name = $reader[$i]->reader_name;
             $model->violation_type_id = rand(1,3);
             $model->payment_status = rand(0,1);
             $model->penalty = rand(100,200);
             $model->description = "";
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $model->status = 10;
+            $user->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save(false);
         }
         echo "\n insert demo data into payment_of_debt, ok\n";
+
+
+        //reading_room_checkin 江夏区图书馆数据50条
+        $readers = common\models\Reader::find()->where(['library_id' => 1])->limit(50)->all();
+        foreach($readers as $reader)
+        {
+            $model = new common\models\ReadingRoomCheckin();
+            $model->reader_id = $reader->id;
+            $model->card_number = $reader->card_number;
+            $model->reading_room_id = rand(1,3);
+            $model->library_id = 1;
+            $model->user_id = rand(2,7);
+            $user->status = 1;
+            $model->created_at = time();
+            $model->updated_at = time();
+            $model->save(false);
+        }
+        echo "\n insert demo data into reading_room_checkin, ok\n";
 
 
     }

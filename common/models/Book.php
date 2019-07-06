@@ -18,6 +18,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $price 价格(元)
  * @property string $class_number 分类号
  * @property string $call_number 索书号
+ * @property int copy_number 副本数
  * @property string $publisher 出版社
  * @property string $publication_place 出版地
  * @property string $publish_date 出版年月
@@ -88,4 +89,60 @@ class Book extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+
+    static function getCollectionPlace($id)
+    {
+        $book = Book::findOne(['id' => $id]);
+        $collect_places = CollectionPlace::find()->where(['library_id' => $book->library_id])->all();
+
+        $rep = "<select id=\"collect_place\" class=\"form-control\">";
+
+        foreach($collect_places as $collect_place)
+        {
+            $rep = $rep."<option value=".$collect_place->id.">".$collect_place->title."</option>";
+        }
+        $rep = $rep."</select>";
+        return $rep;
+    }
+
+    static function getBookseller($id)
+    {
+        $book = Book::findOne(['id' => $id]);
+        $booksellers = Bookseller::find()->where(['library_id' => $book->library_id])->all();
+
+        $rep = "<select id=\"bookseller\" class=\"form-control\">";
+
+        foreach($booksellers as $bookseller)
+        {
+            $rep = $rep."<option value=".$bookseller->id.">".$bookseller->title."</option>";
+        }
+        $rep = $rep."</select>";
+        return $rep;
+    }
+
+    static function getCirculationType($id)
+    {
+        $book = Book::findOne(['id' => $id]);
+        $circulation_types = CirculationType::find()->where(['library_id' => $book->library_id])->all();
+
+        $rep = "<select id=\"bookseller\" class=\"form-control\">";
+
+        foreach($circulation_types as $circulation_type)
+        {
+            $rep = $rep."<option value=".$circulation_type->id.">".$circulation_type->title."</option>";
+        }
+        $rep = $rep."</select>";
+        return $rep;
+    }
+
+
+    public static function setAddBookCopyAjax($id,$card_number)
+    {
+        //todo ...
+
+
+        return \yii\helpers\Json::encode(['code' => 0]);
+    }
+    
+
 }

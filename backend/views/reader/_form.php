@@ -6,7 +6,7 @@ use yii\widgets\ActiveForm;
 use common\models\Reader;
 
 use kartik\date\DatePicker;
-
+use kartik\datetime\DateTimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Reader */
@@ -24,25 +24,22 @@ use kartik\date\DatePicker;
     <?= $form->field($model, 'card_status')->dropDownList(Reader::getCardStatusOption()); ?>
 
     <?= $form->field($model, 'reader_name')->textInput(['maxlength' => true]) ?>
-<!--
-    <//?= $form->field($model, 'validity')->textInput() ?>
--->
 
-
-        <?php
-        // usage without model
-        echo '<label>有效期限</label>';
+    <?php
+        echo '<label class="control-label">有效期限</label>';
         echo DatePicker::widget([
-            'name' => 'validity', 
-            'value' => date('d-M-Y', strtotime('+2 days')),
-            'options' => ['placeholder' => '选择有效期限 ...'],
+            'name' => 'Reader[validity]',
+            'value' => Yii::$app->formatter->asDate($model->validity),
+
+            'options' => ['placeholder' => ''],
+
             'pluginOptions' => [
-                'format' => 'dd-M-yyyy',
+                'autoclose' => true,
+                'format' => 'yyyy-mm-dd',
                 'todayHighlight' => true
             ]
         ]);
-        ?>
-
+    ?>
   
     <?= $form->field($model, 'id_card')->textInput(['maxlength' => true]) ?>
 

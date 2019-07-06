@@ -41,7 +41,22 @@ class ReaderSearch extends Reader
      */
     public function search($params)
     {
-        $query = Reader::find();
+        // $query = Reader::find();
+        if(\Yii::$app->user->identity->id == 1) /*super admin*/
+        {
+            $query = Reader::find();
+        }
+        else //library employee
+        {
+            $user = User1::findOne(['id' => \Yii::$app->user->identity->id]);
+
+            $query = Reader::find()
+                    ->where([
+                                'library_id'    => $user->library_id,
+                                'status'        => 1, //有效的
+                            ]);
+        }
+        
 
         // add conditions that should always apply here
 

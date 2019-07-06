@@ -7,15 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel common\models\CallNumberRulesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Call Number Rules';
+$this->title = '索书号管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="call-number-rules-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Call Number Rules', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增索书号规则', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -24,13 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'title',
             'collection_place_ids',
             'circulation_type_ids',
-            'library_id',
+            //'library_id',
             //'user_id',
             //'created_at',
             //'updated_at',

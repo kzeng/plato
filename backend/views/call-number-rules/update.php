@@ -5,14 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\CallNumberRules */
 
-$this->title = 'Update Call Number Rules: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Call Number Rules', 'url' => ['index']];
+$this->title = '修改所属号规则: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => '索书号管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = '修改';
 ?>
 <div class="call-number-rules-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,

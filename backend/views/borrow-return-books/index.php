@@ -4,16 +4,16 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\BookSearch */
+/* @var $searchModel common\models\BorrowReturnBooksSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '图书管理';
+$this->title = '借还书管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="book-index">
+<div class="borrow-return-books-index">
 
     <p>
-        <?= Html::a('新增图书', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -23,21 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
-            [
-                'attribute' => 'id',
-                'headerOptions' => array('style'=>'width:5%;'),
-            ],
-            'title',
-            'isbn',
-            'author',
-            //'price',
-            //'class_number',
-            //'call_number',
-            'publisher',
-            //'publication_place',
-            'publish_date',
-            'copy_number',
-            //'series_title',
+
+            'id',
+            'reader_id',
+            'card_number',
+            'bar_code',
+            'operation',
             //'library_id',
             //'user_id',
             //'created_at',

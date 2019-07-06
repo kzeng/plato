@@ -8,7 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
-    'name' => 'PLATO',
+    'name' => '智慧云图书馆',
     'language' => 'zh-CN',
 
     'basePath' => dirname(__DIR__),
@@ -58,7 +58,7 @@ return [
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
-            // 'site/*',
+            //'site/*',
             // 'admin/*',
             '*',
         ]

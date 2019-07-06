@@ -2,20 +2,19 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use common\models\Library;
-use common\models\User1;
 
+use common\models\ReadingRoomCheckin;
 /* @var $this yii\web\View */
-/* @var $model common\models\Library */
+/* @var $model common\models\ReadingRoomCheckin */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => '图书馆', 'url' => ['index']];
+//$this->title = $model->id;
+
+$this->title = '阅览室签到信息';
+$this->params['breadcrumbs'][] = ['label' => '阅览室签到管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="library-view">
-
-    <!-- <h1><//?= Html::encode($this->title) ?></h1> -->
+<div class="reading-room-checkin-view">
 
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -32,15 +31,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            'mobile',
-            'address',
-            'user_id',
+            'reader_id',
+ 
+            'card_number',
+            //'reading_room_id',
+            [
+                'label' => '阅览室',
+                'value' => ReadingRoomCheckin::getReadingRoom($model),
+                'format'=> 'html',
+            ],
+
+            // 'library_id',
+            // 'user_id',
             'created_at:datetime',
-            'updated_at:datetime',
-                        
+            //'updated_at',
             //'status',
-            //'pid',
         ],
     ]) ?>
 

@@ -4,19 +4,21 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CallNumberRules */
+/* @var $model common\models\BorrowReturnBooks */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="call-number-rules-form">
+<div class="borrow-return-books-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'reader_id')->textInput() ?>
 
-    <?= $form->field($model, 'collection_place_ids')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'card_number')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'circulation_type_ids')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'bar_code')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'operation')->textInput() ?>
 
     <!-- <//?= $form->field($model, 'library_id')->textInput() ?>
 

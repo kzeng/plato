@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 use common\models\Reader;
-use common\models\ReaderType;
+
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\ReaderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -45,7 +45,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html'
             ],
 
-            'validity',
+            //'validity',
+            [
+                'attribute' => 'validity',
+                'label' => '有效期限',
+                'value'=>function ($model, $key, $index, $column) {
+                    return Yii::$app->formatter->asDate($model->validity);
+                },
+                //'filter'=> Reader::getCardStatusOption(),
+                'headerOptions' => array('style'=>'width:10%;'),
+                'format' => 'html'
+            ],
+
             'id_card',
             //'reader_type_id',
             [
@@ -75,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'user_id',
             //'created_at',
             //'updated_at',
-            //'status',
+            'status',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

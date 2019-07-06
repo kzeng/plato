@@ -3,18 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Reader;
-use common\models\ReaderSearch;
+use common\models\BorrowReturnBooks;
+use common\models\BorrowReturnBooksSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-use common\models\User1;
-
 /**
- * ReaderController implements the CRUD actions for Reader model.
+ * BorrowReturnBooksController implements the CRUD actions for BorrowReturnBooks model.
  */
-class ReaderController extends Controller
+class BorrowReturnBooksController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,12 +30,12 @@ class ReaderController extends Controller
     }
 
     /**
-     * Lists all Reader models.
+     * Lists all BorrowReturnBooks models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ReaderSearch();
+        $searchModel = new BorrowReturnBooksSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +45,7 @@ class ReaderController extends Controller
     }
 
     /**
-     * Displays a single Reader model.
+     * Displays a single BorrowReturnBooks model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -60,24 +58,15 @@ class ReaderController extends Controller
     }
 
     /**
-     * Creates a new Reader model.
+     * Creates a new BorrowReturnBooks model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Reader();
+        $model = new BorrowReturnBooks();
 
-        if ($model->load(Yii::$app->request->post())) {
-
-            $user = User1::findOne(['id' => Yii::$app->user->id]);
-
-            $model->validity = strtotime($model->validity);
-            $model->library_id = $user->library_id;
-            $model->user_id = $user->id;
-            $model->status = 10;
-            $model->save(false);
-
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -87,7 +76,7 @@ class ReaderController extends Controller
     }
 
     /**
-     * Updates an existing Reader model.
+     * Updates an existing BorrowReturnBooks model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -97,16 +86,7 @@ class ReaderController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-
-            $user = User1::findOne(['id' => Yii::$app->user->id]);
-
-            $model->validity = strtotime($model->validity);
-            $model->library_id = $user->library_id;
-            $model->user_id = $user->id;
-            $model->status = 10;
-            $model->save(false);
-
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -116,7 +96,7 @@ class ReaderController extends Controller
     }
 
     /**
-     * Deletes an existing Reader model.
+     * Deletes an existing BorrowReturnBooks model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -124,25 +104,21 @@ class ReaderController extends Controller
      */
     public function actionDelete($id)
     {
-        //soft delete only
-        //$this->findModel($id)->delete();
-        $model = $this->findModel($id);
-        $model->status = 0;
-        $model->save(false);
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Reader model based on its primary key value.
+     * Finds the BorrowReturnBooks model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Reader the loaded model
+     * @return BorrowReturnBooks the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Reader::findOne($id)) !== null) {
+        if (($model = BorrowReturnBooks::findOne($id)) !== null) {
             return $model;
         }
 

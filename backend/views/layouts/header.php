@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -7,7 +8,7 @@ use yii\helpers\Html;
 
 <header class="main-header">
 
-    <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">SCL</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top" role="navigation">
 
@@ -33,7 +34,7 @@ use yii\helpers\Html;
                                 <li><!//--// start message //--//>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
+                                            <img src="<//?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
                                                  alt="User Image"/>
                                         </div>
                                         <h4>
@@ -60,7 +61,7 @@ use yii\helpers\Html;
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
+                                            <img src="<//?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
                                                  alt="user image"/>
                                         </div>
                                         <h4>
@@ -73,7 +74,7 @@ use yii\helpers\Html;
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user3-128x128.jpg" class="img-circle"
+                                            <img src="<//?= $directoryAsset ?>/img/user3-128x128.jpg" class="img-circle"
                                                  alt="user image"/>
                                         </div>
                                         <h4>
@@ -86,7 +87,7 @@ use yii\helpers\Html;
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
+                                            <img src="<//?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
                                                  alt="user image"/>
                                         </div>
                                         <h4>
@@ -233,7 +234,7 @@ use yii\helpers\Html;
                         <!--
                         <img src="<//?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                         -->
-                        <img src="library.png" class="user-image" alt="User Image"/>
+                        <img src="<?= Url::home(true); ?>/library.png" class="user-image" alt="User Image"/>
                         <span class="hidden-xs">
                             <?php
                                 $user = common\models\User::findOne(['id' => Yii::$app->user->id]);
@@ -251,24 +252,35 @@ use yii\helpers\Html;
                             <img src="<//?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
                                  alt="User Image"/>
                             -->
-                            <img src="library.png" class="user-image" alt="User Image"/>
+                            <img src="<?= Url::home(true); ?>/library.png" class="user-image" alt="User Image"/>
 
                             <p>
                                 <!-- Alexander Pierce - Web Developer -->
                                 <?php
                                     if(!empty($user))
-                                        echo $user->username;
+                                    {
+                                        //echo $user->username;
+                                        $library = common\models\Library::findOne(['id' => $user->library_id]);
+                                        echo !empty($library) ? $library->title : "总馆";
+                                    }  
                                     else
                                         echo "N/A";
                                 ?>
-
+                                <br><br>
                                 <!-- <small>Member since Nov. 2012</small> -->
-                                <small>创建于: 
+                                <small>
                                 <?php
+                                    //if(!empty($user))
+                                    //    echo '管理员:'.$user->username. "<br>";
+                                    //else
+                                    //    echo '管理员:'."N/A";
+
                                     if(!empty($user))
-                                        echo date("Y-m-d", $user->created_at);
+                                        echo '创建于:'.date("Y-m-d", $user->created_at) ;
                                     else
-                                        echo "N/A";
+                                        echo '创建于:'."N/A";
+
+                                    
                                 ?>
                                 </small>
                             </p>
