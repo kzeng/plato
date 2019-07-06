@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94d537d25fb72a2c1232f0dd7f129179",
+    "content-hash": "a34e17e100d86c0f23ebf3c8a2aa12fa",
     "packages": [
         {
             "name": "2amigos/yii2-tinymce-widget",
@@ -144,11 +144,59 @@
             ]
         },
         {
+            "name": "bower-asset/chosen",
+            "version": "v1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/harvesthq/chosen-package.git",
+                "reference": "d7eba35cf214d2416fabee25c5d4619542a23d8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/harvesthq/chosen-package/zipball/d7eba35cf214d2416fabee25c5d4619542a23d8d",
+                "reference": "d7eba35cf214d2416fabee25c5d4619542a23d8d",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.4.4"
+            },
+            "type": "bower-asset",
+            "license": [
+                {
+                    "type": "MIT",
+                    "url": "https://github.com/harvesthq/chosen/blob/master/LICENSE.md"
+                }
+            ]
+        },
+        {
+            "name": "bower-asset/chosen-bootstrap",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dbtek/chosen-bootstrap.git",
+                "reference": "12dcd363d1482c54c740ed9fe0e92549d81e9176"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dbtek/chosen-bootstrap/zipball/12dcd363d1482c54c740ed9fe0e92549d81e9176",
+                "reference": "12dcd363d1482c54c740ed9fe0e92549d81e9176",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.0.0",
+                "bower-asset/chosen": "~1.4.0"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "bower-asset/inputmask",
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "git@github.com:RobinHerbots/Inputmask.git",
+                "url": "https://github.com/RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -993,6 +1041,59 @@
                 "yii"
             ],
             "time": "2018-11-12T12:35:44+00:00"
+        },
+        {
+            "name": "nex/yii2-chosen",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RomeroMsk/yii2-chosen.git",
+                "reference": "0ba2b13421130b77cc0ab12a4b0b9cc71bbfd560"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RomeroMsk/yii2-chosen/zipball/0ba2b13421130b77cc0ab12a4b0b9cc71bbfd560",
+                "reference": "0ba2b13421130b77cc0ab12a4b0b9cc71bbfd560",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "bower-asset/chosen-bootstrap": "1.1.*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "nex\\chosen\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Ovchinnikov",
+                    "email": "nex.software@gmail.com",
+                    "homepage": "https://github.com/RomeroMsk"
+                }
+            ],
+            "description": "Bootstrap Chosen widget for Yii2",
+            "homepage": "https://github.com/RomeroMsk/yii2-chosen",
+            "keywords": [
+                "bootstrap",
+                "bootstrap 3",
+                "chosen",
+                "extension",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-06-07T15:49:37+00:00"
         },
         {
             "name": "rmrevin/yii2-fontawesome",
