@@ -10,6 +10,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "book_copy".
  *
  * @property int $id
+ * @property int $book_id 图书ID
  * @property string $title 题名
  * @property string $bar_code 条码号
  * @property int $bookseller_id 书商
@@ -46,8 +47,8 @@ class BookCopy extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'bar_code', 'bookseller_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id'], 'required'],
-            [['bookseller_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['title', 'bar_code', 'book_id', 'bookseller_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id'], 'required'],
+            [['bookseller_id', 'book_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['price1', 'price2'], 'number'],
             [['title', 'bar_code'], 'string', 'max' => 128],
         ];
@@ -60,6 +61,7 @@ class BookCopy extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'book_id' => '图书ID',
             'title' => '题名',
             'bar_code' => '条码号',
             'bookseller_id' => '书商',
@@ -75,4 +77,31 @@ class BookCopy extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+
+    public function getBook()
+    {
+        return $this->hasOne(Book::className(), ['id' => 'book_id' ]);
+    }
+
+    public function getBookseller()
+    {
+        return $this->hasOne(Bookseller::className(), ['id' => 'bookseller_id' ]);
+    }
+
+    public function getCollectionPlace()
+    {
+        return $this->hasOne(CollectionPlace::className(), ['id' => 'collection_place_id' ]);
+    }
+
+    public function getCirculationType()
+    {
+        return $this->hasOne(CirculationType::className(), ['id' => 'circulation_type_id' ]);
+    }
+
+    public function getCallNumberRules()
+    {
+        return $this->hasOne(CallNumberRules::className(), ['id' => 'call_number_rules_id' ]);
+    }
+
+
 }

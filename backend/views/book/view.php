@@ -28,8 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
 
-
         <span class="pull-right">
+        <a class="btn btn-primary" href="<?= Yii::$app->request->getHostInfo() ?>/book-copy?BookCopySearch[book_id]=<?= $model->id ?>&sort=-id" >
+        <i class="fa fa-eye"></i> 
+        查看副本
+        </a>
         <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal">添加副本</button>
         </span>
 
@@ -50,6 +53,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'publication_place',
             'publish_date',
             'series_title',
+  
+            'description:html',
             // 'library_id',
             // 'user_id',
             // 'created_at:datetime',
@@ -133,7 +138,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div><!-- endof modal-body-->
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="hz">确定</button>
+                <button type="button" class="btn btn-primary" id="add_book_copy">确定</button>
             </div>
         </div><!-- endof modal-content-->
         </div>
@@ -147,15 +152,24 @@ $this->params['breadcrumbs'][] = $this->title;
 
     $(document).ready(function() {
 
-        $('#gs').click (function () {
+        $('#add_book_copy').click (function () {
             // alert('confirmAjax');
             // if (!confirm("确定要发布吗?"))
             //     return;
+ 
             var args = {
                 'classname':    '\\common\\models\\Book',
                 'funcname':     'setAddBookCopyAjax',
                 'params':       {
                     'id': '<?= $model->id ?>',
+                    'copy_number': $("#copy_number").val(),
+                    'bar_code': $("#bar_code").val(),
+                    'price1': $("#price1").val(),
+                    'price2': $("#price2").val(),
+                    'collect_place': $("#collect_place").val(),
+                    'circulation_type': $("#circulation_type").val(),
+                    'bookseller': $("#bookseller").val(),
+                    'call_number': $("#call_number").val(),
                     //'card_status': 0,
                 }
             };

@@ -57,7 +57,7 @@ class Book extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 128],
             [['cover_img'], 'string', 'max' => 256],
             [['description'], 'string', 'max' => 1024],
-            [['isbn', 'author', 'class_number', 'description', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title', 'price1'], 'string', 'max' => 64],
+            [['isbn', 'author', 'class_number', 'call_number', 'publisher', 'publication_place', 'publish_date', 'series_title', 'price1'], 'string', 'max' => 64],
         ];
     }
  
@@ -125,7 +125,7 @@ class Book extends \yii\db\ActiveRecord
         $book = Book::findOne(['id' => $id]);
         $circulation_types = CirculationType::find()->where(['library_id' => $book->library_id])->all();
 
-        $rep = "<select id=\"bookseller\" class=\"form-control\">";
+        $rep = "<select id=\"circulation_type\" class=\"form-control\">";
 
         foreach($circulation_types as $circulation_type)
         {
@@ -136,13 +136,42 @@ class Book extends \yii\db\ActiveRecord
     }
 
 
-    public static function setAddBookCopyAjax($id,$card_number)
+    public static function setAddBookCopyAjax($id, $copy_number, $bar_code, $price1, $price2, $collect_place, $circulation_type, $bookseller, $call_number)
     {
-        //todo ...
+        $book = Book::findOne(['id' => $id]);
 
+        if(!empty($book))
+        {
+            for($i = 1; $i <= $copy_number; $i++ )
+            {
+                $book_copy = new BookCopy();
+                $book_copy->book_id       = $book->id;
+                $book_copy->title       = $book->title;
+                $book_copy->bar_code    = $bar_code;
+                $book_copy->price1      = $price1;
+                $book_copy->price2      = $price2;
+                $book_copy->collection_place_id    = $collect_place;
+                $book_copy->circulation_type_id    = $circulation_type;
+                $book_copy->bookseller_id          = $bookseller;
+                $book_copy->call_number_rules_id   = $call_number;
+                $book_copy->library_id         = $book->library_id;
+                $book_copy->user_id            = $book->user_id;
+                $book_copy->save(false);
+            }
 
-        return \yii\helpers\Json::encode(['code' => 0]);
+            $book->copy_number = $book->copy_number + $copy_number;
+            $book->save(false);
+
+            return \yii\helpers\Json::encode(['code' => 0]);
+        }
+        else
+        {
+            return \yii\helpers\Json::encode(['code' => -1]);
+        }
     }
+
+
+
     
 
 }

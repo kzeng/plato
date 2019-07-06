@@ -23,11 +23,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:5%;'),
+            ],
 
-            'id',
+            //'book_id',
+            [
+                'attribute' => 'book_id',
+                'value'     => 'book.isbn',
+            ],
+ 
             'title',
             'bar_code',
-            'bookseller_id',
+            //'bookseller_id',
+            'bookseller.title',
             'price1',
             //'price2',
             //collection_place_id',

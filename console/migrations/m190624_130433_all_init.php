@@ -124,6 +124,7 @@ class m190624_130433_all_init extends Migration
         Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%book_copy}}")->execute();
         $this->createTable('{{%book_copy}}', [
             'id' => $this->primaryKey(),
+            'book_id' => $this->integer()->notNull()->defaultValue(0)->comment('图书ID'),
             'title' => $this->string(128)->notNull()->comment('题名'),
             'bar_code' => $this->string(128)->notNull()->comment('条码号'),
             'bookseller_id' => $this->integer()->notNull()->comment('书商'),
