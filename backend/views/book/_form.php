@@ -49,7 +49,7 @@ use pendalf89\filemanager\widgets\TinyMCE;
                 'plugins' => [
                     'advlist autolink lists link image media template textcolor colorpicker charmap print preview anchor searchreplace visualblocks code contextmenu table imagetools',
                 ],
-                'toolbar' => 'undo redo | styleselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media| code',
+                'toolbar' => 'undo redo | styleselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
             ],
         ]); ?>
 <!-- 
