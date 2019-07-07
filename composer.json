@@ -26,6 +26,7 @@
         "dmstr/yii2-adminlte-asset": "2.*",
         "pendalf89/yii2-filemanager": "*",
         "mdmsoft/yii2-admin": "~2.0",
+        "nex/yii2-chosen": "*",
         "kartik-v/bootstrap-fileinput": "@dev",
         "kartik-v/bootstrap-star-rating": "@dev",
         "kartik-v/bootstrap-tabs-x": "@dev",

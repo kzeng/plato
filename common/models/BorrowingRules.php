@@ -50,7 +50,7 @@ class BorrowingRules extends \yii\db\ActiveRecord
             [['title', 'general_loan_period', 'extended_period_impunity', 'first_term_of_punishment', 'library_id'], 'required'],
             [['general_loan_period', 'extended_period_impunity', 'first_term_of_punishment', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['first_penalty_unit_price', 'other__unit_price'], 'number'],
-            [['title', 'reader_type_ids', 'circulation_type_ids'], 'string', 'max' => 128],
+            [['title'], 'string', 'max' => 128],
         ];
     }
 

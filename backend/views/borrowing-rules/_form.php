@@ -6,6 +6,11 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\BorrowingRules */
 /* @var $form yii\widgets\ActiveForm */
+
+use nex\chosen\Chosen;
+
+use common\models\ReaderType; // 读者类型
+use common\models\CirculationType; // 流通类型
 ?>
 
 <div class="borrowing-rules-form">
@@ -24,19 +29,24 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'other__unit_price')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'reader_type_ids')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'circulation_type_ids')->textInput(['maxlength' => true]) ?>
-
-    <!-- <//?= $form->field($model, 'library_id')->textInput() ?>
-
-    <//?= $form->field($model, 'user_id')->textInput() ?>
-
-    <//?= $form->field($model, 'created_at')->textInput() ?>
-
-    <//?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <//?= $form->field($model, 'status')->textInput() ?> -->
+    <?= $form->field($model, 'reader_type_ids')->widget(Chosen::className(), [
+        'items' => ReaderType::find()->select(['title', 'id'])->indexBy('id')->column(),
+        'multiple' => true,
+        'disableSearch' => 8,
+        'clientOptions' => [
+            'search_contains' => true,
+            'single_backstroke_delete' => false,
+        ],
+    ]);?>
+    <?= $form->field($model, 'circulation_type_ids')->widget(Chosen::className(), [
+        'items' => CirculationType::find()->select(['title', 'id'])->indexBy('id')->column(),
+        'multiple' => true,
+        'disableSearch' => 8,
+        'clientOptions' => [
+            'search_contains' => true,
+            'single_backstroke_delete' => false,
+        ],
+    ]);?>
 
     <div class="form-group">
         <?= Html::submitButton('确定', ['class' => 'btn btn-success']) ?>
