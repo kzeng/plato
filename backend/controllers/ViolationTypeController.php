@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use common\models\User1;
 /**
  * ViolationTypeController implements the CRUD actions for ViolationType model.
  */
@@ -66,7 +67,12 @@ class ViolationTypeController extends Controller
     {
         $model = new ViolationType();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $model->user_id = Yii::$app->user->id;
+            $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -86,7 +92,12 @@ class ViolationTypeController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            $model->user_id = Yii::$app->user->id;
+            $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
