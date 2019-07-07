@@ -37,6 +37,7 @@ if (Yii::$app->controller->action->id === 'login') {
         <?= Html::encode(Yii::$app->params['webapp_name']) ?>
         </title>
         <?php $this->head() ?>
+        <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     </head>
     <body class="hold-transition skin-blue sidebar-mini">
     <?php $this->beginBody() ?>

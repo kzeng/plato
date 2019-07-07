@@ -9,6 +9,7 @@ use yii\grid\GridView;
 
 $this->title = '仪表盘';
 ?>
+
 <!-- 
 colors: {
     lightBlue: "#3c8dbc",
@@ -42,7 +43,7 @@ colors: {
             <p>图书馆</p>
         </div>
         <div class="icon">
-            <i class="fa fa-institution"></i>
+            <i class="fa fa-university"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -72,7 +73,7 @@ colors: {
             <p>借书量</p>
         </div>
         <div class="icon">
-            <i class="fa fa-vcard-o"></i>
+            <i class="fa fa-address-card"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -87,7 +88,7 @@ colors: {
             <p>还书量</p>
         </div>
         <div class="icon">
-            <i class="fa fa-vcard-o"></i>
+            <i class="fa fa-address-card"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -122,7 +123,7 @@ colors: {
             <p>阅览室</p>
         </div>
         <div class="icon">
-            <i class="fa fa-newspaper-o"></i>
+            <i class="fa fa-newspaper"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -172,7 +173,7 @@ colors: {
             <p>馆藏地点</p>
         </div>
         <div class="icon">
-            <i class="fa fa-map-marker"></i>
+            <i class="fa fa-map"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -187,7 +188,7 @@ colors: {
             <p>图书馆活动</p>
         </div>
         <div class="icon">
-            <i class="fa fa-calendar"></i>
+            <i class="fa fa-calendar-alt"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -202,7 +203,7 @@ colors: {
             <p>欠费缴纳</p>
         </div>
         <div class="icon">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-money"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -217,7 +218,7 @@ colors: {
             <p>规则</p>
         </div>
         <div class="icon">
-            <i class="fa fa-gear"></i>
+            <i class="fa fa-sitemap"></i>
         </div>
         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
