@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\ReaderType */
 
 $this->title = '修改读者类型: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Reader Types', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '读者类型', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = '修改';
 ?>

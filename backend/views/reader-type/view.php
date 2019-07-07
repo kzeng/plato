@@ -8,13 +8,11 @@ use yii\widgets\DetailView;
 
 //$this->title = $model->title;
 $this->title = "读者类型信息";
-$this->params['breadcrumbs'][] = ['label' => 'Reader Types', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '读者类型', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="reader-type-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -34,10 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'max_borrowing_number',
             'max_debt_limit',
-            'library_id',
-            'user_id',
-            'created_at:datetime',
-            'updated_at:datetime',
+            // 'library_id',
+            // 'user_id',
+            // 'created_at:datetime',
+            // 'updated_at:datetime',
             //'status',
         ],
     ]) ?>
