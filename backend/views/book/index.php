@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //['class' => 'yii\grid\SerialColumn'],
             [
                 'attribute' => 'id',
-                'headerOptions' => array('style'=>'width:5%;'),
+                'headerOptions' => array('style'=>'width:8%;'),
             ],
             //'cover_img',
             // [
@@ -48,16 +48,25 @@ $this->params['breadcrumbs'][] = $this->title;
             //'call_number',
             'publisher',
             //'publication_place',
-            'publish_date',
-            'copy_number',
+            [
+                'attribute' => 'publish_date',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
+            [
+                'attribute' => 'copy_number',
+                'headerOptions' => array('style'=>'width:8%;'),
+            ],
             //'series_title',
             //'library_id',
             //'user_id',
             //'created_at',
             //'updated_at',
             //'status',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
