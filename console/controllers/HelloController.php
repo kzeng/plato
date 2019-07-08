@@ -4,6 +4,8 @@ namespace console\controllers;
 use Yii;
 use yii\console\Controller;
 use common\models\Book;
+use common\ppython\Ppython;
+
 
 class HelloController extends Controller
 {
@@ -74,6 +76,26 @@ class HelloController extends Controller
     }
 
 
+    public function actionGetimgs() {
+        $books = Book::find()->all();
+       //echo "get imges...";
+        $python = new Ppython();
+        
+        foreach($books as $book)
+        {
+            $data = $python->py("utils.getimgs::get_imgs_url", $book->isbn);
+            print($data."\n");
+
+            $book->cover_img = $data;
+            $book->save(false);
+        }
+
+        echo "\nget all imgs ok and save done.";
     
+    }
+    
+
+
+
 
 }

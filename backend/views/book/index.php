@@ -21,12 +21,25 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'options' => ['class' => 'table-responsive'],
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
             [
                 'attribute' => 'id',
                 'headerOptions' => array('style'=>'width:5%;'),
             ],
+            //'cover_img',
+            // [
+            //     'attribute' => 'cover_img',
+            //     'value' => function($model){
+            //         if($model->cover_img == '')
+            //             return "<img width=60 src='holder.js/60x90'>";
+            //         else
+            //             return "<img width=60 src='".$model->cover_img."'>";
+            //     },
+            //     'format' => 'html',
+            //     'headerOptions' => array('style'=>'width:10%;'),
+            // ],
             'title',
             'isbn',
             'author',
