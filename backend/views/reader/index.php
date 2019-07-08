@@ -23,6 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'options' => ['class' => 'table-responsive'],
         'columns' => [
            //['class' => 'yii\grid\SerialColumn'],
 
@@ -30,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'id',
                 'headerOptions' => array('style'=>'width:5%;'),
             ],
-            'reader_name',
+ 
+            [
+                'attribute' => 'reader_name',
+                'headerOptions' => array('style'=>'width:8%;'),
+            ],
             'card_number',
             //'card_status',
             [
@@ -53,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Yii::$app->formatter->asDate($model->validity);
                 },
                 //'filter'=> Reader::getCardStatusOption(),
-                'headerOptions' => array('style'=>'width:10%;'),
+                'headerOptions' => array('style'=>'width:15%;'),
                 'format' => 'html'
             ],
 
@@ -75,7 +80,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Reader::getGenderOption($model->gender);
                 },
                 'filter'=> Reader::getGenderOption(),
-                'headerOptions' => array('style'=>'width:10%;'),
+                'headerOptions' => array('style'=>'width:8%;'),
             ],
 
 
@@ -86,9 +91,12 @@ $this->params['breadcrumbs'][] = $this->title;
             //'user_id',
             //'created_at',
             //'updated_at',
-            'status',
+            // 'status',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
