@@ -201,7 +201,8 @@
                 "reference": "9f3deb2e710d39c72a988559609d9dc9a319de0b",
                 "shasum": null
             },
-            "type": "bower-asset"
+            "type": "bower-asset",
+            "time": "2017-08-27T22:53:19+00:00"
         },
         {
             "name": "bower-asset/blueimp-file-upload",
