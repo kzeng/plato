@@ -25,6 +25,17 @@
 
 ### 集成与配置
 
+
+### 图书封面采集
+采集命令会按照`book`中isbn 字段从亚马逊图书库中抓取图书封面地址，并存入`book.cover_img`字段。
+* 启动ppython 服务
+  `python common\ppython\python\php_python.py`
+
+* 运行采集命令
+  `yii hello/getimgs`
+*注意：采集频度持续过高，会采集失败，待解决。*
+
+
 #### 后台主题 AdminLTE
 [官方文档](https://adminlte.io/)
 [安装配置]( https://blog.csdn.net/qq_23943147/article/details/78538658 )
