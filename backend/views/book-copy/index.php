@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'book_id',
             [
+                'label'     => 'ISBN',
                 'attribute' => 'book_id',
                 'value'     => 'book.isbn',
             ],
@@ -38,8 +39,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'bar_code',
             //'bookseller_id',
-            'bookseller.title',
-            'price1',
+            
+            [
+                'attribute' => 'bookseller.title',
+                'headerOptions' => array('style'=>'width:20%;'),
+            ],
+
+            [
+                'attribute' => 'price1',
+                'headerOptions' => array('style'=>'width:8%;'),
+            ],
+
             //'price2',
             //collection_place_id',
             //'circulation_type_id',
@@ -49,8 +59,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'created_at',
             //'updated_at',
             //'status',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
         ],
     ]); ?>
 

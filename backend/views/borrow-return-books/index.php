@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
 
-        <?= Html::a('流通借还详情', ['detail'], ['class' => 'btn btn-primary pull-right']) ?>
+        <?= Html::a('<i class="fa fa-exchange"></i> 流通借还详情', ['detail'], ['class' => 'btn btn-primary pull-right']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
