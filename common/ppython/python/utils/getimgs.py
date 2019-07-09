@@ -1,6 +1,7 @@
 
 from bs4 import BeautifulSoup
 import requests
+import time
 
 #isbn_raw = '978-7-5354-4055-6'
 # isbn_raw = '978-7-1111-2222-3'
@@ -10,7 +11,13 @@ def get_imgs_url(isbn):
     isbn = isbn.strip()
     isbn = isbn.replace("-", "")
 
-    ret = requests.get('https://www.amazon.cn/s?k='+isbn+'&i=stripbooks')
+    while True:
+        try:
+            ret = requests.get('https://www.amazon.cn/s?k='+isbn+'&i=stripbooks', headers={'Connection':'close'})
+            break
+        except:
+            print("get exception, sleep 5 seconds...")
+            time.sleep(5)
 
     soup = BeautifulSoup(ret.text, 'html.parser')
     tags = soup.find_all('img', class_="s-image")

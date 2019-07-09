@@ -80,14 +80,15 @@ class HelloController extends Controller
         $books = Book::find()->all();
        //echo "get imges...";
         $python = new Ppython();
-        
+        $i = 1;
         foreach($books as $book)
         {
             $data = $python->py("utils.getimgs::get_imgs_url", $book->isbn);
-            print($data."\n");
+            print($i . "--->" . $data."\n");
 
             $book->cover_img = $data;
             $book->save(false);
+            $i++;
         }
 
         echo "\nget all imgs ok and save done.";
