@@ -51,6 +51,7 @@ class BorrowingRules extends \yii\db\ActiveRecord
             [['general_loan_period', 'extended_period_impunity', 'first_term_of_punishment', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['first_penalty_unit_price', 'other__unit_price'], 'number'],
             [['title'], 'string', 'max' => 128],
+            [['reader_type_ids', 'circulation_type_ids', 'readerType', 'circulationType'], 'safe'],
         ];
     }
 
@@ -75,5 +76,34 @@ class BorrowingRules extends \yii\db\ActiveRecord
             'updated_at' => '更新时间',
             'status' => '状态',
         ];
+    }
+
+    public function getReaderType() {
+        return json_decode($this->reader_type_ids);
+    }
+    public function setReaderType($value) {
+        $this->reader_type_ids = json_encode($value);
+    }
+    public function getReaderTypes() {
+        $ids = json_decode($this->reader_type_ids);
+        $data = ReaderType::find()
+            ->where(['id' => $ids])
+            ->select('title')
+            ->column();
+        return implode(',', $data);
+    }
+    public function getCirculationType() {
+        return json_decode($this->circulation_type_ids);
+    }
+    public function setCirculationType($value) {
+        $this->circulation_type_ids = json_encode($value);
+    }
+    public function getCirculationTypes() {
+        $ids = json_decode($this->circulation_type_ids);
+        $data = CirculationType::find()
+            ->where(['id' => $ids])
+            ->select('title')
+            ->column();
+        return implode(',', $data);
     }
 }
