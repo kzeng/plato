@@ -86,8 +86,11 @@ class HelloController extends Controller
             $data = $python->py("utils.getimgs::get_imgs_url", $book->isbn);
             print($i . "--->" . $data."\n");
 
-            $book->cover_img = $data;
-            $book->save(false);
+            if($data != '')
+            {
+                $book->cover_img = $data;
+                $book->save(false);
+            }
             $i++;
         }
 

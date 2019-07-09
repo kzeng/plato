@@ -13,13 +13,16 @@ def get_imgs_url(isbn):
 
     while True:
         try:
-            ret = requests.get('https://www.amazon.cn/s?k='+isbn+'&i=stripbooks', headers={'Connection':'close'})
+            ret = requests.get('https://www.amazon.cn/s?k='+isbn+'&i=stripbooks')
             break
         except:
-            print("get exception, sleep 5 seconds...")
+            # print("get exception, sleep 5 seconds...")
             time.sleep(5)
 
     soup = BeautifulSoup(ret.text, 'html.parser')
+    # disconnection
+    ret.close()
+
     tags = soup.find_all('img', class_="s-image")
 
     img_url = ''
