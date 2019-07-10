@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
+use common\models\BorrowReturnBooks;
 /* @var $this yii\web\View */
 /* @var $model common\models\BorrowReturnBooks */
 
@@ -18,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <p>
     <input type="text" style="width:300px" class="form-control pull-left" id="cardnumber_or_barcode" placeholder="请刷读者卡或者书籍条码">
     &nbsp;
-    <button class="btn btn-success">查询</button>
+    <button class="btn btn-success" id="query">查询</button>
 </p>
 
 <div class="panel panel-default">
@@ -26,23 +27,23 @@ $this->params['breadcrumbs'][] = $this->title;
   <div class="panel-body">
     <table class="table table-bordered">
     <tr>
-        <th>姓名</th>
-        <td>黄艳艳</td>
-        <th>卡号</th>
-        <td>4049</td>
-        <th>证件状态</th>
-        <td>正常</td>
-        <th>最大可借数(本)</th>
-        <td>8</td>
+        <th width="15%">姓名</th>
+        <td width="10%" id="reader_name"></td>
+        <th width="15%">卡号</th>
+        <td width="10%" id="card_number"></td>
+        <th width="15%">证件状态</th>
+        <td width="10%" id="card_status"></td>
+        <th width="15%">最大可借数(本)</th>
+        <td width="10%">8</td>
     </tr>
             
     <tr>
         <th>读者类型</th>
-        <td>在校学生</td>
+        <td id="reader_type_id"></td>
         <th>性别</th>
-        <td>女</td>
+        <td id="gender"></td>
         <th>有效期限</th>
-        <td>2021/07/31</td>
+        <td id="validity"></td>
         <th>当前借阅数(本)</th>
         <td>0</td>
     </tr>
@@ -134,6 +135,71 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 </div>
 
-
-
 </div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+    $(document).ready(function() {
+
+        function queryReaderInfo()
+        {
+            var ardnumber_or_barcode = $("#cardnumber_or_barcode").val();
+            // alert(ardnumber_or_barcode);
+
+            var args = {
+                'classname':    '\\common\\models\\BorrowReturnBooks',
+                'funcname':     'getReaderInfoAjax',
+                'params':       {
+                    //'id': '<//?= $model->id ?>',
+                    'ardnumber_or_barcode': ardnumber_or_barcode,
+                }
+            };
+            $.ajax({
+                url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
+                type:       "GET",
+                cache:      false,
+                dataType:   "json",
+                data:       "args=" + JSON.stringify(args),
+                success:    function(ret) { 
+                    if (0 === ret['code']) 
+                    {
+                        // location.href = '<//?= Url::to() ?>';
+                        //bind data to page
+                        $("#reader_name").html(ret['reader']['reader_name']);
+                        $("#card_number").html(ret['reader']['card_number']);
+                        $("#card_status").html(ret['reader']['card_status']);
+                        $("#reader_type_id").html(ret['reader']['reader_type_id']);
+                        $("#validity").html(ret['reader']['validity']);
+                        $("#gender").html(ret['reader']['gender']);
+                        
+                        
+
+                    } 
+                    else
+                    {
+                            alert("error");
+                    }
+                },                        
+                error:      function(){
+                    alert('发送失败。');
+                }
+            });
+        }
+
+        $('#cardnumber_or_barcode').bind('keydown',function(event){
+            if(event.keyCode == "13") {
+                queryReaderInfo();
+            }
+        });  
+
+        $('#query').click (function () {
+            queryReaderInfo();
+        });
+
+            
+    });//end of document ready
+</script>

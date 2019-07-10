@@ -59,4 +59,27 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+    
+
+    public static function getReaderInfoAjax($ardnumber_or_barcode)
+    {
+        $reader = Reader::findOne(['card_number' => $ardnumber_or_barcode]);
+
+        if(empty($reader))
+        {
+            return \yii\helpers\Json::encode(['code' => -1]);
+        }
+        else
+        {
+
+            return \yii\helpers\Json::encode(['code' => 0, 'reader' => $reader]);
+        }
+        
+    }
+
+    public function getTReader()
+    {
+        return $this->hasOne(Reader::className(), ['id' => 'reader_id' ]);
+    }
+
 }
