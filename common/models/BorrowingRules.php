@@ -90,7 +90,7 @@ class BorrowingRules extends \yii\db\ActiveRecord
             ->where(['id' => $ids])
             ->select('title')
             ->column();
-        return implode(',', $data);
+        return implode(Yii::$app->params['tagSeparater'], $data);
     }
     public function getCirculationType() {
         return json_decode($this->circulation_type_ids);
@@ -104,6 +104,6 @@ class BorrowingRules extends \yii\db\ActiveRecord
             ->where(['id' => $ids])
             ->select('title')
             ->column();
-        return implode(',', $data);
+        return implode(Yii::$app->params['tagSeparater'], $data);
     }
 }

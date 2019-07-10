@@ -26,12 +26,19 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= DetailView::widget([
+        // 'encodeLabels' => false,
         'model' => $model,
         'attributes' => [
             'id',
             'title',
-            'collection_place_ids',
-            'circulation_type_ids',
+            [
+                'format' => 'html',
+                'attribute' => 'collectionPlaces',
+            ],
+            [
+                'format' => 'html',
+                'attribute' => 'circulationTypes',
+            ],
             // 'library_id',
             // 'user_id',
             // 'created_at',

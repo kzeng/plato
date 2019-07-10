@@ -44,7 +44,7 @@ class CallNumberRules extends \yii\db\ActiveRecord
             [['title', 'library_id'], 'required'],
             [['library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['title'], 'string', 'max' => 128],
-            [['collection_place_ids', 'circulation_type_ids'], 'string', 'max' => 512],
+            [['collectionPlace', 'circulationType', 'collection_place_ids', 'circulation_type_ids'], 'safe'],
         ];
     }
 
@@ -64,5 +64,33 @@ class CallNumberRules extends \yii\db\ActiveRecord
             'updated_at' => '更新时间',
             'status' => '状态',
         ];
+    }
+    public function getCollectionPlace() {
+        return json_decode($this->collection_place_ids);
+    }
+    public function setCollectionPlace($value) {
+        $this->collection_place_ids = json_encode($value);
+    }
+    public function getCollectionPlaces() {
+        $ids = json_decode($this->collection_place_ids);
+        $data = CollectionPlace::find()
+            ->where(['id' => $ids])
+            ->select('title')
+            ->column();
+        return implode(Yii::$app->params['tagSeparater'], $data);
+    }
+    public function getCirculationType() {
+        return json_decode($this->circulation_type_ids);
+    }
+    public function setCirculationType($value) {
+        $this->circulation_type_ids = json_encode($value);
+    }
+    public function getCirculationTypes() {
+        $ids = json_decode($this->circulation_type_ids);
+        $data = CirculationType::find()
+            ->where(['id' => $ids])
+            ->select('title')
+            ->column();
+        return implode(Yii::$app->params['tagSeparater'], $data);
     }
 }

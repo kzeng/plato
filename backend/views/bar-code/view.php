@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('D删除elete', ['delete', 'id' => $model->id], [
+        <?= Html::a('删除', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => '删除本条记录，确定?',
@@ -39,10 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'min_number',
             'max_number',
             'description',
-            'library_id',
-            'user_id',
-            'created_at:dateime',
-            'updated_at:datetime',
+            // 'library_id',
+            // 'user_id',
+            // 'created_at:dateime',
+            // 'updated_at:datetime',
             //'status',
         ],
     ]) ?>

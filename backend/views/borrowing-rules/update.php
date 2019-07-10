@@ -11,9 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'i
 $this->params['breadcrumbs'][] = '修改';
 ?>
 <div class="borrowing-rules-update">
-
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-
 </div>

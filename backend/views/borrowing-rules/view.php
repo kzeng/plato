@@ -35,8 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'first_term_of_punishment',
             'first_penalty_unit_price',
             'other__unit_price',
-            'readerTypes',
-            'circulationTypes',
+            [
+                'format' => 'html',
+                'attribute' => 'readerTypes',
+            ],
+            [
+                'format' => 'html',
+                'attribute' => 'circulationTypes',
+            ],
             // 'library_id',
             // 'user_id',
             // 'created_at:datetime',

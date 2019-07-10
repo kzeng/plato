@@ -19,9 +19,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'collection_place_ids') ?>
+    <?= $form->field($model, 'collectionPlaces') ?>
 
-    <?= $form->field($model, 'circulation_type_ids') ?>
+    <?= $form->field($model, 'circulationTypes') ?>
 
     <?= $form->field($model, 'library_id') ?>
 

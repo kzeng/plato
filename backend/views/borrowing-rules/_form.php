@@ -14,7 +14,9 @@ use common\models\CirculationType; // 流通类型
 ?>
 
 <div class="borrowing-rules-form">
-
+    <?= $this->render('/layouts/form_error', [
+        'model' => $model,
+    ]) ?>
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>

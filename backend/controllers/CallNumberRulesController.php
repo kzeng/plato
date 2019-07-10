@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use common\models\User1;
 /**
  * CallNumberRulesController implements the CRUD actions for CallNumberRules model.
  */
@@ -66,7 +67,11 @@ class CallNumberRulesController extends Controller
     {
         $model = new CallNumberRules();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->user_id = Yii::$app->user->id;
+            $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
