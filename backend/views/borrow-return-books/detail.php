@@ -22,45 +22,41 @@ $this->params['breadcrumbs'][] = $this->title;
     <button class="btn btn-success" id="query">查询</button>
 </p>
 
-<div class="panel panel-default">
-  <div class="panel-heading">读者信息</div>
-  <div class="panel-body">
-    <table class="table table-bordered">
-    <tr>
-        <th width="15%">姓名</th>
-        <td width="10%" id="reader_name"></td>
-        <th width="15%">卡号</th>
-        <td width="10%" id="card_number"></td>
-        <th width="15%">证件状态</th>
-        <td width="10%" id="card_status"></td>
-        <th width="15%">最大可借数(本)</th>
-        <td width="10%" id="max_borrowing_number"></td>
-    </tr>
-            
-    <tr>
-        <th>读者类型</th>
-        <td id="reader_type_id"></td>
-        <th>性别</th>
-        <td id="gender"></td>
-        <th>有效期限</th>
-        <td id="validity"></td>
-        <th>当前借阅数(本)</th>
-        <td>0</td>
-    </tr>
+<h4>读者信息</h4>
+<table class="table table-bordered">
+<tr>
+    <th width="15%">姓名</th>
+    <td width="10%" id="reader_name"></td>
+    <th width="15%">卡号</th>
+    <td width="10%" id="card_number"></td>
+    <th width="15%">证件状态</th>
+    <td width="10%" id="card_status"></td>
+    <th width="15%">最大可借数(本)</th>
+    <td width="10%" id="max_borrowing_number"></td>
+</tr>
+        
+<tr>
+    <th>读者类型</th>
+    <td id="reader_type_id"></td>
+    <th>性别</th>
+    <td id="gender"></td>
+    <th>有效期限</th>
+    <td id="validity"></td>
+    <th>当前借阅数(本)</th>
+    <td>0</td>
+</tr>
 
-    <tr>
-        <th>押金(元)</th>
-        <td id="deposit"></td>
-        <th>最大欠款额度(元)</th>
-        <td id="max_debt_limit"></td>
-        <th>欠费金额(元)</th>
-        <td id="creditmoney"></td>
-        <th>电话</th>
-        <td id="mobile"></td>
-    </tr>
-    </table>
-  </div>
-</div>
+<tr>
+    <th>押金(元)</th>
+    <td id="deposit"></td>
+    <th>最大欠款额度(元)</th>
+    <td id="max_debt_limit"></td>
+    <th>欠费金额(元)</th>
+    <td id="creditmoney"></td>
+    <th>电话</th>
+    <td id="mobile"></td>
+</tr>
+</table>
 
 
 <div class="panel panel-default">
@@ -106,31 +102,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <td>-</td>
     </tr>
 
-    <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-    </tr>
-
-    <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-    </tr>
     </table>
 </div>
 </div>

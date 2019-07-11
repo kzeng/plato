@@ -63,18 +63,15 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
 
     public static function getReaderInfoAjax($ardnumber_or_barcode)
     {
-        
-// 姓名	柳秀芳	卡号	4024007145093018	证件状态	1	最大可借数(本)	8
-// 读者类型	2	性别	1	有效期限	1767139200	当前借阅数(本)	0
-// 押金(元)	100	最大欠款额度(元)	3	欠费金额(元)	0	
-        
         $reader = Reader::findOne(['card_number' => $ardnumber_or_barcode]);
         $reader_type = ReaderType::findOne(['id' => $reader->reader_type_id]);
+        $card_status_txt = Reader::getCardStatusOption($reader->card_status);
+        $card_status = $reader->card_status ? "<span class=\"label label-success\">".$card_status_txt."</span>" : "<span class=\"label label-danger\">".$card_status_txt."</span>";
 
         $reader_info = [
             'card_number' => $reader->card_number,
             'reader_name' => $reader->reader_name,
-            'card_status' => Reader::getCardStatusOption($reader->card_status),
+            'card_status' => $card_status,
             'validity' => date('Y-m-d',$reader->validity),
             'id_card' => $reader->id_card,
             'reader_type_id' => Reader::getReaderTypeOption($reader->reader_type_id),
