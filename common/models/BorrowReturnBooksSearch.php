@@ -17,7 +17,7 @@ class BorrowReturnBooksSearch extends BorrowReturnBooks
     public function rules()
     {
         return [
-            [['id', 'reader_id', 'operation', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['id',  'operation', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['card_number', 'bar_code'], 'safe'],
         ];
     }
@@ -59,7 +59,6 @@ class BorrowReturnBooksSearch extends BorrowReturnBooks
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'reader_id' => $this->reader_id,
             'operation' => $this->operation,
             'library_id' => $this->library_id,
             'user_id' => $this->user_id,

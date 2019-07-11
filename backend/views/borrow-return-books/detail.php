@@ -76,6 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <th>应还时间</th>
     </tr>
 
+    <tbody id='booksinfo'>
     <tr>
         <td>-</td>
         <td>-</td>
@@ -88,19 +89,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <td>-</td>
         <td>-</td>
     </tr>
-
-    <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-    </tr>
+    </tbody>
 
     </table>
 </div>
@@ -116,9 +105,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     $(document).ready(function() {
 
-        function queryReaderInfo()
+        function queryReaderInfoAndBookinfo()
         {
-            var ardnumber_or_barcode = $("#cardnumber_or_barcode").val();
+            var cardnumber_or_barcode = $("#cardnumber_or_barcode").val();
             // alert(ardnumber_or_barcode);
 
             var args = {
@@ -126,7 +115,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'funcname':     'getReaderInfoAjax',
                 'params':       {
                     //'id': '<//?= $model->id ?>',
-                    'ardnumber_or_barcode': ardnumber_or_barcode,
+                    'cardnumber_or_barcode': cardnumber_or_barcode,
                 }
             };
             $.ajax({
@@ -138,8 +127,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 success:    function(ret) { 
                     if (0 === ret['code']) 
                     {
-
-                        // location.href = '<//?= Url::to() ?>';
                         //bind data to page
                         $("#reader_name").html(ret['reader_info']['reader_name']);
                         $("#card_number").html(ret['reader_info']['card_number']);
@@ -155,8 +142,67 @@ $this->params['breadcrumbs'][] = $this->title;
                         $("#max_borrowing_number").html(ret['reader_info']['max_borrowing_number']);
                         $("#max_debt_limit").html(ret['reader_info']['max_debt_limit']);
                         
-
-
+                        //now, get current borrowing books info
+                        var html_tr = '';
+                        var args = {
+                            'classname':    '\\common\\models\\BorrowReturnBooks',
+                            'funcname':     'getBooksInfoAjax',
+                            'params':       {
+                            'cardnumber_or_barcode': cardnumber_or_barcode,
+                        }
+                        };
+                        $.ajax({
+                            url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
+                            type:       "GET",
+                            cache:      false,
+                            dataType:   "json",
+                            data:       "args=" + JSON.stringify(args),
+                            success:    function(ret) { 
+                            if (0 === ret['code']) 
+                            {
+                                //bind data to page
+                                // $("#reader_name").html(ret['reader_info']['reader_name']);
+                                for(i=0; ret['borrow_return_books'].length; i++)
+                                {
+                                    //alert(ret['borrow_return_books'][i]['bar_code']);
+                                    // <th>条码号</th>
+                                    // <th>题名</th>
+                                    // <th>责任者</th>
+                                    // <th>ISBN</th>
+                                    // <th>出版社</th>
+                                    // <th>索书号</th>
+                                    // <th>馆藏地</th>
+                                    // <th>借书时间</th>
+                                    // <th>经办人</th>
+                                    // <th>应还时间</th>
+                                    console.log("------------------");
+                                    console.log(ret['borrow_return_books'][i]);
+                                    html_tr += "<tr>";
+                                    html_tr += "<td>" + ret['borrow_return_books'][i]["bar_code"] + "</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "<td>-</td>";
+                                    html_tr += "</tr>";
+                                    //alert(html_tr);
+                                    $("#booksinfo").html(html_tr);
+                                }
+            
+                            } 
+                            else
+                            {
+                                alert("Get bookinfo error");
+                            }
+                            },                        
+                            error:      function(){
+                                alert('Get bookinfo 发送失败。');
+                            }
+                        });//end of get current borrowing books info
 
                     } 
                     else
@@ -172,12 +218,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
         $('#cardnumber_or_barcode').bind('keydown',function(event){
             if(event.keyCode == "13") {
-                queryReaderInfo();
+                queryReaderInfoAndBookinfo();
             }
         });  
 
         $('#query').click (function () {
-            queryReaderInfo();
+            queryReaderInfoAndBookinfo();
         });
 
             

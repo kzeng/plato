@@ -291,7 +291,6 @@ class m190624_130433_all_init extends Migration
         Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%borrow_return_books}}")->execute();
         $this->createTable('{{%borrow_return_books}}', [
             'id' => $this->primaryKey(),
-            'reader_id' => $this->integer()->notNull()->comment('名称'),
             'card_number' => $this->string(64)->notNull()->comment('卡号'),
             'bar_code' => $this->string(128)->notNull()->comment('条码号'),
             'operation' => $this->integer()->notNull()->comment('借还操作:1借，0还'),

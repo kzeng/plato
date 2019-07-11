@@ -11,8 +11,9 @@ use yii\widgets\ActiveForm;
 <div class="borrow-return-books-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'reader_id')->textInput() ?>
+<!-- 
+    <//?= $form->field($model, 'reader_id')->textInput() ?> 
+-->
 
     <?= $form->field($model, 'card_number')->textInput(['maxlength' => true]) ?>
 

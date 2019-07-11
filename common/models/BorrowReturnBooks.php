@@ -8,7 +8,6 @@ use Yii;
  * This is the model class for table "borrow_return_books".
  *
  * @property int $id
- * @property int $reader_id 名称
  * @property string $card_number 卡号
  * @property string $bar_code 条码号
  * @property int $operation 借还操作:1借，0还
@@ -34,8 +33,8 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['reader_id', 'card_number', 'bar_code', 'operation', 'library_id'], 'required'],
-            [['reader_id', 'operation', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['card_number', 'bar_code', 'operation', 'library_id'], 'required'],
+            [['operation', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['card_number'], 'string', 'max' => 64],
             [['bar_code'], 'string', 'max' => 128],
         ];
@@ -48,7 +47,6 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'reader_id' => '名称',
             'card_number' => '卡号',
             'bar_code' => '条码号',
             'operation' => '借还操作:1借，0还',
@@ -61,9 +59,9 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
     }
     
 
-    public static function getReaderInfoAjax($ardnumber_or_barcode)
+    public static function getReaderInfoAjax($cardnumber_or_barcode)
     {
-        $reader = Reader::findOne(['card_number' => $ardnumber_or_barcode]);
+        $reader = Reader::findOne(['card_number' => $cardnumber_or_barcode]);
         $reader_type = ReaderType::findOne(['id' => $reader->reader_type_id]);
         $card_status_txt = Reader::getCardStatusOption($reader->card_status);
         $card_status = $reader->card_status ? "<span class=\"label label-success\">".$card_status_txt."</span>" : "<span class=\"label label-danger\">".$card_status_txt."</span>";
@@ -95,9 +93,27 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
         
     }
 
+
+    
+    public static function getBooksInfoAjax($cardnumber_or_barcode)
+    {
+        $borrow_return_books = BorrowReturnBooks::find()->where(['card_number' => $cardnumber_or_barcode])->all();
+
+        if(empty($borrow_return_books))
+        {
+            return \yii\helpers\Json::encode(['code' => -1]);
+        }
+        else
+        {
+
+            return \yii\helpers\Json::encode(['code' => 0, 'borrow_return_books' => $borrow_return_books]);
+        }
+        
+    }
+    
     public function getTReader()
     {
-        return $this->hasOne(Reader::className(), ['id' => 'reader_id' ]);
+        return $this->hasOne(Reader::className(), ['card_number' => 'card_number' ]);
     }
 
 }

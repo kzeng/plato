@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use common\models\User1;
 /**
  * BorrowReturnBooksController implements the CRUD actions for BorrowReturnBooks model.
  */
@@ -66,7 +67,11 @@ class BorrowReturnBooksController extends Controller
     {
         $model = new BorrowReturnBooks();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->user_id = Yii::$app->user->id;
+            $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -86,7 +91,11 @@ class BorrowReturnBooksController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->user_id = Yii::$app->user->id;
+            $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
