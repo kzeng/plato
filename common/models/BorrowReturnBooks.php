@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+
 
 /**
  * This is the model class for table "borrow_return_books".
@@ -27,6 +29,13 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
         return 'borrow_return_books';
     }
 
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+    
     /**
      * {@inheritdoc}
      */
