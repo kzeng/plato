@@ -19,7 +19,7 @@ class ReaderSearch extends Reader
         return [
             [['id', 'card_status', 'validity', 'reader_type_id', 'gender', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['card_number', 'reader_name', 'id_card', 'mobile', 'address'], 'safe'],
-            [['deposit'], 'number'],
+            [['deposit', 'creditmoney'], 'number'],
         ];
     }
 
@@ -80,6 +80,7 @@ class ReaderSearch extends Reader
             'reader_type_id' => $this->reader_type_id,
             'gender' => $this->gender,
             'deposit' => $this->deposit,
+            'creditmoney' => $this->creditmoney,
             'library_id' => $this->library_id,
             'user_id' => $this->user_id,
             'created_at' => $this->created_at,

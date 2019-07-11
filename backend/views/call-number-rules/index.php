@@ -25,14 +25,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'title',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
+
+            [
+                'attribute' => 'title',
+                'headerOptions' => array('style'=>'width:25%;'),
+            ],
+
             [
                 'format' => 'html',
+                'label' => '馆藏地点',
                 'attribute' => 'collectionPlaces',
             ],
             [
                 'format' => 'html',
+                'label' => '流通类型',
                 'attribute' => 'circulationTypes',
             ],
             //'library_id',

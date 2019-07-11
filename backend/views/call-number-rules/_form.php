@@ -20,7 +20,7 @@ use common\models\CirculationType; // 流通类型
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'collectionPlace')->widget(Chosen::className(), [
+    <?= $form->field($model, 'collectionPlace')->label('馆藏地点')->widget(Chosen::className(), [
         'items' => CollectionPlace::find()->select(['title', 'id'])->indexBy('id')->column(),
         'multiple' => true,
         'disableSearch' => 8,
@@ -29,7 +29,7 @@ use common\models\CirculationType; // 流通类型
             'single_backstroke_delete' => false,
         ],
     ]);?>
-    <?= $form->field($model, 'circulationType')->widget(Chosen::className(), [
+    <?= $form->field($model, 'circulationType')->label('流通类型')->widget(Chosen::className(), [
         'items' => CirculationType::find()->select(['title', 'id'])->indexBy('id')->column(),
         'multiple' => true,
         'disableSearch' => 8,

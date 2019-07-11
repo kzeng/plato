@@ -69,6 +69,7 @@ class m190624_130433_all_init extends Migration
             'reader_type_id' => $this->integer()->notNull()->comment('读者类型'),
             'gender' => $this->integer()->notNull()->comment('性别'),
             'deposit' => $this->decimal(10,2)->comment('押金(元)'),
+            'creditmoney' => $this->decimal(10,2)->comment('欠费金额(元)'),
             'mobile' => $this->string(32)->comment('电话'),
             'address' => $this->string(32)->comment('地址'),
             'library_id' => $this->integer()->notNull()->comment('图书馆ID'),
@@ -474,7 +475,7 @@ class m190624_130433_all_init extends Migration
             $model->updated_at = time();
             $model->save();
         }
-        echo "\n insert demo data into collection_place, ok\n";
+        echo "\n insert demo data into collection_place, ok";
         
         //violation_type
         for ($i = 10; $i < 9; $i++) {
@@ -488,7 +489,7 @@ class m190624_130433_all_init extends Migration
             $model->updated_at = time();
             $model->save();
         }
-        echo "\n insert demo data into violation_type, ok\n";
+        echo "\n insert demo data into violation_type, ok";
 
         //circulation_type
         $title = ['文学类','教育类'];
@@ -504,7 +505,7 @@ class m190624_130433_all_init extends Migration
             $model->updated_at = time();
             $model->save();
         }
-        echo "\n insert demo data into circulation_type, ok\n";
+        echo "\n insert demo data into circulation_type, ok";
         
         //reader_type
         $title = ['学生','教师', '社会人员'];
@@ -520,7 +521,7 @@ class m190624_130433_all_init extends Migration
             $model->updated_at = time();
             $model->save();
         }
-        echo "\n insert demo data into reader_type, ok\n";
+        echo "\n insert demo data into reader_type, ok";
 
 
         //book
@@ -558,6 +559,7 @@ class m190624_130433_all_init extends Migration
             $model->reader_type_id = rand(1,3);
             $model->gender = rand(0,1);
             $model->deposit = 100;
+            $model->creditmoney = 0;
             $model->mobile = $faker->phoneNumber;
             $model->address = $faker->address;
             $model->library_id = 1;
@@ -567,7 +569,7 @@ class m190624_130433_all_init extends Migration
             $model->updated_at = time();
             $model->save(false);
         }
-        echo "\n insert demo data into reader, ok\n";
+        echo "\n insert demo data into reader, ok";
 
         //payment_of_debt
         $reader = common\models\Reader::find()->all();
@@ -586,7 +588,7 @@ class m190624_130433_all_init extends Migration
             $model->updated_at = time();
             $model->save(false);
         }
-        echo "\n insert demo data into payment_of_debt, ok\n";
+        echo "\n insert demo data into payment_of_debt, ok";
 
 
         //reading_room_checkin 江夏区图书馆数据50条
@@ -604,8 +606,7 @@ class m190624_130433_all_init extends Migration
             $model->updated_at = time();
             $model->save(false);
         }
-        echo "\n insert demo data into reading_room_checkin, ok\n";
-
+        echo "\n insert demo data into reading_room_checkin, ok";
 
     }
 

@@ -17,6 +17,7 @@ use yii\behaviors\TimestampBehavior;
  * @property int $reader_type_id 读者类型
  * @property int $gender 性别
  * @property string $deposit 押金(元)
+ * @property string $creditmoney 欠费金额(元)
  * @property string $mobile 电话
  * @property string $address 地址
  * @property int $library_id 图书馆ID
@@ -50,7 +51,7 @@ class Reader extends \yii\db\ActiveRecord
         return [
             [['card_number', 'reader_name', 'validity', 'id_card', 'reader_type_id', 'gender', 'library_id'], 'required'],
             [['card_status', 'validity', 'reader_type_id', 'gender', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['deposit'], 'number'],
+            [['deposit', 'creditmoney'], 'number'],
             [['card_number', 'reader_name', 'id_card'], 'string', 'max' => 64],
             [['mobile', 'address'], 'string', 'max' => 32],
         ];
@@ -71,6 +72,7 @@ class Reader extends \yii\db\ActiveRecord
             'reader_type_id' => '读者类型',
             'gender' => '性别',
             'deposit' => '押金(元)',
+            'creditmoney' => '欠费金额',
             'mobile' => '电话',
             'address' => '地址',
             'library_id' => '图书馆ID',

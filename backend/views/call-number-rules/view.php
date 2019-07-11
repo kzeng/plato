@@ -33,10 +33,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             [
                 'format' => 'html',
+                'label' => '馆藏地点',
                 'attribute' => 'collectionPlaces',
             ],
             [
                 'format' => 'html',
+                'label' => '流通类型',
                 'attribute' => 'circulationTypes',
             ],
             // 'library_id',
