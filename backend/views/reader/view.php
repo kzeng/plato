@@ -72,6 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             
             'deposit',
+            'creditmoney',
             'mobile',
             'address',
             // 'library_id',

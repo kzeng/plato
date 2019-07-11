@@ -64,6 +64,24 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
     public static function getReaderInfoAjax($ardnumber_or_barcode)
     {
         $reader = Reader::findOne(['card_number' => $ardnumber_or_barcode]);
+        $reader_type = ReaderType::findOne(['id' => $reader->reader_type_id]);
+        $card_status_txt = Reader::getCardStatusOption($reader->card_status);
+        $card_status = $reader->card_status ? "<span class=\"label label-success\">".$card_status_txt."</span>" : "<span class=\"label label-danger\">".$card_status_txt."</span>";
+
+        $reader_info = [
+            'card_number' => $reader->card_number,
+            'reader_name' => $reader->reader_name,
+            'card_status' => $card_status,
+            'validity' => date('Y-m-d',$reader->validity),
+            'id_card' => $reader->id_card,
+            'reader_type_id' => Reader::getReaderTypeOption($reader->reader_type_id),
+            'gender' => Reader::getGenderOption($reader->gender),
+            'deposit' => $reader->deposit,
+            'creditmoney' => $reader->creditmoney,
+            'mobile' => $reader->mobile,
+            'max_borrowing_number' => $reader_type->max_borrowing_number,
+            'max_debt_limit' => $reader_type->max_debt_limit,
+        ];
 
         if(empty($reader))
         {
@@ -72,7 +90,7 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
         else
         {
 
-            return \yii\helpers\Json::encode(['code' => 0, 'reader' => $reader]);
+            return \yii\helpers\Json::encode(['code' => 0, 'reader_info' => $reader_info]);
         }
         
     }
