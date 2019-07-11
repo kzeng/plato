@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <th width="15%">证件状态</th>
         <td width="10%" id="card_status"></td>
         <th width="15%">最大可借数(本)</th>
-        <td width="10%">8</td>
+        <td width="10%" id="max_borrowing_number"></td>
     </tr>
             
     <tr>
@@ -50,13 +50,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <tr>
         <th>押金(元)</th>
-        <td>100</td>
+        <td id="deposit"></td>
         <th>最大欠款额度(元)</th>
-        <td>3</td>
+        <td id="max_debt_limit"></td>
         <th>欠费金额(元)</th>
-        <td>0</td>
-        <th></th>
-        <td></td>
+        <td id="creditmoney"></td>
+        <th>电话</th>
+        <td id="mobile"></td>
     </tr>
     </table>
   </div>
@@ -167,16 +167,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 success:    function(ret) { 
                     if (0 === ret['code']) 
                     {
+
                         // location.href = '<//?= Url::to() ?>';
                         //bind data to page
-                        $("#reader_name").html(ret['reader']['reader_name']);
-                        $("#card_number").html(ret['reader']['card_number']);
-                        $("#card_status").html(ret['reader']['card_status']);
-                        $("#reader_type_id").html(ret['reader']['reader_type_id']);
-                        $("#validity").html(ret['reader']['validity']);
-                        $("#gender").html(ret['reader']['gender']);
+                        $("#reader_name").html(ret['reader_info']['reader_name']);
+                        $("#card_number").html(ret['reader_info']['card_number']);
+                        $("#card_status").html(ret['reader_info']['card_status']);
+                        $("#reader_type_id").html(ret['reader_info']['reader_type_id']);
+                        $("#validity").html(ret['reader_info']['validity']);
+                        $("#gender").html(ret['reader_info']['gender']);
+
+                        $("#deposit").html(ret['reader_info']['deposit']);
+                        $("#creditmoney").html(ret['reader_info']['creditmoney']);
+                        $("#mobile").html(ret['reader_info']['mobile']);
+
+                        $("#max_borrowing_number").html(ret['reader_info']['max_borrowing_number']);
+                        $("#max_debt_limit").html(ret['reader_info']['max_debt_limit']);
                         
-                        
+
+
 
                     } 
                     else
