@@ -25,7 +25,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:8%;'),
+            ],
             'title',
             'prefix',
             'number_length',
@@ -37,8 +40,11 @@ $this->params['breadcrumbs'][] = $this->title;
             //'created_at',
             //'updated_at',
             //'status',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 
