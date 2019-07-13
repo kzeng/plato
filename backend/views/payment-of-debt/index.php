@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+use common\models\PaymentOfDebt;
+
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\PaymentOfDebtSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -25,11 +27,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:8%;'),
+            ],
             'card_number',
             'reader_name',
-            'violation_type_id',
-            'payment_status',
+            //'violation_type_id',
+            // 'violationType.title',
+            [
+                'label'     => '违章类型',
+                'attribute' => 'violation_type_id',
+                'value'     => 'violationType.title',
+            ],
+            //'payment_status',
+            [
+                'attribute' => 'payment_status',
+                'label' => '缴费状态',
+                'value'=>function ($model, $key, $index, $column) {
+                    return PaymentOfDebt::getPaymentStatusOption($model->payment_status);
+                },
+                'filter'=> PaymentOfDebt::getPaymentStatusOption(),
+                'headerOptions' => array('style'=>'width:12%;'),
+            ],
             'penalty',
             //'description',
             //'library_id',
@@ -37,8 +57,11 @@ $this->params['breadcrumbs'][] = $this->title;
             //'created_at',
             //'updated_at',
             //'status',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

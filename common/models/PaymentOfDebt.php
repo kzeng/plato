@@ -72,4 +72,26 @@ class PaymentOfDebt extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
+
+    public function getViolationType()
+    {
+        return $this->hasOne(ViolationType::className(), ['id' => 'violation_type_id' ]);
+    }
+
+    
+    static function getPaymentStatusOption($key=null)
+    {
+        $arr = array(
+            1 => '已缴费',
+            0 => '未缴费',
+        );
+        return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+
+    static function getPaymentStatus($model)
+    {
+        return self::getPaymentStatusOption($model->payment_status);
+    }
+
+
 }
