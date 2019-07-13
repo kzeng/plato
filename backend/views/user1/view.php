@@ -7,8 +7,8 @@ use yii\widgets\DetailView;
 /* @var $model common\models\User1 */
 
 //$this->title = $model->id;
-$this->title = "用户信息";
-$this->params['breadcrumbs'][] = ['label' => '用户管理', 'url' => ['index']];
+$this->title = "馆员信息";
+$this->params['breadcrumbs'][] = ['label' => '馆员管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 \yii\web\YiiAsset::register($this);

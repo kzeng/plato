@@ -16,6 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('新增读者', ['create'], ['class' => 'btn btn-success']) ?>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <?= Html::a('读者类型管理', ['reader-type/index'], ['class' => 'btn btn-primary']) ?>
+        
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

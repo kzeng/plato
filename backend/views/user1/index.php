@@ -8,13 +8,13 @@ use common\models\User1;
 /* @var $searchModel common\models\User1Search */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '用户管理';
+$this->title = '馆员配置';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user1-index">
 
     <p>
-        <?= Html::a('新增用户', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增馆员', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

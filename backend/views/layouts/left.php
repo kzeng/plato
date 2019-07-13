@@ -81,24 +81,43 @@
                     ],
 
                     [
+                        'label' => '服务数据',
+                        'icon' => 'pie-chart ',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => '借阅排行榜',  'icon' => 'angle-double-right', 'url' => ['/common-pages/comingsoon']],
+                            ['label' => '流通统计',  'icon' => 'angle-double-right', 'url' => ['/common-pages/comingsoon']],
+                            ['label' => '馆藏统计',  'icon' => 'angle-double-right', 'url' => ['/common-pages/comingsoon']],
+
+                        ],
+                    ],
+
+                    [
                         'label' => '系统管理',
                         'icon' => 'gear',
                         'url' => '#',
                         'items' => [
                             ['label' => '图书馆配置',  'icon' => 'angle-double-right', 'url' => ['/library']],
-                            ['label' => '用户管理',  'icon' => 'angle-double-right', 'url' => ['/user1']],
                             ['label' => '馆藏地管理',  'icon' => 'angle-double-right', 'url' => ['/collection-place']],
                             ['label' => '书商管理',  'icon' => 'angle-double-right', 'url' => ['/bookseller']],
                             ['label' => '违章类型管理',  'icon' => 'angle-double-right', 'url' => ['/violation-type']],
                             ['label' => '流通类型管理',  'icon' => 'angle-double-right', 'url' => ['/circulation-type']],
-                            ['label' => '读者类型管理',  'icon' => 'angle-double-right', 'url' => ['/reader-type']],
+                            //['label' => '读者类型管理',  'icon' => 'angle-double-right', 'url' => ['/reader-type']],
                             ['label' => '借阅规则配置',  'icon' => 'angle-double-right', 'url' => ['/borrowing-rules']],
                             ['label' => '条码号序列设置',  'icon' => 'angle-double-right', 'url' => ['/bar-code']],
                             ['label' => '索书号管理',  'icon' => 'angle-double-right', 'url' => ['/call-number-rules']],
-                            ['label' => '权限配置', 'icon' => 'exclamation-triangle', 'url' => ['/admin']],
                         ],
                     ],
 
+                    [
+                        'label' => '管理权限',
+                        'icon' => 'exclamation-triangle',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => '馆员配置',  'icon' => 'angle-double-right', 'url' => ['/user1']],
+                            ['label' => '权限配置', 'icon' => 'exclamation-triangle', 'url' => ['/admin']],
+                        ],
+                    ],
 
                     // 新增菜单条目，END
                     // [

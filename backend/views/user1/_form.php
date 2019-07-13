@@ -37,7 +37,7 @@ use common\models\User1;
     <!-- <//?= $form->field($model, 'library_id')->textInput() ?> -->
 
     <?php
-        if( Yii::$app->user->id == 1) /* 超级管理员可以把新增的用户分配到指定图书馆*/
+        if( Yii::$app->user->id == 1) /* 超级管理员可以把新增的馆员分配到指定图书馆*/
         {
             echo $form->field($model, 'library_id')->dropDownList(User1::getLibraryOption());
         }
