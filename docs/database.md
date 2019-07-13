@@ -53,6 +53,7 @@ id_card      |string    |64     |否     |-     |身份证
 reader_type_id      |int    |11     |否     |-     |读者类型
 gender      |int    |11     |否     |-     |性别
 deposit      |decimal    |2     |否     |-     |押金(元)
+creditmoney      |decimal    |2     |否     |-     |欠费金额(元)
 mobile      |string    |32     |是     |-     |电话
 address      |string    |128     |是     |-     |地址
 library_id      |int    |11     |否     |-     |图书馆ID

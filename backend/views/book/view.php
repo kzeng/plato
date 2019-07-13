@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
 
         <span class="pull-right">
-        <a class="btn btn-primary" href="<?= Yii::$app->request->getHostInfo() ?>/book-copy?BookCopySearch[book_id]=<?= $model->id ?>&sort=-id" >
+        <a class="btn btn-primary" href="<?= Yii::$app->request->getHostInfo() ?>/book-copy?BookCopySearch[book_id]=<?= $model->isbn ?>&sort=-id" >
         <i class="fa fa-eye"></i> 
         查看副本
         </a>
