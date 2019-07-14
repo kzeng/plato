@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <tr>
     <th>条码号</th>
     <th>题名</th>
-    <th>责任者</th>
+    <!-- <th>责任者</th> -->
     <th>ISBN</th>
     <th>出版社</th>
     <th>索书号</th>
@@ -77,18 +77,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </tr>
 
     <tbody id='booksinfo'>
-    <tr>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-    </tr>
     </tbody>
 
     </table>
@@ -179,7 +167,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                     console.log(ret['borrow_return_books'][i]);
                                     html_tr += "<tr>";
                                     html_tr += "<td>" + ret['borrow_return_books'][i]["bar_code"] + "</td>";
-                                    html_tr += "<td>-</td>";
                                     html_tr += "<td>-</td>";
                                     html_tr += "<td>-</td>";
                                     html_tr += "<td>-</td>";
