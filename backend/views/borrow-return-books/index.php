@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\BorrowReturnBooks;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\BorrowReturnBooksSearch */
@@ -27,18 +28,36 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:8%;'),
+            ],
             //reader_id',
             'card_number',
             'bar_code',
-            'operation',
+            //'operation',
+
+            [
+                'attribute' => 'operation',
+                'label' => '操作',
+                'value'=>function ($model, $key, $index, $column) {
+                    return BorrowReturnBooks::getOperationOption($model->operation);
+                },
+                'filter'=> BorrowReturnBooks::getOperationOption(),
+                'headerOptions' => array('style'=>'width:16%;'),
+            ],
+
             //'library_id',
             //'user_id',
             //'created_at',
             //'updated_at',
             //'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
+
         ],
     ]); ?>
 

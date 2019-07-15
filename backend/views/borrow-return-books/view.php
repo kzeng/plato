@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\models\BorrowingRules;
+use common\models\BorrowReturnBooks;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\BorrowReturnBooks */
@@ -32,7 +34,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'reader_id',
             'card_number',
             'bar_code',
-            'operation',
+            [
+                'label' => '操作',
+                'value' => BorrowReturnBooks::getOperation($model),
+            ],
             'library_id',
             'user_id',
             'created_at:datetime',

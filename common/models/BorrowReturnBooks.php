@@ -66,7 +66,20 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
             'status' => '状态',
         ];
     }
-    
+
+
+    static function getOperationOption($key=null)
+    {
+        $arr = array(
+            1 => '借书',
+            0 => '还书',
+        );
+        return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+    static function getOperation($model)
+    {
+        return self::getOperationOption($model->operation);
+    }
 
     public static function getReaderInfoAjax($cardnumber_or_barcode)
     {
