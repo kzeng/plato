@@ -103,11 +103,33 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
     }
 
 
-    
     public static function getBooksInfoAjax($cardnumber_or_barcode)
     {
         $count = BorrowReturnBooks::find()->where(['card_number' => $cardnumber_or_barcode, 'operation' => 1])->count();
-        $info = BorrowReturnBooks::find()->where(['card_number' => $cardnumber_or_barcode, 'operation' => 1])->all();
+        $brbs = BorrowReturnBooks::find()->where(['card_number' => $cardnumber_or_barcode, 'operation' => 1])->all();
+
+        //array_push
+        $info = [];
+        foreach($brbs as $brb)
+        {
+            $bookcopy = BookCopy::findOne(['bar_code' => $brb->bar_code]);
+            $book = Book::findOne(['id' =>$bookcopy->book_id]);
+            $collection_place = CollectionPlace::findOne(['id' => $bookcopy->collection_place_id]);
+            $user = User1::findOne(['id' => $brb->user_id]);
+            $item = [
+                'bar_code' => $brb->bar_code,
+                'created_at' => date('Y-m-d', $brb->created_at),
+                'title' => $book->title,
+                'isbn'  => $book->isbn,
+                'publisher'  => $book->publisher,
+                'call_number'  => $book->call_number,
+                'collection_place' => $collection_place->title,
+                'operator'  => $user->username,
+                //'due_date' => $due_date,
+            ];
+            array_push($info, $item);
+        }
+
         $borrow_return_books = [
             'count' => $count,
             'info'  => $info,
