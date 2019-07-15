@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <div class="panel panel-default">
-  <div class="panel-heading">当前在借书籍 <span class="label label-info">4</span></div>
+  <div class="panel-heading">当前在借书籍 <span class="label label-info borrow_book_count"></span></div>
   <div class="panel-body">
     <table class="table table-striped ">
     <tr>
@@ -150,7 +150,8 @@ $this->params['breadcrumbs'][] = $this->title;
                             {
                                 //bind data to page
                                 // $("#reader_name").html(ret['reader_info']['reader_name']);
-                                for(i=0; ret['borrow_return_books'].length; i++)
+                                $(".borrow_book_count").html(ret['borrow_return_books']['count']);
+                                for(i=0; i<ret['borrow_return_books']['info'].length; i++)
                                 {
                                     //alert(ret['borrow_return_books'][i]['bar_code']);
                                     // <th>条码号</th>
@@ -164,9 +165,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                     // <th>经办人</th>
                                     // <th>应还时间</th>
                                     console.log("------------------");
-                                    console.log(ret['borrow_return_books'][i]);
+                                    console.log(ret['borrow_return_books']['info'][i]);
                                     html_tr += "<tr>";
-                                    html_tr += "<td>" + ret['borrow_return_books'][i]["bar_code"] + "</td>";
+                                    html_tr += "<td>" + ret['borrow_return_books']['info'][i]["bar_code"] + "</td>";
                                     html_tr += "<td>-</td>";
                                     html_tr += "<td>-</td>";
                                     html_tr += "<td>-</td>";

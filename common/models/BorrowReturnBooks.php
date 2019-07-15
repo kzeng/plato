@@ -106,8 +106,12 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
     
     public static function getBooksInfoAjax($cardnumber_or_barcode)
     {
-        $borrow_return_books = BorrowReturnBooks::find()->where(['card_number' => $cardnumber_or_barcode])->all();
-
+        $count = BorrowReturnBooks::find()->where(['card_number' => $cardnumber_or_barcode, 'operation' => 1])->count();
+        $info = BorrowReturnBooks::find()->where(['card_number' => $cardnumber_or_barcode, 'operation' => 1])->all();
+        $borrow_return_books = [
+            'count' => $count,
+            'info'  => $info,
+        ];
         if(empty($borrow_return_books))
         {
             return \yii\helpers\Json::encode(['code' => -1]);
