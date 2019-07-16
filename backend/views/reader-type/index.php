@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'max_borrowing_number',
             'max_debt_limit',
+            'max_return_time',
             //'library_id',
             //'user_id',
             //'created_at',

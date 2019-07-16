@@ -17,7 +17,7 @@ class ReaderTypeSearch extends ReaderType
     public function rules()
     {
         return [
-            [['id', 'max_borrowing_number', 'max_debt_limit', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['id', 'max_borrowing_number', 'max_debt_limit', 'max_return_time', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['title'], 'safe'],
         ];
     }
@@ -61,6 +61,7 @@ class ReaderTypeSearch extends ReaderType
             'id' => $this->id,
             'max_borrowing_number' => $this->max_borrowing_number,
             'max_debt_limit' => $this->max_debt_limit,
+            'max_return_time' => $this->max_return_time,
             'library_id' => $this->library_id,
             'user_id' => $this->user_id,
             'created_at' => $this->created_at,

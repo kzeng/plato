@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //['class' => 'yii\grid\SerialColumn'],
             [
                 'attribute' => 'id',
-                'headerOptions' => array('style'=>'width:5%;'),
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
 
             //'book_id',
@@ -36,7 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     => 'book.isbn',
             ],
  
-            'title',
+            //'title',
+            [
+                'label'     => '题名',
+                //'attribute' => 'book_id',
+                'value'     => 'book.title',
+                'headerOptions' => array('style'=>'width:20%;'),
+            ],
             'bar_code',
             //'bookseller_id',
             

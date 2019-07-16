@@ -146,7 +146,6 @@ class Book extends \yii\db\ActiveRecord
             {
                 $book_copy = new BookCopy();
                 $book_copy->book_id       = $book->id;
-                $book_copy->title       = $book->title;
                 $book_copy->bar_code    = $bar_code;
                 $book_copy->price1      = $price1;
                 $book_copy->price2      = $price2;

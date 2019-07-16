@@ -126,7 +126,6 @@ class m190624_130433_all_init extends Migration
         $this->createTable('{{%book_copy}}', [
             'id' => $this->primaryKey(),
             'book_id' => $this->integer()->notNull()->defaultValue(0)->comment('图书ID'),
-            'title' => $this->string(128)->notNull()->comment('题名'),
             'bar_code' => $this->string(128)->notNull()->comment('条码号'),
             'bookseller_id' => $this->integer()->notNull()->comment('书商'),
             'price1' => $this->decimal(10,2)->comment('实洋(元)'),
@@ -230,6 +229,7 @@ class m190624_130433_all_init extends Migration
             'title' => $this->string(128)->notNull()->comment('名称'),
             'max_borrowing_number' => $this->integer()->notNull()->comment('最大借阅量（本）'),
             'max_debt_limit' => $this->integer()->notNull()->comment('最大欠费额度（元）'),
+            'max_return_time' => $this->integer()->notNull()->comment('最大还书时间（天）'),
             'library_id' => $this->integer()->notNull()->comment('图书馆ID'),
             'user_id' => $this->integer()->notNull()->defaultValue(1)->comment('操作员ID'),
             'created_at' => $this->integer()->comment('创建时间'),
@@ -513,6 +513,7 @@ class m190624_130433_all_init extends Migration
             $model->title = $title[$i];
             $model->max_borrowing_number = rand(5,10);
             $model->max_debt_limit = 100;
+            $model->max_return_time = 90;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
             $user->status = 1;
@@ -607,6 +608,54 @@ class m190624_130433_all_init extends Migration
         }
         echo "\n insert demo data into reading_room_checkin, ok";
 
+
+        //图书副本 book_copy
+        //$books = common\models\Book::find()->where(['library_id' => 1])->limit(50)->all();
+        for($j=1; $j<51; $j++)
+        {
+            $str = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
+                    'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
+            $str1 = $str[rand(0,25)].$str[rand(0,25)].$str[rand(0,25)];
+            $book_id = $j;
+            $title = '';
+            $price1 = $price2 = rand(30,100);
+            $bookseller_id = rand(1,5);
+            $collection_place_id = rand(1,5);
+            $circulation_type_id = rand(1,2);
+            $call_number_rules_id = rand(1,5);
+            $library_id = 1;
+            $user_id = rand(2,7);
+            $created_at = time();
+            $updated_at = time();
+        
+            for($i=0; $i<10; $i++) //每本图书创建10个副本
+            {
+                $model = new common\models\BookCopy();
+
+                $model->book_id = $book_id;
+                //$model->title = $title;
+                $model->price1 = $price1;
+                $model->price2 = $price2;
+                $model->bookseller_id = $bookseller_id;
+                $model->collection_place_id = $collection_place_id;
+                $model->circulation_type_id = $circulation_type_id;
+                $model->call_number_rules_id = $call_number_rules_id;
+                $model->bar_code = sprintf($str1."%09d", $i+1);
+                $model->library_id = $library_id;
+                $model->user_id = $user_id;
+                $model->status = 1;
+                $model->created_at = $created_at;
+                $model->updated_at = $updated_at;
+                $model->save(false);
+            }
+
+        }
+        echo "\n insert demo data into book_copy, ok";
+
+
+
+
+        echo "\n end of demo data insert!\n";
     }
 
 

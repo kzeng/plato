@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'max_debt_limit')->textInput() ?>
 
+    <?= $form->field($model, 'max_return_time')->textInput() ?>
+    
     <!-- <//?= $form->field($model, 'library_id')->textInput() ?>
 
     <//?= $form->field($model, 'user_id')->textInput() ?>

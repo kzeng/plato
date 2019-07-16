@@ -11,7 +11,6 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property int $id
  * @property int $book_id 图书ID
- * @property string $title 题名
  * @property string $bar_code 条码号
  * @property int $bookseller_id 书商
  * @property string $price1 实洋(元)
@@ -47,10 +46,10 @@ class BookCopy extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'bar_code', 'book_id', 'bookseller_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id'], 'required'],
+            [['bar_code', 'book_id', 'bookseller_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id'], 'required'],
             [['bookseller_id', 'book_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['price1', 'price2'], 'number'],
-            [['title', 'bar_code'], 'string', 'max' => 128],
+            [['bar_code'], 'string', 'max' => 128],
         ];
     }
 
@@ -62,7 +61,6 @@ class BookCopy extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'book_id' => '图书ID',
-            'title' => '题名',
             'bar_code' => '条码号',
             'bookseller_id' => '书商',
             'price1' => '实洋(元)',

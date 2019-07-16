@@ -18,7 +18,7 @@ class BookCopySearch extends BookCopy
     {
         return [
             [['id', 'bookseller_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['title', 'book_id', 'bar_code'], 'safe'],
+            [[ 'book_id', 'bar_code'], 'safe'],
             [['price1', 'price2'], 'number'],
         ];
     }
@@ -75,8 +75,7 @@ class BookCopySearch extends BookCopy
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'bar_code', $this->bar_code])
+        $query->andFilterWhere(['like', 'bar_code', $this->bar_code])
             ->andFilterWhere(['like', 'book.isbn', $this->book_id]);
 
         return $dataProvider;

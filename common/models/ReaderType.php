@@ -41,8 +41,8 @@ class ReaderType extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'max_borrowing_number', 'max_debt_limit', 'library_id'], 'required'],
-            [['max_borrowing_number', 'max_debt_limit', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['title', 'max_borrowing_number', 'max_debt_limit', 'max_return_time', 'library_id'], 'required'],
+            [['max_borrowing_number', 'max_debt_limit', 'max_return_time', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['title'], 'string', 'max' => 128],
         ];
     }
@@ -57,6 +57,7 @@ class ReaderType extends \yii\db\ActiveRecord
             'title' => '名称',
             'max_borrowing_number' => '最大借阅量（本）',
             'max_debt_limit' => '最大欠费额度（元）',
+            'max_return_time' => '最大还书时间',
             'library_id' => '图书馆ID',
             'user_id' => '操作员ID',
             'created_at' => '创建时间',

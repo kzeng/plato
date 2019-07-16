@@ -59,7 +59,8 @@ class HelloController extends Controller
             $book->publish_date = $publish_date;
             $book->class_number = $class_number;
             $book->call_number = $call_number;
-            $book->copy_number = 0;
+            //建表默认 前50本书10个副本
+            $book->copy_number = ($i<51)?10:0;
             $book->series_title = '-';
             $book->created_at = time();
             $book->updated_at = time();
