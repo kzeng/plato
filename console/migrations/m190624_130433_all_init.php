@@ -455,7 +455,7 @@ class m190624_130433_all_init extends Migration
             $model->description = '图书馆阅读室';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $user->status = 1;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -469,7 +469,7 @@ class m190624_130433_all_init extends Migration
             $model->description = '图书馆馆藏地点';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $user->status = 1;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -483,7 +483,7 @@ class m190624_130433_all_init extends Migration
             $model->description = '不可再借';
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $user->status = 1;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -499,7 +499,7 @@ class m190624_130433_all_init extends Migration
             $model->description =  $description[$i];
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $user->status = 1;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -516,7 +516,7 @@ class m190624_130433_all_init extends Migration
             $model->max_return_time = 90;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $user->status = 1;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save();
@@ -541,7 +541,7 @@ class m190624_130433_all_init extends Migration
         //     $model->series_title = "";
         //     $model->library_id = 1;
         //     $model->user_id = rand(2,7);
-        //     $user->status = 1;
+        //     $model->status = 1;
         //     $model->created_at = time();
         //     $model->updated_at = time();
         //     $model->save();
@@ -564,7 +564,7 @@ class m190624_130433_all_init extends Migration
             $model->address = $faker->address;
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $user->status = 1;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save(false);
@@ -583,7 +583,7 @@ class m190624_130433_all_init extends Migration
             $model->description = "";
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $user->status = 1;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save(false);
@@ -601,7 +601,7 @@ class m190624_130433_all_init extends Migration
             $model->reading_room_id = rand(1,3);
             $model->library_id = 1;
             $model->user_id = rand(2,7);
-            $user->status = 1;
+            $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
             $model->save(false);
@@ -651,6 +651,45 @@ class m190624_130433_all_init extends Migration
 
         }
         echo "\n insert demo data into book_copy, ok";
+
+
+
+        // * @property int $id
+        // * @property string $card_number 卡号
+        // * @property string $bar_code 条码号
+        // * @property int $operation 借还操作:1借，0还
+        // * @property int $library_id 图书馆ID
+        // * @property int $user_id 操作员ID
+        // * @property int $created_at 创建时间
+        // * @property int $updated_at 更新时间
+        // * @property int $status 状态
+        // */
+
+        //borrow_return_books
+        //增加5名读者借书数据
+        for ($i = 1; $i < 6; $i++) {
+            $reader = common\models\Reader::findOne(['id' => $i]);
+       
+            $card_number = $reader->card_number;
+            $created_at = $updated_at = time();
+            for($j=1; $j<6; $j++)
+            {
+                $offset = ($j - 1) * 10  + $i;
+                $book_copy = common\models\BookCopy::findOne(['id' => $offset]);
+                $model = new common\models\BorrowReturnBooks();
+                $model->card_number = $card_number;
+                $model->bar_code = $book_copy->bar_code;
+                $model->operation = 1;
+                $model->library_id = 1;
+                $model->user_id = rand(2,7);
+                $model->status = 1;
+                $model->created_at = $created_at;
+                $model->updated_at = $updated_at;
+                $model->save(false);
+            }
+        }
+        echo "\n insert demo data into borrow_return_books, ok";
+
 
 
 
