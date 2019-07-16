@@ -136,7 +136,6 @@ status       |int    |11     |否     |-     |状态, 默认值1
 字段名|数据类型|长度|可空|主键|注释
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
-title      |string    |128     |否     |-     |题名
 bar_code      |string    |128     |否     |-     |条码号(bar_code表中来)
 bookseller_id      |int    |11     |否     |-     |书商
 price1      |decimal    |2     |否     |-     |实洋(元)
@@ -234,6 +233,7 @@ id      |int    |11     |否     |是     |主键ID
 title      |string    |128     |否     |-     |名称
 max_borrowing_number      |int    |11     |否     |-     |最大借阅量（本）
 max_debt_limit      |int    |11     |否     |-     |最大欠费额度（元）
+max_return_time      |int    |11     |否     |-     |最大还书时间（天）
 library_id      |int    |11     |否     |-     |图书馆ID
 user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
