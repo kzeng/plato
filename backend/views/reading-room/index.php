@@ -31,6 +31,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'title',
             'description',
+            [
+                'label' => '今日签到人数',
+                'value' => function($model){
+                    $reading_room_checkin_count = common\models\ReadingRoomCheckin::find()
+                                            ->where(['reading_room_id' => $model->id])
+                                            ->andWhere(['between', 'created_at', strtotime(date('Y-m-d', time()).' 00:00:01'), strtotime(date('Y-m-d', time()). ' 23:59:59')])
+                                            ->count();
+                    
+                    return $reading_room_checkin_count;
+                },
+            ],
             //'library_id',
             //'user_id',
             //'created_at',

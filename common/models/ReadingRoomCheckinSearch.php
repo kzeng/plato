@@ -12,7 +12,7 @@ use common\models\ReadingRoomCheckin;
 class ReadingRoomCheckinSearch extends ReadingRoomCheckin
 {
     public $created_at_range; 
-
+    public $reader_name;
     
     /**
      * {@inheritdoc}
@@ -21,7 +21,7 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
     {
         return [
             [['id', 'reading_room_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['card_number', 'reader_id', 'created_at_range'], 'safe'],
+            [['card_number', 'reader_id', 'created_at_range', 'reader_name'], 'safe'],
         ];
     }
 
@@ -63,10 +63,12 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
 
         if(!empty($this->created_at_range) && strpos($this->created_at_range, '-') !== false) {
 			list($start_date, $end_date) = explode(' - ', $this->created_at_range);
-			$query->andFilterWhere(['between', 'reading_room_checkin.created_at', strtotime($start_date.' 00:00:01'), strtotime($end_date. '23:59:59')]);
+			$query->andFilterWhere(['between', 'reading_room_checkin.created_at', strtotime($start_date.' 00:00:01'), strtotime($end_date. ' 23:59:59')]);
         }	
         
         $query->joinWith('reader');
+        //$query->select("reading_room_checkin.*,reader.reader_name");
+
  
         // grid filtering conditions
         $query->andFilterWhere([
@@ -80,7 +82,8 @@ class ReadingRoomCheckinSearch extends ReadingRoomCheckin
         ]);
 
         $query->andFilterWhere(['like', 'card_number', $this->card_number])
-              ->andFilterWhere(['like', 'reader.reader_name', $this->reader_id]);
+              ->andFilterWhere(['like', 'reader.reader_name', $this->reader_name]);
+
 
         return $dataProvider;
     }

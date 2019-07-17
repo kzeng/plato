@@ -53,9 +53,11 @@ $this->params['breadcrumbs'][] = $this->title;
             //     'headerOptions' => array('style'=>'width:15%;'),
             // ],
             [
-                'attribute' => 'reader_id',
+                'label' => '读者姓名',
+                'attribute' => 'reader_name',
                 'value'     => 'reader.reader_name',
             ],
+
             //'reading_room_id',
             [
                 'attribute' => 'reading_room_id',
@@ -64,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return ReadingRoomCheckin::getReadingRoomOption($model->reading_room_id);
                 },
                 'filter'=> ReadingRoomCheckin::getReadingRoomOption(),
-                'headerOptions' => array('style'=>'width:20%;'),
+                'headerOptions' => array('style'=>'width:15%;'),
             ],
 
             //'library_id',
@@ -86,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'autoUpdateInput' => false
                 ]
                 ]),
-                'headerOptions' => array('style'=>'width:30%;'),
+                'headerOptions' => array('style'=>'width:25%;'),
             ],
             //'updated_at',
             //'status',
