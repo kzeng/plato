@@ -36,10 +36,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     => 'book.isbn',
             ],
  
+
             //'title',
             [
                 'label'     => '题名',
-                //'attribute' => 'book_id',
+                'attribute' => 'title',
                 'value'     => 'book.title',
                 'headerOptions' => array('style'=>'width:20%;'),
             ],
@@ -48,7 +49,8 @@ $this->params['breadcrumbs'][] = $this->title;
             
             [
                 'label'     => '书商',
-                'attribute' => 'bookseller.title',
+                'attribute' => 'bookseller_title',
+                'value'     => 'bookseller.title',
                 'headerOptions' => array('style'=>'width:20%;'),
             ],
 

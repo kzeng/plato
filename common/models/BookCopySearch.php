@@ -11,6 +11,10 @@ use common\models\BookCopy;
  */
 class BookCopySearch extends BookCopy
 {
+    public $title;
+    public $bookseller_title;
+
+
     /**
      * {@inheritdoc}
      */
@@ -18,7 +22,7 @@ class BookCopySearch extends BookCopy
     {
         return [
             [['id', 'bookseller_id', 'collection_place_id', 'circulation_type_id', 'call_number_rules_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [[ 'book_id', 'bar_code'], 'safe'],
+            [[ 'book_id', 'bar_code', 'title', 'bookseller_title'], 'safe'],
             [['price1', 'price2'], 'number'],
         ];
     }
@@ -58,6 +62,9 @@ class BookCopySearch extends BookCopy
         }
 
         $query->joinWith('book');
+        $query->joinWith('bookseller');
+        $query->select("book_copy.*,book.title,bookseller.title");
+
 
         // grid filtering conditions
         $query->andFilterWhere([
@@ -76,7 +83,9 @@ class BookCopySearch extends BookCopy
         ]);
 
         $query->andFilterWhere(['like', 'bar_code', $this->bar_code])
-            ->andFilterWhere(['like', 'book.isbn', $this->book_id]);
+            ->andFilterWhere(['like', 'book.title', $this->title])
+            ->andFilterWhere(['like', 'book.isbn', $this->book_id])
+            ->andFilterWhere(['like', 'bookseller.title', $this->bookseller_title]);
 
         return $dataProvider;
     }

@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="reader-view">
-    
+
     <p>
         <?= Html::a('<i class="fa fa-edit"></i> 修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('<i class="fa fa-trash-o"></i> 删除', ['delete', 'id' => $model->id], [
@@ -30,15 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
 
         <span class="pull-right">
-        <button type="button" class="btn btn-danger" id="gs"><i class="fa fa-lock"></i> 挂失</button>
-        <button type="button" class="btn btn-success" id="jcgs"><i class="fa fa-unlock"></i> 解除挂失</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-exchange"></i> 换证</button>
-        <button type="button" class="btn btn-primary" id="jnyfj"><i class="fa fa-money"></i> 缴纳预付款</button>
-        <button type="button" class="btn btn-danger" id="zjzx"><i class="fa fa-remove"></i> 证件注销</button>
+            <button type="button" class="btn btn-danger" id="gs"><i class="fa fa-lock"></i> 挂失</button>
+            <button type="button" class="btn btn-success" id="jcgs"><i class="fa fa-unlock"></i> 解除挂失</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-exchange"></i> 换证</button>
+            <button type="button" class="btn btn-primary" id="jnyfj"><i class="fa fa-money"></i> 缴纳预付款</button>
+            <button type="button" class="btn btn-danger" id="zjzx"><i class="fa fa-remove"></i> 证件注销</button>
         </span>
     </p>
-
-    <!-- 最大可借数(本)	8	当前借阅数(本) -->
 
     <?= DetailView::widget([
         'model' => $model,
@@ -51,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => '证件状态',
                 'value' => $model->getCardStatus($model),
-                'format'=> 'html',
+                'format' => 'html',
             ],
             'reader_name',
             'validity:datetime',
@@ -61,16 +59,16 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => '读者类型',
                 'value' => Reader::getReaderType($model),
-                'format'=> 'html',
+                'format' => 'html',
             ],
-            
+
             //'gender',
             [
                 'label' => '性别',
                 'value' => $model->getGender($model),
-                'format'=> 'html',
+                'format' => 'html',
             ],
-            
+
             'deposit',
             'creditmoney',
             'mobile',
@@ -110,121 +108,111 @@ $this->params['breadcrumbs'][] = $this->title;
                     <input type="text" id="modal-card_number" class="form-control" name="modal-card_number" maxlength="32" placeholder="读者证卡号">
                     <div class="help-block"></div>
                 </div>
-                </div><!-- endof modal-body-->
+            </div><!-- endof modal-body-->
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="hz">确定</button>
             </div>
         </div><!-- endof modal-content-->
-        </div>
     </div>
+</div>
 </div>
 
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-
     $(document).ready(function() {
 
-        $('#gs').click (function () {
+        $('#gs').click(function() {
             // alert('confirmAjax');
             // if (!confirm("确定要发布吗?"))
             //     return;
             var args = {
-                'classname':    '\\common\\models\\Reader',
-                'funcname':     'setCardStatusAjax',
-                'params':       {
+                'classname': '\\common\\models\\Reader',
+                'funcname': 'setCardStatusAjax',
+                'params': {
                     'id': '<?= $model->id ?>',
                     'card_status': 0,
                 }
             };
             $.ajax({
-                url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
-                type:       "GET",
-                cache:      false,
-                dataType:   "json",
-                data:       "args=" + JSON.stringify(args),
-                success:    function(ret) { 
-                    if (0 === ret['code']) 
-                    {
+                url: "<?= \yii\helpers\Url::to(['site/siteajax'], true); ?>",
+                type: "GET",
+                cache: false,
+                dataType: "json",
+                data: "args=" + JSON.stringify(args),
+                success: function(ret) {
+                    if (0 === ret['code']) {
                         alert("证件已经成功挂失！");
                         location.href = '<?= Url::to() ?>';
-                    } 
-                    else
-                    {
-                            alert("error");
+                    } else {
+                        alert("error");
                     }
-                },                        
-                error:      function(){
+                },
+                error: function() {
                     alert('发送失败。');
                 }
             });
         });
 
-        $('#jcgs').click (function () {
+        $('#jcgs').click(function() {
             var args = {
-                'classname':    '\\common\\models\\Reader',
-                'funcname':     'setCardStatusAjax',
-                'params':       {
+                'classname': '\\common\\models\\Reader',
+                'funcname': 'setCardStatusAjax',
+                'params': {
                     'id': '<?= $model->id ?>',
                     'card_status': 1,
                 }
             };
             $.ajax({
-                url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
-                type:       "GET",
-                cache:      false,
-                dataType:   "json",
-                data:       "args=" + JSON.stringify(args),
-                success:    function(ret) { 
-                    if (0 === ret['code']) 
-                    {
+                url: "<?= \yii\helpers\Url::to(['site/siteajax'], true); ?>",
+                type: "GET",
+                cache: false,
+                dataType: "json",
+                data: "args=" + JSON.stringify(args),
+                success: function(ret) {
+                    if (0 === ret['code']) {
                         alert("证件已经成功解除挂失！");
                         location.href = '<?= Url::to() ?>';
-                    } 
-                    else
-                    {
-                            alert("error");
+                    } else {
+                        alert("error");
                     }
-                },                        
-                error:      function(){
+                },
+                error: function() {
                     alert('发送失败。');
                 }
             });
         });
 
-        $('#hz').click (function () {
+        $('#hz').click(function() {
             var args = {
-                'classname':    '\\common\\models\\Reader',
-                'funcname':     'setCardNumberAjax',
-                'params':       {
+                'classname': '\\common\\models\\Reader',
+                'funcname': 'setCardNumberAjax',
+                'params': {
                     'id': '<?= $model->id ?>',
                     'card_number': $('#modal-card_number').val(),
                 }
             };
             $.ajax({
-                url:        "<?= \yii\helpers\Url::to(['site/siteajax'], true) ; ?>",
-                type:       "GET",
-                cache:      false,
-                dataType:   "json",
-                data:       "args=" + JSON.stringify(args),
-                success:    function(ret) { 
-                    if (0 === ret['code']) 
-                    {
+                url: "<?= \yii\helpers\Url::to(['site/siteajax'], true); ?>",
+                type: "GET",
+                cache: false,
+                dataType: "json",
+                data: "args=" + JSON.stringify(args),
+                success: function(ret) {
+                    if (0 === ret['code']) {
                         alert("证件已经成功换号！");
                         location.href = '<?= Url::to() ?>';
-                    } 
-                    else
-                    {
-                            alert("error");
+                    } else {
+                        alert("error");
                     }
-                },                        
-                error:      function(){
+                },
+                error: function() {
                     alert('发送失败。');
                 }
             });
         });
 
 
-            
-    });//end of document ready
+
+    }); //end of document ready
 </script>
