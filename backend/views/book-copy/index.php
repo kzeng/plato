@@ -47,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'bookseller_id',
             
             [
+                'label'     => '书商',
                 'attribute' => 'bookseller.title',
                 'headerOptions' => array('style'=>'width:20%;'),
             ],

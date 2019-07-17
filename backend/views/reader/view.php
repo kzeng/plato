@@ -20,8 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="reader-view">
     
     <p>
-        <?= Html::a('修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('删除', ['delete', 'id' => $model->id], [
+        <?= Html::a('<i class="fa fa-edit"></i> 修改', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="fa fa-trash-o"></i> 删除', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => '删除本条记录，确定?',
@@ -30,11 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
 
         <span class="pull-right">
-        <button type="button" class="btn btn-danger" id="gs">挂失</button>
-        <button type="button" class="btn btn-success" id="jcgs">解除挂失</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">换证</button>
-        <button type="button" class="btn btn-primary" id="jnyfj">缴纳预付款</button>
-        <button type="button" class="btn btn-danger" id="zjzx">证件注销</button>
+        <button type="button" class="btn btn-danger" id="gs"><i class="fa fa-lock"></i> 挂失</button>
+        <button type="button" class="btn btn-success" id="jcgs"><i class="fa fa-unlock"></i> 解除挂失</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm"><i class="fa fa-exchange"></i> 换证</button>
+        <button type="button" class="btn btn-primary" id="jnyfj"><i class="fa fa-money"></i> 缴纳预付款</button>
+        <button type="button" class="btn btn-danger" id="zjzx"><i class="fa fa-remove"></i> 证件注销</button>
         </span>
     </p>
 
