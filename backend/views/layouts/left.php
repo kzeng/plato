@@ -41,12 +41,12 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => array_merge(\mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id), [
-                    ['label' => '主菜单', 'options' => ['class' => 'header']],
+                    ['label' => '', 'options' => ['class' => 'header']],
 
                     //['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-
+                    ['label' => '仪表盘', 'icon' => 'dashboard', 'url' => ['/dashboard']],
                     [
                         'label' => '馆藏信息',
                         'icon' => 'university',
