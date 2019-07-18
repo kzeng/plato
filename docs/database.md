@@ -12,6 +12,8 @@ title      |string    |128     |否     |-     |名称
 mobile      |string    |32     |是     |-     |电话
 address      |string    |128     |是     |-     |地址
 pid      |int    |11     |否     |是     |父ID
+logo_img      |string    |256     |是     |-     |Logo
+description      |text    |-     |是     |-     |简介
 user_id      |int    |11     |否     |-     |操作员ID
 created_at       |int    |11     |否     |-     |创建时间
 updated_at       |int    |11     |否     |-     |更新时间

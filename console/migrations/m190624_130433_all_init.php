@@ -50,6 +50,8 @@ class m190624_130433_all_init extends Migration
             'title' => $this->string(128)->notNull()->comment('名称'),
             'mobile' => $this->string(32)->comment('电话'),
             'address' => $this->string(128)->comment('地址'),
+            'logo_img' => $this->string(256)->defaultValue(null)->comment('Logo'),
+            'description' => $this->text()->defaultValue(null)->comment('简介'),
             'pid' => $this->integer()->notNull()->defaultValue(1)->comment('父ID'),
             'user_id' => $this->integer()->notNull()->defaultValue(1)->comment('操作员ID'),
             'created_at' => $this->integer()->comment('创建时间'),
@@ -397,6 +399,7 @@ class m190624_130433_all_init extends Migration
         }
         echo "\n insert demo data into user, ok";
 
+     
         //add 'library' data
         $library = new common\models\Library();
         $library->title = '江夏区图书馆';
@@ -406,7 +409,7 @@ class m190624_130433_all_init extends Migration
         $library->created_at = time();
         $library->updated_at = time();
         $library->status = 1;
-        $library->save();
+        $library->save(false);
 
         $library = new common\models\Library();
         $library->title = '洪山区图书馆';
@@ -416,7 +419,7 @@ class m190624_130433_all_init extends Migration
         $library->created_at = time();
         $library->updated_at = time();
         $library->status = 1;
-        $library->save();
+        $library->save(false);
 
         $library = new common\models\Library();
         $library->title = '硚口区图书馆';
@@ -426,9 +429,10 @@ class m190624_130433_all_init extends Migration
         $library->created_at = time();
         $library->updated_at = time();
         $library->status = 1;
-        $library->save();
+        $library->save(false);
 
         echo "\n insert demo data into library, ok";
+
 
 
         //bookseller

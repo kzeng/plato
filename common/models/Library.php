@@ -11,6 +11,8 @@ use yii\behaviors\TimestampBehavior;
  * @property int $id
  * @property string $title 名称
  * @property string $mobile 电话
+ * @property string $logo_img Logo
+ * @property string $description 简介
  * @property string $address 地址
  * @property int $user_id 操作员ID
  * @property int $pid 父ID
@@ -43,6 +45,8 @@ class Library extends \yii\db\ActiveRecord
             [['title'], 'required'],
             [['user_id', 'pid', 'created_at', 'updated_at', 'status'], 'integer'],
             [['title', 'address'], 'string', 'max' => 128],
+            [['title'], 'string', 'max' => 256],
+            [['description'], 'text'],
             [['mobile'], 'string', 'max' => 32],
         ];
     }
@@ -59,6 +63,8 @@ class Library extends \yii\db\ActiveRecord
             'address' => '地址',
             'user_id' => '操作员ID',
             'pid' => '父ID',
+            'logo_img' => 'Logo',
+            'description' => '简介',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
             'status' => '状态',

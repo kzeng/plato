@@ -18,7 +18,7 @@ class LibrarySearch extends Library
     {
         return [
             [['id', 'user_id', 'pid', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['title', 'mobile', 'address'], 'safe'],
+            [['title', 'mobile', 'address', 'logo_img', 'description'], 'safe'],
         ];
     }
 
@@ -78,6 +78,8 @@ class LibrarySearch extends Library
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'mobile', $this->mobile])
+            ->andFilterWhere(['like', 'logo_img', $this->logo_img])
+            ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'address', $this->address]);
 
         return $dataProvider;
