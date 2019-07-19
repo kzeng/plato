@@ -21,18 +21,26 @@ use pendalf89\filemanager\widgets\TinyMCE;
 
     <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
 
-    <label class="control-label" for="library-file">图书馆标识图片</label>
+    <!-- <label class="control-label" for="library-file">图书馆标识图片</label> -->
     <?php 
-        echo FileInput::widget([
-            'name' => 'file',
-            'pluginOptions' => [
-                'showPreview' => false,
-                'showCaption' => true,
-                'showRemove' => true,
-                'showUpload' => false
-            ]
+        // echo FileInput::widget([
+        //     'name' => 'file',
+        //     'pluginOptions' => [
+        //         'showPreview' => false,
+        //         'showCaption' => true,
+        //         'showRemove' => true,
+        //         'showUpload' => false
+        //     ]
+        // ]);
+        echo $form->field($model, 'file')->widget(FileInput::classname(), [
+            'options' => [
+                'accept' => 'image/*',
+                'multiple'=> false,
+                'upload' => false,
+            
+            ],
+
         ]);
-         
     ?>
 
     <?= $form->field($model, 'description')->widget(TinyMCE::className(), [

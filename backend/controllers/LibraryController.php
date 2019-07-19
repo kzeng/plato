@@ -6,6 +6,8 @@ use Yii;
 
 use common\models\Library;
 use common\models\LibrarySearch;
+
+use common\models\U;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -79,11 +81,12 @@ class LibraryController extends Controller
                 $targetFileId = date("YmdHis").'-'.uniqid();
                 $ext = pathinfo($model->file->name, PATHINFO_EXTENSION);
                 $targetFileName = "{$targetFileId}.{$ext}";
-                $targetFile = Yii::getAlias('@webroot') . DIRECTORY_SEPARATOR . 'uploads/photo/library' . DIRECTORY_SEPARATOR . $targetFileName;
-
+                $targetFile = Yii::getAlias('@backend') . DIRECTORY_SEPARATOR . 'web/uploads' . DIRECTORY_SEPARATOR . $targetFileName;
+                U::kzeng_W($targetFile);
                 $model->file->saveAs($targetFile);
 
-                $model->logo_img = "/uploads/photo/library/{$targetFileName}";
+                $model->logo_img = "/uploads/{$targetFileName}";
+                U::kzeng_W($model->logo_img);
             }
 
             $model->user_id = Yii::$app->user->id;
@@ -108,6 +111,7 @@ class LibraryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) ) {
+            U::kzeng_W("----------------------upload img------------------------");
             //单文件上传
             $model->file = UploadedFile::getInstance($model, 'file');
             if(!empty($model->file))
@@ -115,11 +119,12 @@ class LibraryController extends Controller
                 $targetFileId = date("YmdHis").'-'.uniqid();
                 $ext = pathinfo($model->file->name, PATHINFO_EXTENSION);
                 $targetFileName = "{$targetFileId}.{$ext}";
-                $targetFile = Yii::getAlias('@backend') . DIRECTORY_SEPARATOR . 'web/uploads/photo/library' . DIRECTORY_SEPARATOR . $targetFileName;
-
+                $targetFile = Yii::getAlias('@backend') . DIRECTORY_SEPARATOR . 'web/uploads' . DIRECTORY_SEPARATOR . $targetFileName;
+                U::kzeng_W($targetFile);
                 $model->file->saveAs($targetFile);
 
-                $model->logo_img = "/uploads/photo/library/{$targetFileName}";
+                $model->logo_img = "/uploads/{$targetFileName}";
+                U::kzeng_W($model->logo_img);
             }
 
             $model->user_id = Yii::$app->user->id;
