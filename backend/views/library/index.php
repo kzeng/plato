@@ -29,11 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute' => 'id',
-                'headerOptions' => array('style'=>'width:5%;'),
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
             'title',
             'mobile',
             'address',
+
             //'user_id',
             //'created_by',
             //'updated_by',

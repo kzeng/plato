@@ -22,6 +22,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class Library extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * {@inheritdoc}
      */
@@ -46,8 +47,9 @@ class Library extends \yii\db\ActiveRecord
             [['user_id', 'pid', 'created_at', 'updated_at', 'status'], 'integer'],
             [['title', 'address'], 'string', 'max' => 128],
             [['title'], 'string', 'max' => 256],
-            [['description'], 'text'],
+            //[['description'], 'text'],
             [['mobile'], 'string', 'max' => 32],
+            [['file'], 'file'],
         ];
     }
 
@@ -63,7 +65,7 @@ class Library extends \yii\db\ActiveRecord
             'address' => '地址',
             'user_id' => '操作员ID',
             'pid' => '父ID',
-            'logo_img' => 'Logo',
+            'file' => '图书馆标识',
             'description' => '简介',
             'created_at' => '创建时间',
             'updated_at' => '更新时间',

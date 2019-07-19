@@ -10,6 +10,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use  yii\web\UploadedFile;
+
+
 /**
  * LibraryController implements the CRUD actions for Library model.
  */
@@ -69,6 +72,20 @@ class LibraryController extends Controller
 
         if ($model->load(Yii::$app->request->post()) ) {
 
+            //单文件上传
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if(!empty($model->file))
+            {
+                $targetFileId = date("YmdHis").'-'.uniqid();
+                $ext = pathinfo($model->file->name, PATHINFO_EXTENSION);
+                $targetFileName = "{$targetFileId}.{$ext}";
+                $targetFile = Yii::getAlias('@webroot') . DIRECTORY_SEPARATOR . 'uploads/photo/library' . DIRECTORY_SEPARATOR . $targetFileName;
+
+                $model->file->saveAs($targetFile);
+
+                $model->logo_img = "/uploads/photo/library/{$targetFileName}";
+            }
+
             $model->user_id = Yii::$app->user->id;
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
@@ -90,7 +107,24 @@ class LibraryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            //单文件上传
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if(!empty($model->file))
+            {
+                $targetFileId = date("YmdHis").'-'.uniqid();
+                $ext = pathinfo($model->file->name, PATHINFO_EXTENSION);
+                $targetFileName = "{$targetFileId}.{$ext}";
+                $targetFile = Yii::getAlias('@backend') . DIRECTORY_SEPARATOR . 'web/uploads/photo/library' . DIRECTORY_SEPARATOR . $targetFileName;
+
+                $model->file->saveAs($targetFile);
+
+                $model->logo_img = "/uploads/photo/library/{$targetFileName}";
+            }
+
+            $model->user_id = Yii::$app->user->id;
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
