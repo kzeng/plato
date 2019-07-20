@@ -24,8 +24,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'options' => ['class' => 'table-responsive'],
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
             'title',
             'description',
             // 'library_id',

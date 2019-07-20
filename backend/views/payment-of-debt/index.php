@@ -15,7 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="payment-of-debt-index">
 
     <p>
-        <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('新增缴纳欠费', ['create'], ['class' => 'btn btn-success']) ?>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <?= Html::a('新增违章类型', ['violation-type/index'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -29,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute' => 'id',
-                'headerOptions' => array('style'=>'width:8%;'),
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
             'card_number',
             'reader_name',
@@ -39,18 +41,28 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'     => '违章类型',
                 'attribute' => 'violation_type_id',
                 'value'     => 'violationType.title',
+                'filter'=> PaymentOfDebt::getViolationTypeOption(),
             ],
+            
             //'payment_status',
             [
                 'attribute' => 'payment_status',
                 'label' => '缴费状态',
                 'value'=>function ($model, $key, $index, $column) {
-                    return PaymentOfDebt::getPaymentStatusOption($model->payment_status);
+                    if($model->payment_status == 1)
+                        return "<span class=\"badge label-success\">".PaymentOfDebt::getPaymentStatusOption($model->payment_status)."</span>";
+                    else
+                        return "<span class=\"badge label-danger\">".PaymentOfDebt::getPaymentStatusOption($model->payment_status)."</span>";
                 },
                 'filter'=> PaymentOfDebt::getPaymentStatusOption(),
                 'headerOptions' => array('style'=>'width:12%;'),
+                'format' => 'html',
             ],
-            'penalty',
+
+            [
+                'attribute' => 'penalty',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
             //'description',
             //'library_id',
             //'user_id',

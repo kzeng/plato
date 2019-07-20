@@ -480,17 +480,28 @@ class m190624_130433_all_init extends Migration
         }
         echo "\n insert demo data into collection_place, ok";
         
+
         //violation_type
-        for ($i = 10; $i < 9; $i++) {
+        $violation_type_title = [
+            '逾期不还',
+            '图书损坏',
+            '图书丢失',
+        ];
+        $violation_type_description = [
+            '逾期不还, 欠费达一元者, 不可再借',
+            '图书损坏, 不可再借',
+            '图书丢失, 不可再借',
+        ];
+        for ($i = 0; $i < 3; $i++) {
             $model = new common\models\ViolationType();
-            $model->title = '逾期不还欠费达' .$i. '元者';
-            $model->description = '不可再借';
+            $model->title = $violation_type_title[$i];
+            $model->description = $violation_type_description[$i];
             $model->library_id = 1;
             $model->user_id = rand(2,7);
             $model->status = 1;
             $model->created_at = time();
             $model->updated_at = time();
-            $model->save();
+            $model->save(false);
         }
         echo "\n insert demo data into violation_type, ok";
 

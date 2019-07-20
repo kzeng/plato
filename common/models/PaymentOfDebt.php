@@ -94,4 +94,16 @@ class PaymentOfDebt extends \yii\db\ActiveRecord
     }
 
 
+    static function getViolationTypeOption($key=null)
+    {
+        $violationtypes = ViolationType::find()->asArray()->all();
+        foreach ($violationtypes as $violationtype) {
+            $value = $violationtype['id'];
+            $arr[$value] = "{$violationtype['title']}";
+        }
+
+        return $key === null ? $arr : (isset($arr[$key]) ? $arr[$key] : '');
+    }
+
+
 }
