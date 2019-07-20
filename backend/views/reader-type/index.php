@@ -16,16 +16,21 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('新增读者类型', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'options' => ['class' => 'table-responsive'],
         'columns' => [
-           // ['class' => 'yii\grid\SerialColumn'],
+            // ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style' => 'width:10%;'),
+            ],
+
             'title',
             'max_borrowing_number',
             'max_debt_limit',
@@ -36,7 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
             //'updated_at',
             //'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style' => 'width:15%;'),
+            ],
+
         ],
     ]); ?>
 
