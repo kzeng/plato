@@ -108,8 +108,20 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
     }
     public static function getBooksInfoAjax($cardnumber)
     {
+        $due_date = 0;
         $count = BorrowReturnBooks::find()->where(['card_number' => $cardnumber, 'operation' => 1])->count();
         $brbs = BorrowReturnBooks::find()->where(['card_number' => $cardnumber, 'operation' => 1])->all();
+
+        $reader = Reader::findOne(['card_number' => $cardnumber]);
+        if(!empty($reader))
+        {
+          $reader_type = ReaderType::findOne(['id' => $reader->reader_type_id]);
+          if(!empty($reader_type))
+          {
+            $due_date = $reader_type->max_return_time * 24 * 3600; //seconds
+          }
+        }
+
         //array_push
         $info = [];
         foreach ($brbs as $brb) {
@@ -126,7 +138,7 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
                 'call_number'  => $book->call_number,
                 'collection_place' => $collection_place->title,
                 'operator'  => $user->username,
-                //'due_date' => $due_date,
+                'due_date' => (intval($due_date) == 0) ? '-' : date('Y-m-d', $brb->created_at + $due_date),
             ];
             array_push($info, $item);
         }
