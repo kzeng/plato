@@ -43,11 +43,12 @@ class PaymentOfDebt extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['card_number', 'violation_type_id', 'payment_status', 'description', 'library_id'], 'required'],
+            [['card_number', 'violation_type_id', 'payment_status',  'library_id'], 'required'],
             [['violation_type_id', 'payment_status', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['penalty'], 'number'],
-            [['card_number', 'reader_name'], 'string', 'max' => 64],
+            [['card_number'], 'string', 'max' => 64],
             [['description'], 'string', 'max' => 256],
+            [['description', 'reader_name'], 'safe'],
         ];
     }
 

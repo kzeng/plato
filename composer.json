@@ -36,7 +36,8 @@
         "kartik-v/yii2-widget-datepicker": "@dev",
         "kartik-v/yii2-widget-datetimepicker": "dev-master",
         "kartik-v/yii2-date-range": "dev-master",
-        "kartik-v/yii2-widget-typeahead": "dev-master"
+        "kartik-v/yii2-widget-typeahead": "dev-master",
+        "yii2mod/yii2-editable": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
@@ -60,7 +61,7 @@
         },
         "packagist": {
             "type": "composer",
-            "url": "https://packagist.laravel-china.org"
+            "url": "https://packagist.phpcomposer.com"
         }
     }
 }

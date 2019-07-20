@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\PaymentOfDebt;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PaymentOfDebt */
@@ -16,9 +17,9 @@ use yii\widgets\ActiveForm;
 
     <!-- <//?= $form->field($model, 'reader_name')->textInput(['maxlength' => true]) ?> -->
 
-    <?= $form->field($model, 'violation_type_id')->textInput() ?>
+    <?= $form->field($model, 'violation_type_id')->dropDownList(PaymentOfDebt::getViolationTypeOption()); ?>
 
-    <?= $form->field($model, 'payment_status')->textInput() ?>
+    <?= $form->field($model, 'payment_status')->dropDownList(PaymentOfDebt::getPaymentStatusOption()); ?>
 
     <?= $form->field($model, 'penalty')->textInput(['maxlength' => true]) ?>
 
