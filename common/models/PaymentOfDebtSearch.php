@@ -11,6 +11,7 @@ use common\models\PaymentOfDebt;
  */
 class PaymentOfDebtSearch extends PaymentOfDebt
 {
+    public $reader_name;
     /**
      * {@inheritdoc}
      */
@@ -18,7 +19,7 @@ class PaymentOfDebtSearch extends PaymentOfDebt
     {
         return [
             [['id', 'violation_type_id', 'payment_status', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['card_number', 'reader_name', 'description'], 'safe'],
+            [['card_number', 'description', 'reader_name'], 'safe'],
             [['penalty'], 'number'],
         ];
     }
@@ -57,6 +58,8 @@ class PaymentOfDebtSearch extends PaymentOfDebt
             return $dataProvider;
         }
 
+        $query->joinWith('reader');
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -71,7 +74,7 @@ class PaymentOfDebtSearch extends PaymentOfDebt
         ]);
 
         $query->andFilterWhere(['like', 'card_number', $this->card_number])
-            ->andFilterWhere(['like', 'reader_name', $this->reader_name])
+            ->andFilterWhere(['like', 'reader.reader_name', $this->reader_name])
             ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;

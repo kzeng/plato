@@ -33,8 +33,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'id',
                 'headerOptions' => array('style'=>'width:10%;'),
             ],
-            'card_number',
-            'reader_name',
+
+            [
+                'attribute' => 'card_number',
+                'headerOptions' => array('style'=>'width:20%;'),
+            ],
+
+            //'reader_name',
+            [
+                'label'     => '读者姓名',
+                'attribute' => 'reader_name',
+                'value'     => 'reader.reader_name',
+
+                'headerOptions' => array('style'=>'width:20%;'),
+            ],
+
             //'violation_type_id',
             // 'violationType.title',
             [

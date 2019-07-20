@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'card_number')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'reader_name')->textInput(['maxlength' => true]) ?>
+    <!-- <//?= $form->field($model, 'reader_name')->textInput(['maxlength' => true]) ?> -->
 
     <?= $form->field($model, 'violation_type_id')->textInput() ?>
 

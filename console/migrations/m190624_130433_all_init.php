@@ -86,7 +86,6 @@ class m190624_130433_all_init extends Migration
         $this->createTable('{{%payment_of_debt}}', [
             'id' => $this->primaryKey(),
             'card_number' => $this->string(64)->notNull()->comment('卡号'),
-            'reader_name' => $this->string(64)->notNull()->comment('姓名'),
             'violation_type_id' => $this->integer()->notNull()->comment('违章类型'),
             'payment_status' => $this->integer()->notNull()->comment('缴费状态'),
             'penalty' => $this->decimal(10,2)->comment('罚金(元)'),
@@ -591,7 +590,6 @@ class m190624_130433_all_init extends Migration
         for ($i = 0; $i < 30; $i++) {
             $model = new common\models\PaymentOfDebt();
             $model->card_number = $reader[$i]->card_number;
-            $model->reader_name = $reader[$i]->reader_name;
             $model->violation_type_id = rand(1,3);
             $model->payment_status = rand(0,1);
             $model->penalty = rand(100,200);
