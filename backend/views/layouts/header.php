@@ -6,9 +6,13 @@ use yii\helpers\Url;
 /* @var $content string */
 ?>
 
-<header class="main-header">
+<header class="main-header" >
 
-    <?= Html::a('<span class="logo-mini">SCL</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= 
+        Html::a('<span class="logo-mini" >SCL</span><span class="logo-lg">' .
+        "<img src=" . Url::home(true) . "logo.jpg  style=\"margin-left:0px; margin-right:10px\" class=\"img-rounded\" width=42>". 
+        Yii::$app->name . '&nbsp;&nbsp;&nbsp;&nbsp;</span>', Yii::$app->homeUrl, ['class' => 'logo']) 
+     ?>
 
     <nav class="navbar navbar-static-top" role="navigation">
 

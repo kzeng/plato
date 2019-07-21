@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
 use common\models\PaymentOfDebt;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\PaymentOfDebtSearch */
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     => 'violationType.title',
                 'filter'=> PaymentOfDebt::getViolationTypeOption(),
             ],
-            
+
             //'payment_status',
             [
                 'attribute' => 'payment_status',
