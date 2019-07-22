@@ -152,8 +152,15 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
             return \yii\helpers\Json::encode(['code' => 0, 'borrow_return_books' => $borrow_return_books]);
         }
     }
-    public function getTReader()
+    public function getReader()
     {
         return $this->hasOne(Reader::className(), ['card_number' => 'card_number']);
     }
+
+    public function getBookCopy()
+    {
+      return $this->hasOne(BookCopy::className(), ['bar_code' => 'bar_code']);
+    }
+
+    
 }

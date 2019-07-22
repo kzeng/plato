@@ -32,30 +32,75 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'id',
                 'headerOptions' => array('style'=>'width:8%;'),
             ],
+            [
+                'label' => '读者姓名',
+                'attribute' => 'reader_name',
+                'value' => 'reader.reader_name',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
             //reader_id',
-            'card_number',
-            'bar_code',
+            //'card_number',
+            [
+                'label' => '卡号',
+                'attribute' => 'card_number',
+                'value' => function($model){
+                    return Html::a($model->card_number, ['detail', 'cardnumber_or_barcode' => $model->card_number]);
+                },
+                'format' => 'html',
+            ],
+
+            //'bar_code',
+            [
+                'label' => '条码号',
+                'attribute' => 'bar_code',
+                'value' => function($model){
+                    return Html::a($model->bar_code, ['detail', 'cardnumber_or_barcode' => $model->bar_code]);
+                },
+                'format' => 'html',
+            ],
+
+
+            [
+                'label' => '书名',
+                //'attribute' => 'reader_name',
+                'value' => 'bookCopy.book.title',
+                'headerOptions' => array('style'=>'width:18%;'),
+            ],
             //'operation',
 
             [
                 'attribute' => 'operation',
                 'label' => '操作',
                 'value'=>function ($model, $key, $index, $column) {
-                    return BorrowReturnBooks::getOperationOption($model->operation);
+                    //return BorrowReturnBooks::getOperationOption($model->operation);
+                    if($model->operation == 1)
+                        return "<span class=\"badge label-warning\">".BorrowReturnBooks::getOperationOption($model->operation)."</span>";
+                    else
+                        return "<span class=\"badge label-success\">".BorrowReturnBooks::getOperationOption($model->operation)."</span>";
+
                 },
                 'filter'=> BorrowReturnBooks::getOperationOption(),
-                'headerOptions' => array('style'=>'width:16%;'),
+                'format' => 'html',
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
 
             //'library_id',
             //'user_id',
-            //'created_at',
+            //'created_at:datetime',
+            [
+                'label' => '借书时间',
+                'value' => function($model){
+                    return date('Y-m-d', $model->created_at);
+                },
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
+
             //'updated_at',
             //'status',
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'headerOptions' => array('style'=>'width:10%;'),
+                'headerOptions' => array('style'=>'width:8%;'),
             ],
 
         ],

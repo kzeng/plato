@@ -11,6 +11,7 @@ use common\models\BorrowReturnBooks;
  */
 class BorrowReturnBooksSearch extends BorrowReturnBooks
 {
+    public $reader_name;
     /**
      * {@inheritdoc}
      */
@@ -18,7 +19,7 @@ class BorrowReturnBooksSearch extends BorrowReturnBooks
     {
         return [
             [['id',  'operation', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['card_number', 'bar_code'], 'safe'],
+            [['card_number', 'bar_code', 'reader_name'], 'safe'],
         ];
     }
 
@@ -56,6 +57,8 @@ class BorrowReturnBooksSearch extends BorrowReturnBooks
             return $dataProvider;
         }
 
+        $query->joinWith('reader');
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
@@ -68,6 +71,7 @@ class BorrowReturnBooksSearch extends BorrowReturnBooks
         ]);
 
         $query->andFilterWhere(['like', 'card_number', $this->card_number])
+            ->andFilterWhere(['like', 'reader.reader_name', $this->reader_name])
             ->andFilterWhere(['like', 'bar_code', $this->bar_code]);
 
         return $dataProvider;

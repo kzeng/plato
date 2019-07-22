@@ -61,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <table class="table table-striped ">
                 <tr>
+                    <th>#</th>
                     <th>条码号</th>
                     <th>题名</th>
                     <!-- <th>责任者</th> -->
@@ -85,7 +86,27 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+      function GetQueryString(name) 
+      { 
+      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+      var r = window.location.search.substr(1).match(reg); 
+      if (r!=null) return unescape(r[2]); return null; 
+      }  
+
+
     $(document).ready(function() {
+        if(GetQueryString('cardnumber_or_barcode') != undefined)
+        {
+          //alert(GetQueryString('cardnumber_or_barcode'));
+          $("#cardnumber_or_barcode").val(GetQueryString('cardnumber_or_barcode'));
+          queryReaderInfoAndBookinfo();
+        }
+        else
+        {
+          //alert('has not this querystring');
+          //do nothing;
+        }
+
         function queryReaderInfoAndBookinfo() {
             var cardnumber_or_barcode = $("#cardnumber_or_barcode").val();
             // alert(ardnumber_or_barcode);
@@ -142,6 +163,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         console.log("------------------");
                                         console.log(ret['borrow_return_books']['info'][i]);
                                         html_tr += "<tr>";
+                                        html_tr += "<td>" + (i+1) + "</td>";
                                         html_tr += "<td>" + ret['borrow_return_books']['info'][i]["bar_code"] + "</td>";
                                         html_tr += "<td>" + ret['borrow_return_books']['info'][i]["title"] + "</td>";
                                         html_tr += "<td>" + ret['borrow_return_books']['info'][i]["isbn"] + "</td>";
@@ -181,5 +203,9 @@ $this->params['breadcrumbs'][] = $this->title;
         $('#query').click(function() {
             queryReaderInfoAndBookinfo();
         });
+
+        //------------------------------
+        check_url();
+
     }); //end of document ready
 </script>
