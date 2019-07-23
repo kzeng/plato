@@ -2,9 +2,9 @@
 
 ##  项目描述
 智慧云图书馆： 能支撑智慧图书馆服务体系的图书馆管理与服务平台。
-![仪表盘](https://s2.ax1x.com/2019/07/23/eAugts.png)
-![eAu2hn.png](https://s2.ax1x.com/2019/07/23/eAu2hn.png)
-![eAuWpq.png](https://s2.ax1x.com/2019/07/23/eAuWpq.png)
+![仪表盘](https://s2.ax1x.com/2019/07/23/eA8i4g.png)
+![eA8kCQ.png](https://s2.ax1x.com/2019/07/23/eA8kCQ.png)
+![eA8PUS.png](https://s2.ax1x.com/2019/07/23/eA8PUS.png)
 
 ## 平台优势
 * 总分管架构：不再是信息的孤岛，而是共享信息的平台。
