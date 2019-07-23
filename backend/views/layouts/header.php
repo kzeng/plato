@@ -10,7 +10,7 @@ use yii\helpers\Url;
 
     <?= 
         Html::a('<span class="logo-mini" >SCL</span><span class="logo-lg">' .
-        "<img src=" . Url::home(true) . "logo.jpg  style=\"margin-left:0px; margin-right:10px\" class=\"img-rounded\" width=42>". 
+        "<img src=" . Url::home(true) . "logo.jpg  style=\"margin-left:0px; margin-right:5px\" class=\"img-rounded\" width=42>". 
         Yii::$app->name . '&nbsp;&nbsp;&nbsp;&nbsp;</span>', Yii::$app->homeUrl, ['class' => 'logo']) 
      ?>
 

@@ -41,7 +41,10 @@ class BorrowReturnBooksSearch extends BorrowReturnBooks
      */
     public function search($params)
     {
-        $query = BorrowReturnBooks::find();
+        $query = BorrowReturnBooks::find()->orderBy([
+            'id' => SORT_DESC,
+        ]);
+
 
         // add conditions that should always apply here
 

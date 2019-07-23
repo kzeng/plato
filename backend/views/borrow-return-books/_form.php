@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\models\BorrowReturnBooks;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\BorrowReturnBooks */
@@ -19,7 +20,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'bar_code')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'operation')->textInput() ?>
+    <!-- <//?= $form->field($model, 'operation')->textInput() ?> -->
+
+    <?= $form->field($model, 'operation')->dropDownList(BorrowReturnBooks::getOperationOption())->label('操作'); ?>
 
     <!-- <//?= $form->field($model, 'library_id')->textInput() ?>
 

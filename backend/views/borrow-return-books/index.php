@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
-
-        <?= Html::a('<i class="fa fa-exchange"></i> 流通借还详情', ['detail'], ['class' => 'btn btn-primary pull-right']) ?>
+        &nbsp;&nbsp;
+        <?= Html::a('<i class="fa fa-exchange"></i> 流通借还详情', ['detail'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -104,6 +104,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
         ],
+        //layout内有5个可以使用的值，分别为{summary}、{errors}、{items}、{sorter}和{pager}
+        'layout'=>"{items}\n{summary}{pager}",
+        // 'rowOptions'=>function($model,$key, $index){
+        //     if($index%2 === 0){
+        //         return ['style'=>'background:#eee'];
+        //     }
+        // },
+
     ]); ?>
 
 

@@ -1401,16 +1401,25 @@ https://github.com/yii2tech/spreadsheet //  这个导出excel很方便!
 ```
 
 这个 "yii2tech/file-storage": "*"  // 这个文件系统差一点?
-"yii2tech/ar-linkmany": "*"         // 简化多对多关系的处理 这个比较简洁   https://github.com/yii2tech/ar-linkmany
-"yii2tech/ar-dynattribute": "*",    // 这个好， 比paulzi/yii2-json-behavior好(yii2 支持json数据类型后paulz的这个就无用了)
+
+"yii2tech/ar-linkmany": "*"         // 简化多对多关系的处理 
+
+这个比较简洁   https://github.com/yii2tech/ar-linkmany
+
+"yii2tech/ar-dynattribute": "*",    // 这个好， 
+
+比paulzi/yii2-json-behavior好(yii2 支持json数据类型后paulz的这个就无用了)
 
 （github.com/league下面有flysystem,glide 这个2个好的php库, creocoder/yii2-flysystem是flysystem的wrapper, trntv/yii2-glide是glide的wrapp）
 
 "creocoder/yii2-flysystem": "0.8.*" 
-yii2-starter-kit/yii2-file-kit  // 很好的组件，直接利用creocoder/yii2-flysystem这个wrapper，
+yii2-starter-kit/yii2-file-kit  
+// 很好的组件，直接利用creocoder/yii2-flysystem这个wrapper，
 
 
-https://github.com/yongtiger/yii2-bootstrap-tree 可以显示树形数据，cc中18层关系有使用到member/tree
+https://github.com/yongtiger/yii2-bootstrap-tree 
+
+可以显示树形数据，cc中18层关系有使用到member/tree
    ```
     echo \yongtiger\bootstraptree\widgets\BootstrapTree::widget([
         'options'=>[
@@ -1449,7 +1458,10 @@ trntv/yii2-glide  // 图片云处理
 "wbraganca/yii2-fancytree-widget": "*"   //树形选择器?
 
 
-"dektrium/yii2-user"    // https://github.com/dektrium/yii2-user      // 前台用户注册，login, ... 后台管理 composer require dektrium/yii2-user  用得不怎么自由，比较束缚人!
+"dektrium/yii2-user"    // https://github.com/dektrium/yii2-user      
+
+// 前台用户注册，login, ... 后台管理 composer require dektrium/yii2-user  
+用得不怎么自由，比较束缚人!
 
 "yiisoft/yii2-queue": "~2.0"  // 官方队列
 
