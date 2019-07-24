@@ -24,8 +24,10 @@ use pendalf89\filemanager\widgets\TinyMCE;
     <!-- <label class="control-label" for="library-file">图书馆标识图片</label> -->
     <?php 
         echo $form->field($model, 'file')->widget(FileInput::classname(), [
-            'options' => [
+            'pluginOptions' => [
+
                 'accept' => 'image/*',
+                'showPreview' => false,
                 'multiple'=> false,
                 'upload' => false,
             
