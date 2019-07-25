@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\Book;
 use common\models\BookSearch;
+use common\models\User1;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -42,9 +43,12 @@ class BookController extends Controller
      */
     public function actionExport()
     {
+        $user_id = Yii::$app->user->id;
+        $library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+
         $exporter = new Spreadsheet([
             'dataProvider' => new ActiveDataProvider([
-                'query' => Book::find(),
+                'query' => Book::find()->where(['library_id' => $library_id]),
             ]),
 
             // 'columns' => [
