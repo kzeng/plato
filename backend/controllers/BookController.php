@@ -9,6 +9,10 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+
+use yii2tech\spreadsheet\Spreadsheet;
+use yii\data\ActiveDataProvider;
+
 /**
  * BookController implements the CRUD actions for Book model.
  */
@@ -27,6 +31,35 @@ class BookController extends Controller
                 ],
             ],
         ];
+    }
+
+
+
+
+    /**
+     * export books info to excel
+     * @return mixed
+     */
+    public function actionExport()
+    {
+        $exporter = new Spreadsheet([
+            'dataProvider' => new ActiveDataProvider([
+                'query' => Book::find(),
+            ]),
+
+            // 'columns' => [
+            //     [
+            //         'attribute' => 'id',
+            //     ],
+            //     [
+            //         'attribute' => 'title',
+            //     ],
+            //     [
+            //         'attribute' => 'isbn',
+            //     ],
+            // ],
+        ]);
+        return $exporter->send('books.xls');
     }
 
     /**

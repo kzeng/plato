@@ -14,6 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('新增图书', ['create'], ['class' => 'btn btn-success']) ?>
+
+        <?= Html::a('<i class="fa fa-download"></i> 导出图书信息', ['export'], ['class' => 'btn btn-danger']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
