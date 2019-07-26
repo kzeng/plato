@@ -72,9 +72,10 @@ class CollectionPlaceController extends Controller
             $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(['index']);
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
         ]);
     }
