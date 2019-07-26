@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="collection-place-index">
     <p>
-        <?= Html::button('新增馆藏地点', ['value' => Url::to('collection-place/create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
+        <?= Html::button('新增馆藏地点', ['value' => Url::to('create'), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
     </p>
 
     <?php
