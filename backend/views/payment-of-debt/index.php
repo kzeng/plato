@@ -26,6 +26,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'options' => ['class' => 'table-responsive'],
+        'rowOptions' => function($model){
+            if($model->payment_status ==1)
+            {
+                return ['class' => 'success'];
+            }
+            else
+            {
+                return ['class' => 'danger'];
+            }
+        },
+        'layout'=>"{items}\n{summary}{pager}",
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 

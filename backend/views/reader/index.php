@@ -32,12 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute' => 'id',
-                'headerOptions' => array('style'=>'width:5%;'),
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
  
             [
                 'attribute' => 'reader_name',
-                'headerOptions' => array('style'=>'width:8%;'),
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
             'card_number',
             //'card_status',
@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Reader::getCardStatus($model);
                 },
                 'filter'=> Reader::getCardStatusOption(),
-                'headerOptions' => array('style'=>'width:10%;'),
+                'headerOptions' => array('style'=>'width:8%;'),
                 'format' => 'html'
             ],
 
@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Yii::$app->formatter->asDate($model->validity);
                 },
                 //'filter'=> Reader::getCardStatusOption(),
-                'headerOptions' => array('style'=>'width:15%;'),
+                'headerOptions' => array('style'=>'width:12%;'),
                 'format' => 'html'
             ],
 
