@@ -27,20 +27,26 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute' => 'id',
-                'headerOptions' => array('style'=>'width:5%;'),
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
             'title',
             'address',
             'contact',
             'mobile',
-            'discount',
+
+            [
+                'attribute' => 'discount',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
             //'library_id',
             //'user_id',
             //'created_at',
             //'updated_at',
             //'status',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
         ],
     ]); ?>
 
