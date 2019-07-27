@@ -186,7 +186,8 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.9);
+  /*  background-color: rgba(255,255,255,0.9); */
+  background-color: rgba(255,255,255,0.01); /*KZENG*/
 }
 
 .wrap-login100 {
@@ -194,7 +195,7 @@ iframe {
   border-radius: 10px;
   overflow: hidden;
   padding: 55px 55px 37px 55px;
-
+  opacity:0.85; /*KZENG*/
   background: #9152f8;
   background: -webkit-linear-gradient(top, #7579ff, #b224ef);
   background: -o-linear-gradient(top, #7579ff, #b224ef);

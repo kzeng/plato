@@ -30,13 +30,13 @@ use yii\bootstrap\ActiveForm;
 	<!-- <link rel="stylesheet" type="text/css" href="<//?= Url::home(true) . 'login_v3_assets/' ?>vendor/daterangepicker/daterangepicker.css"> -->
 
 	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . 'login_v3_assets/' ?>css/util.css">
-	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . 'login_v3_assets/' ?>css/main.css">
+	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . 'login_v3_assets/' ?>css/main.css?V=2">
 
 </head>
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('<?= Url::home(true) . 'login_v3_assets/' ?>images/bg-01.jpg');">
+		<div class="container-login100" style="background-image: url('<?= Url::home(true) . 'login_v3_assets/' ?>images/bg-01.jpg?V=1');">
 			<div class="wrap-login100">
 
 			<?php $form = ActiveForm::begin(['id' => 'login-form', 
