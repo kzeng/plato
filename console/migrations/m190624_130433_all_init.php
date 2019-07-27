@@ -302,7 +302,21 @@ class m190624_130433_all_init extends Migration
             'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
         ], $tableOptions);
         $this->addCommentOnTable('{{%borrow_return_books}}', '借还书表');     
-        //-----------------------------------------------------------------------------
+        //------------------------------------------------------------------------------
+        Yii::$app->db->createCommand("DROP TABLE IF EXISTS {{%events}}")->execute();
+        $this->createTable('{{%events}}', [
+            'id' => $this->primaryKey(),
+            'title' => $this->string(128)->notNull()->comment('名称'),
+            'event_type' => $this->integer()->notNull()->defaultValue(1)->comment('事件类型'),
+            'description' => $this->text()->defaultValue(null)->comment('内容'),
+            'library_id' => $this->integer()->notNull()->comment('图书馆ID'),
+            'user_id' => $this->integer()->notNull()->defaultValue(1)->comment('操作员ID'),
+            'created_at' => $this->integer()->comment('创建时间'),
+            'updated_at' => $this->integer()->comment('更新时间'),
+            'status' => $this->smallInteger()->notNull()->defaultValue(1)->comment('状态'),
+        ], $tableOptions);
+        $this->addCommentOnTable('{{%events}}', '事件表');
+
         
         if (Console::confirm('Seed demo data?', true)) {
             $this->seed();

@@ -299,6 +299,22 @@ updated_at       |int    |11     |否     |-     |更新时间
 status       |int    |11     |否     |-     |状态, 默认值1
 
 
+
+---
+####  事件表 `events`
+
+字段名|数据类型|长度|可空|主键|注释
+-----|-----|-----|-----|-----|-----|
+id      |int    |11     |否     |是     |主键ID
+title      |string    |128     |否     |-     |名称
+event_type      |int    |11     |否     |-     |事件类型 1:通知公告2：工作动态
+description      |text    |-     |是     |-     |简介
+library_id      |int    |11     |否     |-     |图书馆ID
+user_id      |int    |11     |否     |-     |操作员ID
+created_at       |int    |11     |否     |-     |创建时间
+updated_at       |int    |11     |否     |-     |更新时间
+status       |int    |11     |否     |-     |状态, 默认值1
+
 ---
 ### 统计信息
 > 以下表记录统计信息，可后续进一步完善。

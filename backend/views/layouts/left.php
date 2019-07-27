@@ -47,6 +47,7 @@
                     //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     ['label' => '仪表盘', 'icon' => 'dashboard', 'url' => ['/dashboard']],
+                    ['label' => '日历事件', 'icon' => 'calendar', 'url' => ['/events']],
                     [
                         'label' => '馆藏信息',
                         'icon' => 'university',
