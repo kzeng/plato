@@ -83,7 +83,7 @@ class SiteController extends Controller
         } else {
             $model->password = '';
             //login, login_v3, login_v14, login_v15
-            return $this->render('login_v3', [
+            return $this->render('login_v14', [
                 'model' => $model,
             ]);
         }
