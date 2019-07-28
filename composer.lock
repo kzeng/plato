@@ -132,12 +132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColorlibHQ/AdminLTE.git",
-                "reference": "7309e2e5d5f8fb78d97dd5ebf9243f3168ec8f20"
+                "reference": "b1edd9eaf828928dd8bfea8607bfa66f0337aa7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/7309e2e5d5f8fb78d97dd5ebf9243f3168ec8f20",
-                "reference": "7309e2e5d5f8fb78d97dd5ebf9243f3168ec8f20",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/b1edd9eaf828928dd8bfea8607bfa66f0337aa7b",
+                "reference": "b1edd9eaf828928dd8bfea8607bfa66f0337aa7b",
                 "shasum": ""
             },
             "require": {
@@ -167,7 +167,7 @@
                 "theme",
                 "web"
             ],
-            "time": "2019-06-11T11:52:23+00:00"
+            "time": "2019-06-18T12:15:46+00:00"
         },
         {
             "name": "bower-asset/blueimp-canvas-to-blob",
@@ -175,28 +175,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/blueimp/JavaScript-Canvas-to-Blob.git",
-                "reference": "9f3deb2e710d39c72a988559609d9dc9a319de0b"
+                "reference": "f47d01f2827f69dde571c0fe06159e8e99a1de96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Canvas-to-Blob/zipball/9f3deb2e710d39c72a988559609d9dc9a319de0b",
-                "reference": "9f3deb2e710d39c72a988559609d9dc9a319de0b"
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Canvas-to-Blob/zipball/f47d01f2827f69dde571c0fe06159e8e99a1de96",
+                "reference": "f47d01f2827f69dde571c0fe06159e8e99a1de96"
             },
             "type": "bower-asset",
-            "time": "2017-08-27T22:53:19+00:00"
+            "time": "2019-07-15T09:15:22+00:00"
         },
         {
             "name": "bower-asset/blueimp-file-upload",
-            "version": "v9.32.0",
+            "version": "v9.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blueimp/jQuery-File-Upload.git",
-                "reference": "23f5c92cad0d9cc8dd37b969db27e3c92a1d0231"
+                "reference": "bb52d3493d725175fcf5554da034a317aaaea0e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/jQuery-File-Upload/zipball/23f5c92cad0d9cc8dd37b969db27e3c92a1d0231",
-                "reference": "23f5c92cad0d9cc8dd37b969db27e3c92a1d0231"
+                "url": "https://api.github.com/repos/blueimp/jQuery-File-Upload/zipball/bb52d3493d725175fcf5554da034a317aaaea0e2",
+                "reference": "bb52d3493d725175fcf5554da034a317aaaea0e2"
             },
             "require": {
                 "bower-asset/blueimp-canvas-to-blob": ">=2.1.1",
@@ -230,15 +230,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/blueimp/JavaScript-Load-Image.git",
-                "reference": "b2e6b29de05a882048e80bec0c1f1e94d65ca41a"
+                "reference": "455a28c68dc1cd1046e8c458cc0f5027ed7ac03f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/b2e6b29de05a882048e80bec0c1f1e94d65ca41a",
-                "reference": "b2e6b29de05a882048e80bec0c1f1e94d65ca41a"
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/455a28c68dc1cd1046e8c458cc0f5027ed7ac03f",
+                "reference": "455a28c68dc1cd1046e8c458cc0f5027ed7ac03f"
             },
             "type": "bower-asset",
-            "time": "2019-06-09T06:50:15+00:00"
+            "time": "2019-07-15T09:15:56+00:00"
         },
         {
             "name": "bower-asset/blueimp-tmpl",
@@ -246,15 +246,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/blueimp/JavaScript-Templates.git",
-                "reference": "da7647cb93fff2030e73a701db22c66de76a9919"
+                "reference": "f8fe3d34c662fb3315e3af8dc5bae8bdf5a619b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Templates/zipball/da7647cb93fff2030e73a701db22c66de76a9919",
-                "reference": "da7647cb93fff2030e73a701db22c66de76a9919"
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Templates/zipball/f8fe3d34c662fb3315e3af8dc5bae8bdf5a619b2",
+                "reference": "f8fe3d34c662fb3315e3af8dc5bae8bdf5a619b2"
             },
             "type": "bower-asset",
-            "time": "2017-08-27T22:51:02+00:00"
+            "time": "2019-07-15T10:34:04+00:00"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -738,16 +738,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.9",
+            "version": "2.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25"
+                "reference": "a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/128cc721d771ec2c46ce59698f4ca42b73f71b25",
-                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec",
+                "reference": "a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec",
                 "shasum": ""
             },
             "require": {
@@ -757,7 +757,8 @@
             "require-dev": {
                 "dominicsayers/isemail": "dev-master",
                 "phpunit/phpunit": "^4.8.35||^5.7||^6.0",
-                "satooshi/php-coveralls": "^1.0.1"
+                "satooshi/php-coveralls": "^1.0.1",
+                "symfony/phpunit-bridge": "^4.4@dev"
             },
             "suggest": {
                 "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
@@ -791,27 +792,27 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-06-23T10:14:27+00:00"
+            "time": "2019-07-19T20:52:08+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.10.0",
+            "version": "v4.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "d85d39da4576a6934b72480be6978fb10c860021"
+                "reference": "83ab08bc1af7d808a9e0fbf024f1c24bfd73c0a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d85d39da4576a6934b72480be6978fb10c860021",
-                "reference": "d85d39da4576a6934b72480be6978fb10c860021",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/83ab08bc1af7d808a9e0fbf024f1c24bfd73c0a7",
+                "reference": "83ab08bc1af7d808a9e0fbf024f1c24bfd73c0a7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
             },
             "require-dev": {
-                "simpletest/simpletest": "^1.1"
+                "simpletest/simpletest": "dev-master#72de02a7b80c6bb8864ef9bf66d41d2f58f826bd"
             },
             "type": "library",
             "autoload": {
@@ -824,7 +825,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL"
+                "LGPL-2.1-or-later"
             ],
             "authors": [
                 {
@@ -838,20 +839,20 @@
             "keywords": [
                 "html"
             ],
-            "time": "2018-02-23T01:58:20+00:00"
+            "time": "2019-07-14T18:58:38+00:00"
         },
         {
             "name": "imagine/imagine",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/avalanche123/Imagine.git",
-                "reference": "69ce33008b73a64f5ea25449d1b69146437144fd"
+                "reference": "eec39b2092bc8008a92b8d63824476413dbe7511"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/69ce33008b73a64f5ea25449d1b69146437144fd",
-                "reference": "69ce33008b73a64f5ea25449d1b69146437144fd",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/eec39b2092bc8008a92b8d63824476413dbe7511",
+                "reference": "eec39b2092bc8008a92b8d63824476413dbe7511",
                 "shasum": ""
             },
             "require": {
@@ -896,7 +897,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2019-06-03T15:06:06+00:00"
+            "time": "2019-07-09T06:55:48+00:00"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -904,12 +905,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "656a2dba494972c631903d50f6923afda101ee22"
+                "reference": "fa5d8de00e433839565eeb6ef052b08f6ce2a350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/656a2dba494972c631903d50f6923afda101ee22",
-                "reference": "656a2dba494972c631903d50f6923afda101ee22",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/fa5d8de00e433839565eeb6ef052b08f6ce2a350",
+                "reference": "fa5d8de00e433839565eeb6ef052b08f6ce2a350",
                 "shasum": ""
             },
             "type": "library",
@@ -949,7 +950,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2019-07-02T08:43:44+00:00"
+            "time": "2019-07-26T10:08:03+00:00"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
@@ -1645,12 +1646,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-select2.git",
-                "reference": "56ab85f7f742c756d17952790a63a4129e15e5e5"
+                "reference": "986bf38df30a4d3c45efd948f7333681dc1ff578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/56ab85f7f742c756d17952790a63a4129e15e5e5",
-                "reference": "56ab85f7f742c756d17952790a63a4129e15e5e5",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/986bf38df30a4d3c45efd948f7333681dc1ff578",
+                "reference": "986bf38df30a4d3c45efd948f7333681dc1ff578",
                 "shasum": ""
             },
             "require": {
@@ -1690,7 +1691,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2019-06-19T07:42:57+00:00"
+            "time": "2019-07-19T17:25:48+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-typeahead",
@@ -2740,12 +2741,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tinymce/tinymce-dist.git",
-                "reference": "0a6fe9aaae9aaba8e634b3c07d77310f6a02276a"
+                "reference": "c5d8e43738cea9b428c50c6ee1d3d9eb6c653a6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/0a6fe9aaae9aaba8e634b3c07d77310f6a02276a",
-                "reference": "0a6fe9aaae9aaba8e634b3c07d77310f6a02276a",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/c5d8e43738cea9b428c50c6ee1d3d9eb6c653a6d",
+                "reference": "c5d8e43738cea9b428c50c6ee1d3d9eb6c653a6d",
                 "shasum": ""
             },
             "type": "component",
@@ -2778,7 +2779,7 @@
                 "tinymce",
                 "wysiwyg"
             ],
-            "time": "2019-07-04T06:43:03+00:00"
+            "time": "2019-07-18T06:31:14+00:00"
         },
         {
             "name": "yii2mod/yii2-editable",
@@ -2883,12 +2884,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "75b795c7c9b959bd99abddfa0f657f6565f97d3a"
+                "reference": "7bc2d5afcacb8f01e199842fcbeefaabd554d18c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/75b795c7c9b959bd99abddfa0f657f6565f97d3a",
-                "reference": "75b795c7c9b959bd99abddfa0f657f6565f97d3a",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7bc2d5afcacb8f01e199842fcbeefaabd554d18c",
+                "reference": "7bc2d5afcacb8f01e199842fcbeefaabd554d18c",
                 "shasum": ""
             },
             "require": {
@@ -2925,48 +2926,48 @@
             "authors": [
                 {
                     "name": "Qiang Xue",
+                    "role": "Founder and project lead",
                     "email": "qiang.xue@gmail.com",
-                    "homepage": "http://www.yiiframework.com/",
-                    "role": "Founder and project lead"
+                    "homepage": "http://www.yiiframework.com/"
                 },
                 {
                     "name": "Alexander Makarov",
+                    "role": "Core framework development",
                     "email": "sam@rmcreative.ru",
-                    "homepage": "http://rmcreative.ru/",
-                    "role": "Core framework development"
+                    "homepage": "http://rmcreative.ru/"
                 },
                 {
                     "name": "Maurizio Domba",
-                    "homepage": "http://mdomba.info/",
-                    "role": "Core framework development"
+                    "role": "Core framework development",
+                    "homepage": "http://mdomba.info/"
                 },
                 {
                     "name": "Carsten Brandt",
+                    "role": "Core framework development",
                     "email": "mail@cebe.cc",
-                    "homepage": "http://cebe.cc/",
-                    "role": "Core framework development"
+                    "homepage": "http://cebe.cc/"
                 },
                 {
                     "name": "Timur Ruziev",
+                    "role": "Core framework development",
                     "email": "resurtm@gmail.com",
-                    "homepage": "http://resurtm.com/",
-                    "role": "Core framework development"
+                    "homepage": "http://resurtm.com/"
                 },
                 {
                     "name": "Paul Klimov",
-                    "email": "klimov.paul@gmail.com",
-                    "role": "Core framework development"
+                    "role": "Core framework development",
+                    "email": "klimov.paul@gmail.com"
                 },
                 {
                     "name": "Dmitry Naumenko",
-                    "email": "d.naumenko.a@gmail.com",
-                    "role": "Core framework development"
+                    "role": "Core framework development",
+                    "email": "d.naumenko.a@gmail.com"
                 },
                 {
                     "name": "Boudewijn Vahrmeijer",
+                    "role": "Core framework development",
                     "email": "info@dynasource.eu",
-                    "homepage": "http://dynasource.eu",
-                    "role": "Core framework development"
+                    "homepage": "http://dynasource.eu"
                 }
             ],
             "description": "Yii PHP Framework Version 2",
@@ -2975,7 +2976,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-07-02T20:29:09+00:00"
+            "time": "2019-07-24T08:49:32+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -3046,12 +3047,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "fa0856bb95beb49d30f408639224b0e0ed26b4f3"
+                "reference": "602673880e00bc2cc6d874b0714382775b372ac2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/fa0856bb95beb49d30f408639224b0e0ed26b4f3",
-                "reference": "fa0856bb95beb49d30f408639224b0e0ed26b4f3",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/602673880e00bc2cc6d874b0714382775b372ac2",
+                "reference": "602673880e00bc2cc6d874b0714382775b372ac2",
                 "shasum": ""
             },
             "require": {
@@ -3093,7 +3094,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2019-05-28T08:14:44+00:00"
+            "time": "2019-07-16T13:22:50+00:00"
         },
         {
             "name": "yiisoft/yii2-imagine",
@@ -3753,6 +3754,67 @@
             "time": "2019-04-07T13:18:21+00:00"
         },
         {
+            "name": "opis/closure",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/opis/closure.git",
+                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/opis/closure/zipball/92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
+                "reference": "92927e26d7fc3f271efe1f55bdbb073fbb2f0722",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0"
+            },
+            "require-dev": {
+                "jeremeamia/superclosure": "^2.0",
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Opis\\Closure\\": "src/"
+                },
+                "files": [
+                    "functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marius Sarca",
+                    "email": "marius.sarca@gmail.com"
+                },
+                {
+                    "name": "Sorin Sarca",
+                    "email": "sarca_sorin@hotmail.com"
+                }
+            ],
+            "description": "A library that can be used to serialize closures (anonymous functions) and arbitrary objects.",
+            "homepage": "https://opis.io/closure",
+            "keywords": [
+                "anonymous functions",
+                "closure",
+                "function",
+                "serializable",
+                "serialization",
+                "serialize"
+            ],
+            "time": "2019-07-09T21:58:11+00:00"
+        },
+        {
             "name": "phar-io/manifest",
             "version": "1.0.1",
             "source": {
@@ -4157,8 +4219,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
@@ -4427,8 +4489,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "role": "lead",
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "The PHP Unit Testing framework.",
@@ -5261,12 +5323,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "59606f15bd8bbc808eefb06519dc77cf9677e1e6"
+                "reference": "8176e45ff37c886ce35853cb9c406bdb872eeb75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/59606f15bd8bbc808eefb06519dc77cf9677e1e6",
-                "reference": "59606f15bd8bbc808eefb06519dc77cf9677e1e6",
+                "url": "https://api.github.com/repos/symfony/console/zipball/8176e45ff37c886ce35853cb9c406bdb872eeb75",
+                "reference": "8176e45ff37c886ce35853cb9c406bdb872eeb75",
                 "shasum": ""
             },
             "require": {
@@ -5288,7 +5350,7 @@
                 "symfony/config": "^3.4|^4.0|^5.0",
                 "symfony/dependency-injection": "^3.4|^4.0|^5.0",
                 "symfony/event-dispatcher": "^4.3",
-                "symfony/lock": "^3.4|^4.0|^5.0",
+                "symfony/lock": "^4.4|^5.0",
                 "symfony/process": "^3.4|^4.0|^5.0",
                 "symfony/var-dumper": "^4.3|^5.0"
             },
@@ -5328,7 +5390,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-27T17:38:50+00:00"
+            "time": "2019-07-27T12:53:28+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -5801,12 +5863,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "b4d262d40ed43dd77ff3bd1fdc9919d8e237a3b5"
+                "reference": "77ce7e0ca12ec0cbf13528cfee27570f1a4cb836"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/b4d262d40ed43dd77ff3bd1fdc9919d8e237a3b5",
-                "reference": "b4d262d40ed43dd77ff3bd1fdc9919d8e237a3b5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/77ce7e0ca12ec0cbf13528cfee27570f1a4cb836",
+                "reference": "77ce7e0ca12ec0cbf13528cfee27570f1a4cb836",
                 "shasum": ""
             },
             "require": {
@@ -5852,7 +5914,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-05-28T15:53:17+00:00"
+            "time": "2019-07-24T14:49:41+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -5947,20 +6009,21 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "a6bbf55093e154e2eeb2c778af8717989495270e"
+                "reference": "726999bbcc04d8aeb6db02fd6719290793793cbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/a6bbf55093e154e2eeb2c778af8717989495270e",
-                "reference": "a6bbf55093e154e2eeb2c778af8717989495270e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/726999bbcc04d8aeb6db02fd6719290793793cbf",
+                "reference": "726999bbcc04d8aeb6db02fd6719290793793cbf",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
+                "opis/closure": "^3.3",
                 "php": ">=5.4",
                 "yiisoft/yii2": "~2.0.13"
             },
@@ -6000,7 +6063,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2019-06-04T14:21:49+00:00"
+            "time": "2019-07-23T20:20:47+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",

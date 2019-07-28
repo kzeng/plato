@@ -9,7 +9,8 @@
     * `composer install`
   >如果composer速度慢，换源：
 
-  > `composer config repo.packagist composer https://packagist.laravel-china.org`
+  > `composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/`
+
 
 
 ***注意：***
