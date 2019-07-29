@@ -16,7 +16,7 @@ use common\models\Events;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-    
+
     <?= $form->field($model, 'event_type')->dropDownList(Events::getEventTypeOption()); ?>
 
     <?= $form->field($model, 'description')->widget(TinyMCE::className(), [
@@ -24,7 +24,7 @@ use common\models\Events;
             'language' => 'zh_CN',
             'menubar' => false,
             //'menubar' => true,
-            'height' => 320,
+            'height' => 280,
             'image_dimensions' => false,
             //'image_dimensions' => true,
             //'image_prepend_url' => 'http://127.0.0.1/yii2-app-kit/backend/web',

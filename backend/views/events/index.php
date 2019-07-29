@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
 
 use common\models\Events;
 /* @var $this yii\web\View */
@@ -12,11 +14,21 @@ $this->title = '日历事件';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="events-index">
+<p>
+    <?= Html::button('新增日历事件', ['value' =>  Url::toRoute(['events/create', 'date' => date('Y-m-d'), 't'=>time()]), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
+</p>
 
-    <p>
-        <?= Html::a('新增事件', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
+<?php
+    Modal::begin([
+        'header' => '<h4>新增日历事件</h4>',
+        'id' => 'modal',
+        'size' => 'modal-lg',
+    ]);
+
+    echo "<div id='modalContent'></div>";
+    Modal::end();
+?>
 
 
 <?= \yii2fullcalendar\yii2fullcalendar::widget(array(
@@ -65,3 +77,28 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 </div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    //alert('ready');
+   $(document).on('click','.fc-day', function(){
+       //alert('fc-day');
+        var date = $(this).attr('data-date');
+        var d = new Date();
+
+        $.get('<?=  Url::toRoute(['events/create']) ?>', {'date':date, 't':d.getTime()}, function(data){
+            $('#modal').modal('show')
+            .find('#modalContent')
+            .html(data);
+        });
+    });
+
+    $('#modalButton').click(function(){
+        $('#modal').modal('show')
+            .find('#modalContent')
+            .load($(this).attr('value'));
+    });
+})
+</script>

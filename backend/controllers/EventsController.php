@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use common\models\User1;
+
 /**
  * EventsController implements the CRUD actions for Events model.
  */
@@ -75,15 +77,19 @@ class EventsController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($date)
     {
         $model = new Events();
+        $model->created_at = strtotime($date);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->user_id = Yii::$app->user->id;
+            $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $model->save(false);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
         ]);
     }
@@ -99,7 +105,11 @@ class EventsController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $model->user_id = Yii::$app->user->id;
+            $model->library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
