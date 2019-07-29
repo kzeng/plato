@@ -39,7 +39,7 @@
         "kartik-v/yii2-widget-typeahead": "dev-master",
         "yii2mod/yii2-editable": "*",
         "yii2tech/spreadsheet": "^1.0@dev",
-        "philippfrenzel/yii2fullcalendar": "*"
+        "philippfrenzel/yii2fullcalendar": "3.9.*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
@@ -60,10 +60,6 @@
         "0": {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
         }
     }
 }
