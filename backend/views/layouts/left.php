@@ -60,26 +60,27 @@
                     ],
 
                     [
-                        'label' => '流通借阅',
+                        'label' => '流通管理',
                         'icon' => 'book',
                         'url' => '#',
                         'items' => [
+                            ['label' => '读者管理',  'icon' => 'angle-double-right', 'url' => ['/reader']],
                             ['label' => '借还书管理',  'icon' => 'angle-double-right', 'url' => ['/borrow-return-books']],
                             ['label' => '阅读室管理',  'icon' => 'angle-double-right', 'url' => ['/reading-room']],
                             ['label' => '阅读室签到',  'icon' => 'angle-double-right', 'url' => ['/reading-room-checkin']],
-                        ],
-                    ],
-
-                    
-                    [
-                        'label' => '流通管理',
-                        'icon' => 'user',
-                        'url' => '#',
-                        'items' => [
-                            ['label' => '读者管理',  'icon' => 'angle-double-right', 'url' => ['/reader']],
                             ['label' => '缴纳欠费管理',  'icon' => 'angle-double-right', 'url' => ['/payment-of-debt']],
                         ],
                     ],
+
+                    // [
+                    //     'label' => '流通管理',
+                    //     'icon' => 'user',
+                    //     'url' => '#',
+                    //     'items' => [
+                    //         ['label' => '读者管理',  'icon' => 'angle-double-right', 'url' => ['/reader']],
+                    //         ['label' => '缴纳欠费管理',  'icon' => 'angle-double-right', 'url' => ['/payment-of-debt']],
+                    //     ],
+                    // ],
 
                     [
                         'label' => '服务数据',
