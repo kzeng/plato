@@ -10,7 +10,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "bookseller".
  *
  * @property int $id
- * @property string $title 名称
+ * @property string $title 公司名称
  * @property string $address 地址
  * @property string $contact 联系人姓名
  * @property string $mobile 电话
@@ -58,7 +58,7 @@ class Bookseller extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => '名称',
+            'title' => '公司名称',
             'address' => '地址',
             'contact' => '联系人姓名',
             'mobile' => '电话',

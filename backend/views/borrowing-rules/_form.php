@@ -31,7 +31,7 @@ use common\models\CirculationType; // 流通类型
 
     <?= $form->field($model, 'other__unit_price')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'readerType')->widget(Chosen::className(), [
+    <?= $form->field($model, 'readerType')->label('读者类型')->widget(Chosen::className(), [
         'items' => ReaderType::find()->select(['title', 'id'])->indexBy('id')->column(),
         'multiple' => true,
         'disableSearch' => 8,
@@ -40,7 +40,7 @@ use common\models\CirculationType; // 流通类型
             'single_backstroke_delete' => false,
         ],
     ]);?>
-    <?= $form->field($model, 'circulationType')->widget(Chosen::className(), [
+    <?= $form->field($model, 'circulationType')->label('流通类型')->widget(Chosen::className(), [
         'items' => CirculationType::find()->select(['title', 'id'])->indexBy('id')->column(),
         'multiple' => true,
         'disableSearch' => 8,

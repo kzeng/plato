@@ -1,7 +1,8 @@
 <?php
-
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\CirculationTypeSearch */
@@ -12,9 +13,24 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="circulation-type-index">
 
+    <!-- <p>
+        <//?= Html::a('新增流通类型', ['create'], ['class' => 'btn btn-success']) ?>
+    </p> -->
+
     <p>
-        <?= Html::a('新增流通类型', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('新增流通类型', ['value' =>  Url::toRoute(['circulation-type/create']), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
     </p>
+
+    <?php
+        Modal::begin([
+            'header' => '<h4>新增流通类型</h4>',
+            'id' => 'modal',
+            'size' => 'modal-md',
+        ]);
+
+        echo "<div id='modalContent'></div>";
+        Modal::end();
+    ?>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -38,5 +54,16 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-
 </div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    //alert('ready');
+    $('#modalButton').click(function(){
+        $('#modal').modal('show')
+            .find('#modalContent')
+            .load($(this).attr('value'));
+    });
+})
+</script>

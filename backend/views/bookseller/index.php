@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\BooksellerSearch */
@@ -13,8 +15,19 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="bookseller-index">
 
     <p>
-        <?= Html::a('新增书商', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('新增书商', ['value' =>  Url::toRoute(['bookseller/create']), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
     </p>
+
+    <?php
+        Modal::begin([
+            'header' => '<h4>新增书商</h4>',
+            'id' => 'modal',
+            'size' => 'modal-md',
+        ]);
+
+        echo "<div id='modalContent'></div>";
+        Modal::end();
+    ?>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -50,5 +63,16 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-
 </div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    //alert('ready');
+    $('#modalButton').click(function(){
+        $('#modal').modal('show')
+            .find('#modalContent')
+            .load($(this).attr('value'));
+    });
+})
+</script>

@@ -27,6 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= DetailView::widget([
         'model' => $model,
+        'options' => ['class' => 'table table-striped table-bordered detail-view'],    
+        'template' => '<tr><th style="width: 30%;">{label}</th><td>{value}</td></tr>', 
         'attributes' => [
             'id',
             'title',
@@ -37,10 +39,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'other__unit_price',
             [
                 'format' => 'html',
+                'label' => '读者类型',
                 'attribute' => 'readerTypes',
             ],
             [
                 'format' => 'html',
+                'label' => '流通类型',
                 'attribute' => 'circulationTypes',
             ],
             // 'library_id',

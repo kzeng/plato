@@ -8,7 +8,7 @@ use yii\widgets\DetailView;
 
 //$this->title = $model->title;
 $this->title ="书商信息";
-$this->params['breadcrumbs'][] = ['label' => 'Booksellers', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => '书商管理', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -36,10 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'contact',
             'mobile',
             'discount',
-            'library_id',
-            'user_id',
-            'created_at:datetime',
-            'updated_at:datetime',
+            // 'library_id',
+            // 'user_id',
+            // 'created_at:datetime',
+            // 'updated_at:datetime',
             //'status',
         ],
     ]) ?>

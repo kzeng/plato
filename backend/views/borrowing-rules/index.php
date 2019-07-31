@@ -24,21 +24,28 @@ $this->params['breadcrumbs'][] = $this->title;
         'options' => ['class' => 'table-responsive'],
         'columns' => [
            // ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+            [
+                'attribute' => 'id',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
             'title',
             'general_loan_period',
             'extended_period_impunity',
             'first_term_of_punishment',
+
             //'first_penalty_unit_price',
             //'other__unit_price',
             [
                 'format' => 'html',
+                'label' => '读者类型',
                 'attribute' => 'readerTypes',
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
             [
                 'format' => 'html',
+                'label' => '流通类型',
                 'attribute' => 'circulationTypes',
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
             //'library_id',
             //'user_id',
@@ -46,7 +53,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'updated_at',
             //'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'headerOptions' => array('style'=>'width:10%;'),
+            ],
         ],
     ]); ?>
 
