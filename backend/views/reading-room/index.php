@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute' => 'id',
-                'headerOptions' => array('style'=>'width:20%;'),
+                'headerOptions' => array('style'=>'width:10%;'),
             ],
             'title',
             'description',
@@ -50,6 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
+        'layout'=>"{items}\n{summary}{pager}",
     ]); ?>
 
 

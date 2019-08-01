@@ -70,6 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
         ],
+        'layout'=>"{items}\n{summary}{pager}",
     ]); ?>
 
 
