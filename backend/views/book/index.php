@@ -4,8 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\BookSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $searchModel common\models\BookSearch *//* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = '图书管理';
 $this->params['breadcrumbs'][] = $this->title;

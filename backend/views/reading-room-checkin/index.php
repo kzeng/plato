@@ -16,10 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reading-room-checkin-index">
 
+<!--     
     <p>
-        <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
+        <//?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+ -->
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
