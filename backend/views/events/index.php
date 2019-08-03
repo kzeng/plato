@@ -18,7 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Html::button('新增日历事件', ['value' =>  Url::toRoute(['events/create', 'date' => date('Y-m-d'), 't'=>time()]), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
 </p>
 
-
 <?php
     Modal::begin([
         'header' => '<h4>新增日历事件</h4>',
@@ -27,18 +26,16 @@ $this->params['breadcrumbs'][] = $this->title;
     ]);
 
     echo "<div id='modalContent'></div>";
+
     Modal::end();
 ?>
 
-
-<?= \yii2fullcalendar\yii2fullcalendar::widget(array(
-        'events'=> $events,
-        'options' => [
-            'lang' => 'zh-cn',
-            //... more options to be defined here!
-        ],
-        ));
-    ?>
+<?= \yii2fullcalendar\yii2fullcalendar::widget([
+    'events'=> $events,
+    'options' => [
+        'lang' => 'zh-cn',
+    ],
+]); ?>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 <!-- 
@@ -74,31 +71,24 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?> -->
-
-
 </div>
 
+<?php
+    $this->registerJs('$(function(){
+        $(".fc-day, .fc-day-top").click(function(){
+            var date = $(this).data("date");
+            var d = new Date();
 
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    //alert('ready');
-   $(document).on('click','.fc-day', function(){
-       //alert('fc-day');
-        var date = $(this).attr('data-date');
-        var d = new Date();
-
-        $.get('<?=  Url::toRoute(['events/create']) ?>', {'date':date, 't':d.getTime()}, function(data){
-            $('#modal').modal('show')
-            .find('#modalContent')
-            .html(data);
+            $.get("'.Url::toRoute(["events/create"]).'", {"date": date, "t": d.getTime()}, function(data){
+                $("#modal").modal("show")
+                    .find("#modalContent")
+                    .html(data);
+            });
         });
-    });
-
-    $('#modalButton').click(function(){
-        $('#modal').modal('show')
-            .find('#modalContent')
-            .load($(this).attr('value'));
-    });
-})
-</script>
+        $("#modalButton").click(function(){
+            $("#modal").modal("show")
+                .find("#modalContent")
+                .load($(this).attr("value"));
+        });
+    });');
+?>

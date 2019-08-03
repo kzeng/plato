@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use pendalf89\filemanager\widgets\TinyMCE;
+// use pendalf89\filemanager\widgets\TinyMCE;
 
 use common\models\Events;
 
@@ -19,7 +19,8 @@ use common\models\Events;
 
     <?= $form->field($model, 'event_type')->dropDownList(Events::getEventTypeOption()); ?>
 
-    <?= $form->field($model, 'description')->widget(TinyMCE::className(), [
+    <?= $form->field($model, 'description')->textarea(['rows'=>5]) ?>
+    <?php /* $form->field($model, 'description')->widget(TinyMCE::className(), [
         'clientOptions' => [
             'language' => 'zh_CN',
             'menubar' => false,
@@ -36,16 +37,7 @@ use common\models\Events;
             ],
             'toolbar' => 'undo redo | styleselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
         ],
-    ]); ?>
-    <!-- <//?= $form->field($model, 'library_id')->textInput() ?>
-
-    <//?= $form->field($model, 'user_id')->textInput() ?>
-
-    <//?= $form->field($model, 'created_at')->textInput() ?>
-
-    <//?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <//?= $form->field($model, 'status')->textInput() ?> -->
+    ]);*/ ?>
 
     <div class="form-group">
         <?= Html::submitButton('确定', ['class' => 'btn btn-success']) ?>
