@@ -10,7 +10,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "payment_of_debt".
  *
  * @property int $id
- * @property string $card_number 卡号
+ * @property int $reader_id 读者姓名
  * @property int $violation_type_id 违章类型
  * @property int $payment_status 缴费状态
  * @property string $penalty 罚金(元)
@@ -23,6 +23,11 @@ use yii\behaviors\TimestampBehavior;
  */
 class PaymentOfDebt extends \yii\db\ActiveRecord
 {
+    function attributes()
+    {
+        return array_merge(parent::attributes(), ['reader_name', 'card_number']);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -43,10 +48,9 @@ class PaymentOfDebt extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['card_number', 'violation_type_id', 'payment_status',  'library_id'], 'required'],
-            [['violation_type_id', 'payment_status', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['violation_type_id', 'payment_status',  'library_id', 'reader_id'], 'required'],
+            [['violation_type_id', 'payment_status', 'reader_id', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['penalty'], 'number'],
-            [['card_number'], 'string', 'max' => 64],
             [['description'], 'string', 'max' => 256],
             [['description', 'reader_name'], 'safe'],
         ];
@@ -59,8 +63,9 @@ class PaymentOfDebt extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'card_number' => '卡号',
-            //'reader_name' => '姓名',
+            //'card_number' => '卡号',
+            'reader_name' => '姓名',
+            'reader_id' => '读者ID',
             'violation_type_id' => '违章类型',
             'payment_status' => '缴费状态',
             'penalty' => '罚金(元)',
@@ -75,7 +80,7 @@ class PaymentOfDebt extends \yii\db\ActiveRecord
 
     public function getReader()
     {
-        return $this->hasOne(Reader::className(), ['card_number' => 'card_number' ]);
+        return $this->hasOne(Reader::className(), ['id' => 'reader_id' ]);
     }
 
     public function getViolationType()
