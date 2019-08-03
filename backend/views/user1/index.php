@@ -58,6 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
+        'layout'=>"{items}\n{summary}{pager}",
     ]); ?>
 
 

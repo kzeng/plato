@@ -19,7 +19,7 @@ class PaymentOfDebtSearch extends PaymentOfDebt
     {
         return [
             [['id', 'violation_type_id', 'payment_status', 'library_id', 'user_id', 'created_at', 'updated_at', 'status'], 'integer'],
-            [['card_number', 'description', 'reader_name'], 'safe'],
+            [['description', 'reader_id', 'reader_name', 'card_number'], 'safe'],
             [['penalty'], 'number'],
         ];
     }
@@ -59,7 +59,7 @@ class PaymentOfDebtSearch extends PaymentOfDebt
             return $dataProvider;
         }
 
-        $query->joinWith('reader');
+        $query->join('INNER JOIN', 'reader', 'reader.id = payment_of_debt.reader_id');
 
         // grid filtering conditions
         $query->andFilterWhere([
@@ -74,9 +74,9 @@ class PaymentOfDebtSearch extends PaymentOfDebt
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'card_number', $this->card_number])
-            ->andFilterWhere(['like', 'reader.reader_name', $this->reader_name])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'description', $this->description])
+              ->andFilterWhere(['like', 'reader.card_number', $this->card_number])
+              ->andFilterWhere(['like', 'reader.reader_name', $this->reader_name]);
 
         return $dataProvider;
     }

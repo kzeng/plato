@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'status',
             ['class' => 'yii\grid\ActionColumn'],
         ],
+        'layout'=>"{items}\n{summary}{pager}",
     ]); ?>
 
 

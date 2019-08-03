@@ -26,16 +26,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'options' => ['class' => 'table-responsive'],
-        'rowOptions' => function($model){
-            if($model->payment_status ==1)
-            {
-                return ['class' => 'success'];
-            }
-            else
-            {
-                return ['class' => 'danger'];
-            }
-        },
+        // 'rowOptions' => function($model){
+        //     if($model->payment_status ==1)
+        //     {
+        //         return ['class' => 'success'];
+        //     }
+        //     else
+        //     {
+        //         return ['class' => 'danger'];
+        //     }
+        // },
         'layout'=>"{items}\n{summary}{pager}",
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
@@ -46,7 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             [
+                'label'     => '卡号',
                 'attribute' => 'card_number',
+                'value'     => 'reader.card_number',
                 'headerOptions' => array('style'=>'width:20%;'),
             ],
 
@@ -55,9 +57,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'     => '读者姓名',
                 'attribute' => 'reader_name',
                 'value'     => 'reader.reader_name',
-
                 'headerOptions' => array('style'=>'width:20%;'),
             ],
+
 
             //'violation_type_id',
             // 'violationType.title',
@@ -99,6 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
         ],
+        'layout'=>"{items}\n{summary}{pager}",
     ]); ?>
 
 

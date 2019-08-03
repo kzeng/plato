@@ -61,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions' => array('style'=>'width:10%;'),
             ],
         ],
+        'layout'=>"{items}\n{summary}{pager}",
     ]); ?>
 
 </div>

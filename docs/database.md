@@ -91,7 +91,7 @@ status       |int    |11     |否     |-     |状态, 默认值1
 字段名|数据类型|长度|可空|主键|注释
 -----|-----|-----|-----|-----|-----|
 id      |int    |11     |否     |是     |主键ID
-card_number      |string    |64     |否     |-     |卡号
+reader_id      |int    |11     |否     |是     |读者ID
 violation_type_id      |int    |11     |否     |-     |违章类型
 payment_status      |int    |11     |否     |-     |缴费状态（未缴0， 默认已缴1）
 penalty      |decimal    |2     |否     |-     |罚金(元)
