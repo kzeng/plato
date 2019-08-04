@@ -143,4 +143,11 @@ class BorrowReturnBooksController extends Controller
     }
 
 
+    public function actionBorrow()
+    {
+
+        return $this->render('borrow', [
+
+        ]);
+    }
 }

@@ -14,9 +14,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="borrow-return-books-index">
 
     <p>
-        <?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?>
+        <!-- <//?= Html::a('新增', ['create'], ['class' => 'btn btn-success']) ?> -->
+
+        <?= Html::a('借书', ['borrow'], ['class' => 'btn btn-success btn-lg']) ?>
         &nbsp;&nbsp;
-        <?= Html::a('<i class="fa fa-exchange"></i> 流通借还详情', ['detail'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('还书', ['return'], ['class' => 'btn btn-primary btn-lg']) ?>
+        &nbsp;&nbsp;
+        <?= Html::a('续借', ['renew'], ['class' => 'btn btn-warning btn-lg']) ?>
+        &nbsp;&nbsp;
+        <?= Html::a('丢失', ['loss'], ['class' => 'btn btn-danger btn-lg']) ?>
+
+       
+        <?= Html::a('<i class="fa fa-exchange"></i> 流通借还详情', ['detail'], ['class' => 'btn btn-info btn-lg pull-right']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -74,9 +83,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function ($model, $key, $index, $column) {
                     //return BorrowReturnBooks::getOperationOption($model->operation);
                     if($model->operation == 1)
-                        return "<span class=\"badge label-warning\">".BorrowReturnBooks::getOperationOption($model->operation)."</span>";
-                    else
                         return "<span class=\"badge label-success\">".BorrowReturnBooks::getOperationOption($model->operation)."</span>";
+                    else
+                        return "<span class=\"badge label-warning\">".BorrowReturnBooks::getOperationOption($model->operation)."</span>";
 
                 },
                 'filter'=> BorrowReturnBooks::getOperationOption(),
