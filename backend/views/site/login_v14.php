@@ -15,9 +15,9 @@ use yii\bootstrap\ActiveForm;
 
 	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . '/' ?>vendor/bootstrap/css/bootstrap.min.css">
 
-	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . 'login_v14_assets/' ?>fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . 'vendor/' ?>fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . 'login_v14_assets/' ?>fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . 'vendor/' ?>fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 
 	<link rel="stylesheet" type="text/css" href="<?= Url::home(true) . '/' ?>vendor/animate/animate.css">
 	
