@@ -63,7 +63,7 @@ class PaymentOfDebtSearch extends PaymentOfDebt
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
+            'payment_of_debt.id' => $this->id,
             'violation_type_id' => $this->violation_type_id,
             'payment_status' => $this->payment_status,
             'penalty' => $this->penalty,
