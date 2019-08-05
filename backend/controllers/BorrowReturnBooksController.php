@@ -150,4 +150,14 @@ class BorrowReturnBooksController extends Controller
 
         ]);
     }
+
+
+    public function actionReturn()
+    {
+
+        return $this->render('return', [
+
+        ]);
+    }
+
 }
