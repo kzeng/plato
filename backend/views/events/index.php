@@ -13,6 +13,12 @@ use common\models\Events;
 $this->title = '日历事件';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+    .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 1px solid #d6d6d6;
+}
+</style>
+
 <div class="events-index">
 <p>
     <?= Html::button('新增日历事件', ['value' =>  Url::toRoute(['events/create', 'date' => date('Y-m-d'), 't'=>time()]), 'class' => 'btn btn-success', 'id' => 'modalButton']) ?>
