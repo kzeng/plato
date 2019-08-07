@@ -82,25 +82,24 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="form-group field-reader-copy_number">
                             <label class="control-label" for="reader-copy_number">添加副本数</label>
                             <input type="text" id="copy_number" class="form-control" name="modal-copy_number" maxlength="32" placeholder="">
-                            <div class="help-block"></div>
                             </div>
                             
                             <div class="form-group field-reader-bar_code">
                             <label class="control-label" for="reader-bar_code">条形码</label>
                             <input type="text" id="bar_code" class="form-control" name="modal-bar_code" maxlength="32" placeholder="">
-                            <div class="help-block"></div>
+                           
                             </div>
 
                             <div class="form-group field-reader-price1">
                             <label class="control-label" for="reader-price1">实码(元)</label>
                             <input type="text" id="price1" class="form-control" name="modal-price1" maxlength="32" placeholder="">
-                            <div class="help-block"></div>
+                    
                             </div>
 
                             <div class="form-group field-reader-price2">
                             <label class="control-label" for="reader-price2">洋码(元)</label>
                             <input type="text" id="price2" class="form-control" name="modal-price2" maxlength="32" placeholder="">
-                            <div class="help-block"></div>
+                    
                             </div>
                         </div>
 
@@ -109,27 +108,27 @@ $this->params['breadcrumbs'][] = $this->title;
                             <label class="control-label" for="reader-card_status">馆藏地点</label>
                             <!-- #collect_place -->
                             <?php echo Book::getCollectionPlace($model->id) ?>
-                            <div class="help-block"></div>
+                        
                             </div>
 
                             <div class="form-group field-reader-card_status">
                             <label class="control-label" for="reader-card_status">流通类型</label>
                             <!-- #circulation_type -->
                             <?php echo Book::getCirculationType($model->id) ?>
-                            <div class="help-block"></div>
+                           
                             </div>
                             
                             <div class="form-group field-reader-card_status">
                             <label class="control-label" for="reader-card_status">书商</label>
                             <!-- #bookseller -->
                             <?php echo Book::getBookseller($model->id) ?>
-                            <div class="help-block"></div>
+                    
                             </div>
 
                             <div class="form-group field-reader-call_number">
                             <label class="control-label" for="reader-call_number">索书号</label>
                             <input type="text" id="call_number" class="form-control" name="modal-call_number" maxlength="32" placeholder="">
-                            <div class="help-block"></div>
+                    
                             </div>
                         </div>
 
