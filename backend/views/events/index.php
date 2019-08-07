@@ -17,6 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
     border: 1px solid #d6d6d6;
 }
+
+element.style {
+    overflow: hidden scroll;
+    /* height: 395px; */
+}
 </style>
 
 <div class="events-index">
