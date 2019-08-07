@@ -68,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <!-- 换证弹出窗口 -->
 <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="tjfbModal">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -87,19 +87,16 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="form-group field-reader-bar_code">
                             <label class="control-label" for="reader-bar_code">条形码</label>
                             <input type="text" id="bar_code" class="form-control" name="modal-bar_code" maxlength="32" placeholder="">
-                           
                             </div>
 
                             <div class="form-group field-reader-price1">
                             <label class="control-label" for="reader-price1">实码(元)</label>
                             <input type="text" id="price1" class="form-control" name="modal-price1" maxlength="32" placeholder="">
-                    
                             </div>
 
                             <div class="form-group field-reader-price2">
                             <label class="control-label" for="reader-price2">洋码(元)</label>
                             <input type="text" id="price2" class="form-control" name="modal-price2" maxlength="32" placeholder="">
-                    
                             </div>
                         </div>
 
@@ -137,7 +134,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div><!-- endof modal-body-->
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="add_book_copy">确定</button>
+                <button type="button" class="btn btn-primary pull-left" id="add_book_copy">确定</button>
             </div>
         </div><!-- endof modal-content-->
         </div>
