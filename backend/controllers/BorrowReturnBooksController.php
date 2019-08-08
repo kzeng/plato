@@ -160,4 +160,13 @@ class BorrowReturnBooksController extends Controller
         ]);
     }
 
+    public function actionRenew()
+    {
+
+        return $this->render('renew', [
+
+        ]);
+    }
+    
+
 }
