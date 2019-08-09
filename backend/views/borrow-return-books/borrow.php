@@ -103,7 +103,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <!-- <th>经办人</th> -->
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -125,23 +125,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <td>-</td>
             <td>-</td>
             <td>-</td>
-        </tr>
+        </tr> -->
         
-        <tr>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        
-        <tr>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
+
+
         <tbody id='booksinfo'>
         </tbody>
 
@@ -245,11 +232,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                         html_tr += "<td>" + ret['borrow_return_books']['info'][i]["title"] + "</td>";
                                         html_tr += "<td>" + ret['borrow_return_books']['info'][i]["isbn"] + "</td>";
                                         // html_tr += "<td>" + ret['borrow_return_books']['info'][i]["publisher"] + "</td>";
-                                        html_tr += "<td>" + ret['borrow_return_books']['info'][i]["call_number"] + "</td>";
-                                        html_tr += "<td>" + ret['borrow_return_books']['info'][i]["collection_place"] + "</td>";
-                                        html_tr += "<td>" + ret['borrow_return_books']['info'][i]["created_at"] + "</td>";
+                                        // html_tr += "<td>" + ret['borrow_return_books']['info'][i]["call_number"] + "</td>";
+                                        // html_tr += "<td>" + ret['borrow_return_books']['info'][i]["collection_place"] + "</td>";
+                                        // html_tr += "<td>" + ret['borrow_return_books']['info'][i]["created_at"] + "</td>";
                                         html_tr += "<td>" + ret['borrow_return_books']['info'][i]["due_date"] + "</td>";
-                                        html_tr += "<td>" + ret['borrow_return_books']['info'][i]["operator"] + "</td>";
+                                        // html_tr += "<td>" + ret['borrow_return_books']['info'][i]["operator"] + "</td>";
                                         
                                         html_tr += "</tr>";
                                         //alert(html_tr);
