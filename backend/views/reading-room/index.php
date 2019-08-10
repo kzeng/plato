@@ -1,8 +1,9 @@
 <?php
-
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+use common\models\ReadingRoom;
+use common\models\User1;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\ReadingRoomSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -13,7 +14,31 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="reading-room-index">
 
     <p>
+        <div class="btn-group">
+        <!-- Single button -->
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        切换阅览室 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+        <?php 
+            //http://plato.test/reading-room/view?id=1
+            $user_id = Yii::$app->user->id;
+            $library_id = User1::getCurrentLibraryId(Yii::$app->user->id);
+
+            $reading_rooms = ReadingRoom::find()->where(['library_id' => $library_id])->all();
+
+            foreach($reading_rooms as $reading_room)
+            {
+        ?>
+         <li> <?= Html::a($reading_room->title, ['view', 'id'=>$reading_room->id], []) ?></li>
+        <?php
+            }
+        ?>
+        </ul>
+        </div>
+        &nbsp;&nbsp;
         <?= Html::a('新增阅览室', ['create'], ['class' => 'btn btn-success']) ?>
+
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
