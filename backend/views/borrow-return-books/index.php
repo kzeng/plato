@@ -23,7 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('续借', ['renew'], ['class' => 'btn btn-warning btn-lg']) ?>
         &nbsp;&nbsp;
         <?= Html::a('丢失', ['loss'], ['class' => 'btn btn-danger btn-lg']) ?>
-
+        &nbsp;&nbsp;
+        <?= Html::a('批量借出', ['mborrow'], ['class' => 'btn btn-success btn-lg', 'data-toggle' => 'modal',  'data-target' => '.bs-example-modal1']) ?>
+        &nbsp;&nbsp;
+        <?= Html::a('批量还回', ['mreturn'], ['class' => 'btn btn-primary btn-lg', 'data-toggle' => 'modal',  'data-target' => '.bs-example-modal2']) ?>
        
         <?= Html::a('<i class="fa fa-exchange"></i> 流通借还详情', ['detail'], ['class' => 'btn btn-info btn-lg pull-right']) ?>
     </p>
@@ -125,3 +128,88 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 </div>
+
+
+
+<!-- 批量借出弹出窗口 -->
+<div class="modal fade bs-example-modal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="mborrow">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">流通批量借出</h4>
+            </div>
+            <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                            <div class="form-group field-reader-card_id">
+                            <label class="control-label" for="reader-card_id">读者证号</label>
+                            <input type="text" id="card_id" class="form-control" name="modal-card_id" maxlength="32" placeholder="">
+                            </div>
+                        
+                            <div class="form-group field-reader-bar_code_file">
+                            <label class="control-label" for="reader-bar_code_file">条码号文件</label>
+                            <input type="file" id="bar_code_file1" class="form-control" name="modal-bar_code_file">
+                            </div>
+
+                            <div class="alert alert-warning" role="alert">
+                                <i class='fa fa-exclamation-triangle'></i>&nbsp;请上传只含有条码号的txt文件，一行一个条码。
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- endof modal-body-->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" id="btn_mborrow">确定</button>
+            </div>
+        </div><!-- endof modal-content-->
+        </div>
+    </div>
+</div>
+
+<!-- 批量还回弹出窗口 -->
+<div class="modal fade bs-example-modal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="mreturn">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">流通批量还回</h4>
+            </div>
+            <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        
+                            <div class="form-group field-reader-bar_code_file">
+                            <label class="control-label" for="reader-bar_code_file">条码号文件</label>
+                            <input type="file" id="bar_code_file2" class="form-control" name="modal-bar_code_file">
+                            </div>
+
+                            <div class="alert alert-warning" role="alert">
+                                <i class='fa fa-exclamation-triangle'></i>&nbsp;请上传只含有条码号的txt文件，一行一个条码。
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div><!-- endof modal-body-->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" id="btn_mborrow">确定</button>
+            </div>
+        </div><!-- endof modal-content-->
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+            
+    });//end of document ready
+</script>
