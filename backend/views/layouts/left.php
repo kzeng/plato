@@ -67,7 +67,7 @@
                             ['label' => '读者管理',  'icon' => 'angle-double-right', 'url' => ['/reader']],
                             ['label' => '借还书管理',  'icon' => 'angle-double-right', 'url' => ['/borrow-return-books']],
                             ['label' => '阅读室管理',  'icon' => 'angle-double-right', 'url' => ['/reading-room']],
-                            ['label' => '阅读室签到',  'icon' => 'angle-double-right', 'url' => ['/reading-room-checkin']],
+                            //['label' => '阅读室签到',  'icon' => 'angle-double-right', 'url' => ['/reading-room-checkin']],
                             ['label' => '缴纳欠费管理',  'icon' => 'angle-double-right', 'url' => ['/payment-of-debt']],
                         ],
                     ],
