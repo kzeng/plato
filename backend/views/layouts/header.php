@@ -301,7 +301,7 @@ use yii\helpers\Url;
                                 <a href="#">Friends</a>
                             </div>
                         </li> -->
-                        <!//--// Menu Footer//--//>
+                        <!-- Menu Footer -->
                         <li class="user-footer">
                             <!--
                             <div class="pull-left">
