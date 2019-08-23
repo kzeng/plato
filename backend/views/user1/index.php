@@ -47,10 +47,10 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'library_id',
                 'label' => '分配至图书馆',
-                'value'=>function ($model, $key, $index, $column) {
-                    $user = User1::findOne(['id' => Yii::$app->user->id]);
-                    return $user->libraryModel->title;
-                },
+                // 'value'=>function ($model, $key, $index, $column) {
+                //     $user = User1::findOne(['id' => Yii::$app->user->id]);
+                //     return $user->libraryModel->title;
+                // },
                 'filter'=> User1::getLibraryOption(),
                 //'headerOptions' => array('style'=>'width:120px;'),
             ],
