@@ -5,6 +5,8 @@ namespace backend\controllers;
 use Yii;
 use common\models\BookCopy;
 use common\models\BookCopySearch;
+use common\models\BarCode;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -74,6 +76,18 @@ class BookCopyController extends Controller
             'model' => $model,
         ]);
     }
+    public function actionBatchCreate() { // batch-create 添加副本
+        $model = new BookCopy();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('batch-create', [
+            'model' => $model,
+            'barcode_rules' => BarCode::find()->all(),
+        ]);
+    }
 
     /**
      * Updates an existing BookCopy model.
@@ -123,5 +137,13 @@ class BookCopyController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    public function actionGetCallNumber() {
+        $data = Yii::$app->request->get();
+        print_r($data);
+    }
+    public function actionGetBarCode() {
+        $data = Yii::$app->request->get();
+        print_r($data);
     }
 }

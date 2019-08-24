@@ -66,6 +66,12 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => 'yii\grid\ActionColumn',
                 'headerOptions' => array('style'=>'width:10%;'),
+                'template' => '{view} {update} {delete} {add-copy}',
+                'buttons' => [
+                    'add-copy' => function ($url, $model, $key) {
+                        return Html::a('添加副本', '/book-copy/batch-create?a='.$model->id);
+                    }
+                ]
             ],
 
         ],

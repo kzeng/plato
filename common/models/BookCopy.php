@@ -26,6 +26,7 @@ use yii\behaviors\TimestampBehavior;
  */
 class BookCopy extends \yii\db\ActiveRecord
 {
+    public $copy_number = 1;
     /**
      * {@inheritdoc}
      */
@@ -73,6 +74,7 @@ class BookCopy extends \yii\db\ActiveRecord
             'created_at' => '创建时间',
             'updated_at' => '更新时间',
             'status' => '状态',
+            // 'copy_number' => '添加副本数',
         ];
     }
 
