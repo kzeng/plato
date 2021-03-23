@@ -15,7 +15,7 @@
 
 ***注意：***
 1. 代码拉取后，初始化项目 
-   * `cd website_gir`
+   * `cd website_dir`
    * `init` 
 2. 数据库迁移命令执行顺序：
    * `yii migrate --migrationPath=@mdm/admin/migrations`  *RBAC建表*
