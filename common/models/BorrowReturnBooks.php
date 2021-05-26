@@ -75,7 +75,8 @@ class BorrowReturnBooks extends \yii\db\ActiveRecord
     }
     public static function getReaderInfoAjax($cardnumber_or_barcode)
     {
-        //这里模糊查询，输入可以是卡号，也可以是书的条码
+        //这里模糊查询
+        //输入可以是卡号，也可以是书的条码
         $input_ret1 = BorrowReturnBooks::findOne(['card_number' => $cardnumber_or_barcode, 'operation' => 1]);
         $input_ret2 = BorrowReturnBooks::findOne(['bar_code' => $cardnumber_or_barcode, 'operation' => 1]);
         if (!empty($input_ret1)) {
