@@ -1,0 +1,36 @@
+{
+    "name": "yii2mod/yii2-editable",
+    "description": "Yii2 editable field extension",
+    "type": "yii2-extension",
+    "keywords": [
+        "yii2",
+        "yii2 editable",
+        "yii2 editable column",
+        "yii2 editable field"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Igor Chepurnoi",
+            "email": "igorzfort@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/x-editable": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "yii2mod\\editable\\": ""
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}

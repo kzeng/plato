@@ -1,0 +1,13 @@
+/*!
+ * @package   yii2-dialog
+ * @author    Kartik Visweswaran <kartikv2@gmail.com>
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2021
+ * @version   1.0.6
+ *
+ * Provides a polyfill for javascript native alert, confirm, and prompt boxes. The BootstrapDialog 
+ * will be used if available or needed, else the javascript native dialogs will be rendered.
+ *
+ * For more JQuery plugins visit http://plugins.krajee.com
+ * For more Yii related demos visit http://demos.krajee.com
+ */
+var KrajeeDialog;!function(){"use strict";var t,o;t=function(t,o){try{return window[t](o)}catch(o){return"confirm"===t||null}},o=function(t){return"object"==typeof t?t:{}},(KrajeeDialog=function(t,e,n){n=n||{},this.useBsDialog=t,this.options=o(e),this.defaults=o(n)}).prototype={constructor:KrajeeDialog,usePlugin:function(){return this.useBsDialog&&!!window.BootstrapDialog},getOpts:function(t){return window.jQuery.extend(!0,{},this.defaults[t],this.options)},_dialog:function(o,e,n){var a,i;if("function"!=typeof n)throw"Invalid callback passed for KrajeeDialog."+o;this.usePlugin()?"prompt"!==o?((a=this.getOpts(o)).message=e,"confirm"===o?(a.callback=n,window.BootstrapDialog.confirm(a)):window.BootstrapDialog.show(a)):this.bdPrompt(e,n):(i=t(o,e))&&n(i)},alert:function(t,o){var e=this.getOpts("alert");this.usePlugin()?(e.message=t,e.callback=o,window.BootstrapDialog.alert(e)):window.alert(t)},confirm:function(t,o){this._dialog("confirm",t,o)},prompt:function(t,o){this._dialog("prompt",t,o)},dialog:function(t,o){this._dialog("dialog",t,o)},bdPrompt:function(t,o){var e,n,a,i,l,r="",s=this.getOpts("prompt");for(e=[{id:"btn-cancel",label:"Cancel",cssClass:"btn btn-default",action:function(t){t.close(),o(null)}},{id:"btn-ok",label:"Ok",cssClass:"btn btn-primary",action:function(t){var e;e=t.getModalBody().find("input")[0].value||"",o(e),t.close()}}],n=s.buttons||[],"object"==typeof t?(a=$(document.createElement("div")),i=$(document.createElement("input")),void 0===t.name&&i.attr("name","krajee-dialog-prompt"),void 0===t.type&&i.attr("type","text"),void 0===t.class&&i.addClass("form-control"),$.each(t,function(t,o){"label"!==t&&i.attr(t,o)}),void 0!==t.label&&(r='<label for="'+i.attr("name")+'" class="control-label">'+t.label+"</label>"),a.append(i),r+=a.html(),i.remove(),a.remove()):r=t,s.message=r,l=0;l<e.length;l++)n[l]=window.jQuery.extend(!0,{},e[l],n[l]);s.buttons=n,window.BootstrapDialog.show(s)}}}();

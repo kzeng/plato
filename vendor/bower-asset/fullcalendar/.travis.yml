@@ -1,0 +1,16 @@
+
+sudo: false # route build to the container-based infrastructure for a faster build
+
+language: node_js
+node_js:
+  - 'node' # implies latest version
+
+cache:
+  directories:
+    - node_modules
+
+env:
+  - CMD=test
+  - CMD=lint
+
+script: npm run $CMD -- --travis

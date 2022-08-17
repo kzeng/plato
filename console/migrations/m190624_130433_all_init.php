@@ -103,7 +103,7 @@ class m190624_130433_all_init extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string(128)->notNull()->comment('题名'),
             'isbn' => $this->string(64)->notNull()->comment('ISBN'),
-            'cover_img' => $this->string(256)->notNull()->comment('封面'),
+            'cover_img' => $this->string(512)->comment('封面'),
             'description' => $this->string(1024)->comment('简介'),
             'author' => $this->string(64)->notNull()->comment('作者'),
             'price' => $this->decimal(10,2)->comment('价格(元)'),

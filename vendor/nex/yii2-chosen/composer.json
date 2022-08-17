@@ -1,0 +1,24 @@
+{
+    "name": "nex/yii2-chosen",
+    "type": "yii2-extension",
+    "description": "Bootstrap Chosen widget for Yii2",
+    "keywords": ["yii2", "extension", "widget", "chosen", "bootstrap", "bootstrap 3"],
+    "homepage": "https://github.com/RomeroMsk/yii2-chosen",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Roman Ovchinnikov",
+            "email": "nex.software@gmail.com",
+            "homepage": "https://github.com/RomeroMsk"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/chosen-bootstrap": "1.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "nex\\chosen\\": ""
+        }
+    }
+}

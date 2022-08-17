@@ -1,0 +1,40 @@
+{
+  "name": "fullcalendar/fullcalendar-scheduler",
+  "type": "component",
+  "description": "A premium add-on to FullCalendar for displaying events and resources",
+  "keywords": [
+    "calendar",
+    "event",
+    "full-sized",
+    "jquery-plugin"
+  ],
+  "homepage": "https://fullcalendar.io/scheduler/",
+  "authors": [
+    {
+      "name": "Adam Shaw",
+      "email": "arshaw@arshaw.com",
+      "homepage": "http://arshaw.com/"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "robloach/component-installer": "*",
+    "components/jquery": "2 - 3",
+    "moment/moment": "^2.20.1",
+    "fullcalendar/fullcalendar": "~3.9.0"
+  },
+  "extra": {
+    "component": {
+      "scripts": [
+        "dist/scheduler.js"
+      ],
+      "styles": [
+        "dist/scheduler.css"
+      ],
+      "files": [
+        "dist/scheduler.min.js",
+        "dist/scheduler.min.css"
+      ]
+    }
+  }
+}
